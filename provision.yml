@@ -33,6 +33,7 @@
       - build-essential
       - chromium-browser
       - cowsay
+      - emacs25-lucid
       - figlet
       - filezilla
       - firefox
