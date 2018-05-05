@@ -1,0 +1,81 @@
+# Ansible provisioning playbook
+# Inspired by https://www.stavros.io/posts/provisioning-your-computer-one-command-awesome/
+
+---
+- name: Provision a machine
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+  - name: Install prerequisites
+    apt: name={{ item }}
+    sudo: yes
+    with_items:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+
+  - name: Add Docker repository key
+    apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+
+  - name: Add repositories
+    apt_repository: repo='{{ item }}'
+    register: ppa
+    sudo: yes
+    with_items:
+      - 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_relase }} stable'
+
+  - name: Install packages
+    apt: name={{ item }}
+    sudo: yes
+    with_items:
+      - build-essential
+      - chromium-browser
+      - cowsay
+      - figlet
+      - filezilla
+      - firefox
+      - fortunes
+      - git
+      - htop
+      - irssi
+      - keepassx
+      - minicom
+      - lolcat
+      - rofi
+      - silversearcher-ag
+      - stow
+      - tmux
+      - wireshark
+      - vim-nox
+      - zeal
+      - zsh
+
+  # You can use VDE to 'ease' network configuration of VMs on laptops.
+  - name: Install KVM packages
+    apt: name={{ item }}
+    sudo: yes
+    with_items:
+      - bridge-utils
+      - cpu-checker
+      - libvirt-bin
+      - qemu-kvm
+      - uml-utilities
+      - vde2
+
+  - name: Install Docker packages
+    apt: name={{ item }}
+    sudo: yes
+    with_items:
+      - docker-ce # Enabled by the Docker repository above
+
+  - name: Installation script
+    shell: ~/Dotfiles/installation.sh
+
+  - name: MATE configuration
+    shell: ~/Dotfiles/mateconf.sh
+
+  - name: Change shell to zsh
+    sudo: yes
+    user: name={{ ansible_user_id }} shell=/usr/bin/zsh groups=dialout,disk append=yes
