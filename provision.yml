@@ -24,7 +24,7 @@
     register: ppa
     sudo: yes
     with_items:
-      - 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_relase }} stable'
+      - 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_relase }} edge'
 
   - name: Install packages
     apt: name={{ item }}
