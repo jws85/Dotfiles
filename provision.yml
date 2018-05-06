@@ -19,6 +19,7 @@
 
   - name: Add Docker repository key
     apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+    become: yes
 
   - name: Add repositories
     apt_repository: repo='{{ item }}'
