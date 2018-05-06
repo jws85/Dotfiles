@@ -28,6 +28,11 @@
     with_items:
       - 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_relase }} edge'
 
+  - name: Update package cache
+    apt: update_cache=yes
+    sudo: yes
+    when: ppa.changed
+
   - name: Install packages
     apt: name={{ item }}
     become: yes
