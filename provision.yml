@@ -26,7 +26,7 @@
     register: ppa
     become: yes
     with_items:
-      - 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} edge'
+      - 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} nightly'
 
   - name: Update package cache
     apt: update_cache=yes
