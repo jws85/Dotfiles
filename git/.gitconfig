@@ -1,0 +1,33 @@
+[user]
+	name = J. W. Smith
+	email = jwsmith2spam at gmail dot com
+
+[color]
+	diff = true
+	ui = true
+
+[core]
+	editor = vim
+
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+	dt = difftool
+	mt = mergetool
+
+[push]
+	default = simple
+
+[gui]
+	fontdiff = -family \"PragmataPro\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+
+[diff]
+	tool = bc3
+
+[difftool "bc3"]
+	trustExitCode = true
+
+[merge]
+	tool = bc3
+
+[mergetool "bc3"]
+	trustExitCode = true
