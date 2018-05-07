@@ -24,3 +24,7 @@ fi
 
 # Set up git
 (cd ~/Dotfiles/ && stow git)
+
+# Set up gdb using https://github.com/cyrus-and/gdb-dashboard
+curl -fLo ~/.gdbinit https://git.io/.gdbinit
+

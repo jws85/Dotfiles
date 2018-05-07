@@ -45,6 +45,7 @@
       - filezilla
       - firefox
       - fortunes
+      - gdb
       - git
       - htop
       - irssi
