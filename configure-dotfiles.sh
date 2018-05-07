@@ -28,6 +28,8 @@ fi
 # rofi
 (cd ~/Dotfiles && stow rofi)
 
+# Xdefaults (likely not necessary with MATE, but hey)
+(cd ~/Dotfiles && stow xdefaults)
 
 # gdb (using https://github.com/cyrus-and/gdb-dashboard)
 curl -fLo ~/.gdbinit https://git.io/.gdbinit
