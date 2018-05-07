@@ -16,6 +16,12 @@ if [ ! -d ~/.emacs.d ]; then
     git clone https://github.com/jws85/.emacs.d.git ~/.emacs.d
 fi
 
+# Install my vim settings
+if [ ! -d ~/.vim ]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    (cd ~/Dotfiles && stow vim)
+fi
+
 # Set up git
 git config --global user.name "J. W. Smith"
 git config --global user.email "jwsmith2spam at gmail dot com"
