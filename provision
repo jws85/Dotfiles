@@ -1,8 +1,31 @@
 #!/bin/bash
-# sudo apt install ansible
+# curl -fL https://raw.githubusercontent.com/jws85/Dotfiles/master/provision | bash
+
+HAVE_GIT=$( dpkg-query -W --showformat='${Status}\n' git | grep "install ok installed" )
+if [ "" == "$HAVE_GIT" ]; then
+    echo "Installing git"
+    sudo apt-get install git
+fi
+
+# Clone my dotfiles into ~/Dotfiles
+if [ ! -d ~/Dotfiles ]; then
+    echo "Downloading Dotfiles repo to ~/Dotfiles"
+    git clone https://github.com/jws85/Dotfiles
+fi
 
 # I appreciate the attempt at levity ^_^ but I actually like the
 # boring ol' defaults in terms of fitting stuff on my screen
 export ANSIBLE_NOCOWS=1
 
+# [FIXME] I don't really like polluting my system libraries with a zillion
+# packages; guess what installing ansible from apt does?  Yep.  I'd
+# prefer to run it from a virtualenv/venv but I had run into... issues?
+# I'd like to figure that out and rectify that going forward.
+HAVE_ANSIBLE=$( dpkg-query -W --showformat='${Status}\n' ansible | grep "install ok installed" )
+if [ "" == "$HAVE_ANSIBLE" ]; then
+    echo "Installing Ansible"
+    sudo apt-get install ansible
+fi
+
+# Provision it all
 ansible-playbook -K -i , ~/Dotfiles/provision.yml
