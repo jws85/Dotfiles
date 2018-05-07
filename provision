@@ -1,4 +1,8 @@
 #!/bin/bash
 # sudo apt install ansible
 
+# I appreciate the attempt at levity ^_^ but I actually like the
+# boring ol' defaults in terms of fitting stuff on my screen
+export ANSIBLE_NOCOWS=1
+
 ansible-playbook -K -i , ~/Dotfiles/provision.yml
