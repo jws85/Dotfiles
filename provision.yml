@@ -52,6 +52,7 @@
       - keepassx
       - minicom
       - lolcat
+      - php-cli
       - rofi
       - silversearcher-ag
       - stow
@@ -78,6 +79,12 @@
     become: yes
     with_items:
       - docker-ce # Enabled by the Docker repository above
+
+  # Hopefully there's never a problem with getcomposer.org :/
+  - name: Install Composer
+    shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    args:
+      creates: /usr/local/bin/composer
 
   - name: Installation script
     shell: ~/Dotfiles/installation.sh
