@@ -50,8 +50,8 @@
       - htop
       - irssi
       - keepassx
-      - minicom
       - lolcat
+      - minicom
       - php-cli
       - rofi
       - silversearcher-ag
