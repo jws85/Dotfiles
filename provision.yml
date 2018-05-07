@@ -88,10 +88,10 @@
       creates: /usr/local/bin/composer
 
   - name: Installation script
-    shell: ~/Dotfiles/installation.sh
+    shell: ~/Dotfiles/configure-dotfiles.sh
 
   - name: MATE configuration
-    shell: ~/Dotfiles/mateconf.sh
+    shell: ~/Dotfiles/configure-mate.sh
 
   - name: Change shell to zsh
     become: yes
