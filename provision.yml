@@ -30,7 +30,7 @@
 
   - name: Update package cache
     apt: update_cache=yes
-    sudo: yes
+    become: yes
     when: ppa.changed
 
   - name: Install packages
