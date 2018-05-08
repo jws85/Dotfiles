@@ -38,7 +38,9 @@
     become: yes
     with_items:
       - build-essential
+      - caja-dropbox
       - chromium-browser
+      - clementine
       - cowsay
       - emacs25-lucid
       - figlet
