@@ -55,10 +55,13 @@
       - php-cli
       - rofi
       - silversearcher-ag
+      - sshfs
       - stow
+      - sxiv
       - tmux
       - wireshark
       - vim-nox
+      - vlc
       - zeal
       - zsh
 
