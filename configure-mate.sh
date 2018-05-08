@@ -34,6 +34,45 @@ dconf write /org/mate/panel/objects/clockapplet/prefs/show-date true
 # Make the right Alt key a Compose key
 dconf write /org/mate/desktop/peripherals/keyboard/kbd/options "['ctrl\tctrl:swapcaps', 'Compose key\tcompose:ralt']"
 
+# S-1..S-0: Switch to desktop 1..10
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-1 "'<Mod4>1'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-2 "'<Mod4>2'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-3 "'<Mod4>3'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-4 "'<Mod4>4'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-5 "'<Mod4>5'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-6 "'<Mod4>6'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-7 "'<Mod4>7'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-8 "'<Mod4>8'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-9 "'<Mod4>9'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-10 "'<Mod4>0'"
+
+# S-s-1..S-s-0: Move window to desktop 1..10
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-1 "'<Shift><Mod4>exclam'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-2 "'<Shift><Mod4>at'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-3 "'<Shift><Mod4>numbersign'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-4 "'<Shift><Mod4>dollar'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-5 "'<Shift><Mod4>percent'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-6 "'<Shift><Mod4>asciicircum'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-7 "'<Shift><Mod4>ampersand'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-8 "'<Shift><Mod4>asterisk'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-9 "'<Shift><Mod4>parenleft'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-10 "'<Shift><Mod4>parenright'"
+
+# S-Left/S-Right: Switch to desktop on left/right
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-left "'<Mod4>Left'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-right "'<Mod4>Right'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-up "'<Mod4>Up'"
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-down "'<Mod4>Down'"
+
+# S-s-Left/S-s-Right: Move window to desktop on left/right
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-left "'<Shift><Mod4>Left'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-right "'<Shift><Mod4>Right'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-up "'<Shift><Mod4>Up'"
+dconf write /org/mate/marco/window-keybindings/move-to-workspace-down "'<Shift><Mod4>Down'"
+
+# S-Tab: Swap to most recently used desktop
+dconf write /org/mate/marco/global-keybindings/switch-to-workspace-prev "'<Mod4>Tab'"
+
 # S-SPC: Rofi in run (application) mode
 # S-RET: Open a new terminal
 # S-e: Open a new Emacs frame
