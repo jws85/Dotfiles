@@ -44,12 +44,12 @@ binding='<Mod4>Return'
 name='Terminal'
 
 [custom1]
-action='zsh -c "rofi -show run"'
+action='rofi -show run -display-run ">>> "'
 binding='<Mod4>space'
 name='Rofi (Run)'
 
 [custom2]
-action='zsh -c "emacsclient -c -n --alternate-editor=\"\""'
+action='emacsclient -c -n --alternate-editor=""'
 binding='<Mod4>e'
 name='Emacs Client'
 SETTINGS
