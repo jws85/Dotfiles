@@ -50,6 +50,7 @@
       - gdb
       - git
       - htop
+      - inxi
       - irssi
       - keepassx
       - lolcat
