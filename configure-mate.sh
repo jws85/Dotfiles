@@ -10,6 +10,7 @@ dconf write /org/mate/desktop/interface/monospace-font-name "'PragmataPro Mono 1
 # Set up mate-terminal
 dconf write /org/mate/terminal/profiles/default/use-system-font true
 dconf write /org/mate/terminal/profiles/default/use-custom-default-size true
+dconf write /org/mate/terminal/profiles/default/default-show-menubar false
 dconf write /org/mate/terminal/profiles/default/default-size-columns "100"
 dconf write /org/mate/terminal/profiles/default/default-size-rows "35"
 dconf write /org/mate/terminal/profiles/default/use-theme-colors false
