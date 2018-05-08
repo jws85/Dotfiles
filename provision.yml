@@ -38,36 +38,41 @@
     become: yes
     with_items:
       - build-essential
-      - caja-dropbox
-      - chromium-browser
-      - clementine
       - cowsay
-      - emacs25-lucid
       - figlet
-      - filezilla
-      - firefox
       - fortunes
       - gdb
       - git
       - htop
       - inxi
       - irssi
-      - keepassx
       - lolcat
       - minicom
       - php-cli
-      - remmina
-      - rofi
       - silversearcher-ag
       - sshfs
       - stow
-      - sxiv
       - tmux
-      - wireshark
       - vim-nox
+      - zsh
+
+  - name: Install GUI applications
+    apt: name={{ item }}
+    become: yes
+    with_items:
+      - caja-dropbox
+      - chromium-browser
+      - clementine
+      - emacs25-lucid
+      - filezilla
+      - firefox
+      - keepassx
+      - remmina
+      - rofi
+      - sxiv
+      - wireshark
       - vlc
       - zeal
-      - zsh
 
   # You can use VDE to 'ease' network configuration of VMs on laptops.
   - name: Install KVM packages
