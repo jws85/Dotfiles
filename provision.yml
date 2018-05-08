@@ -56,6 +56,7 @@
       - lolcat
       - minicom
       - php-cli
+      - remmina
       - rofi
       - silversearcher-ag
       - sshfs
