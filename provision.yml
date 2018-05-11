@@ -100,6 +100,12 @@
     args:
       creates: /usr/local/bin/composer
 
+  - name: Install youtube-dl
+    get_url:
+      url: https://yt-dl.org/downloads/latest/youtube-dl
+      dest: ~/.local/bin/youtube-dl
+      mode: a+rx
+
   - name: Installation script
     shell: ~/Dotfiles/configure-dotfiles.sh
 
