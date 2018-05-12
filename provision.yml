@@ -100,6 +100,18 @@
     args:
       creates: /usr/local/bin/composer
 
+  - name: Make user binary directory
+    file: path=~/.local/bin state=directory
+
+  - name: Make user include directory
+    file: path=~/.local/include state=directory
+
+  - name: Make user library/pkgconfig directory
+    file: path=~/.local/lib/pkgconfig state=directory
+
+  - name: Make user share/man directory
+    file: path=~/.local/share/man state=directory
+
   - name: Install youtube-dl
     get_url:
       url: https://yt-dl.org/downloads/latest/youtube-dl
