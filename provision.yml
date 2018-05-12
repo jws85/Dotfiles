@@ -43,6 +43,7 @@
       - fortunes
       - gdb
       - git
+      - git-flow
       - htop
       - inxi
       - irssi
@@ -52,6 +53,7 @@
       - silversearcher-ag
       - sshfs
       - stow
+      - tig
       - tmux
       - vim-nox
       - zsh
@@ -67,6 +69,8 @@
       - filezilla
       - firefox
       - gimp
+      - git-gui
+      - gitg
       - keepassx
       - remmina
       - rofi
