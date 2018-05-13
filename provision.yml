@@ -104,17 +104,13 @@
     args:
       creates: /usr/local/bin/composer
 
-  - name: Make user binary directory
-    file: path=~/.local/bin state=directory
-
-  - name: Make user include directory
-    file: path=~/.local/include state=directory
-
-  - name: Make user library/pkgconfig directory
-    file: path=~/.local/lib/pkgconfig state=directory
-
-  - name: Make user share/man directory
-    file: path=~/.local/share/man state=directory
+  - name: Ensure directories exist
+    file: path={{ item }} state=directory
+    with_items:
+      - ~/.local/bin
+      - ~/.local/include
+      - ~/.local/lib/pkgconfig
+      - ~/.local/share/man
 
   - name: Install youtube-dl
     get_url:
