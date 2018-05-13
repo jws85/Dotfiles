@@ -129,6 +129,11 @@
       url: https://git.io/.gdbinit
       dest: ~/.gdbinit
 
+  - name: Install antigen
+    get_url:
+      url: https://git.io/antigen
+      dest: ~/.zsh/antigen.zsh
+
   - name: Clone emacs setup
     git:
       repo: https://github.com/jws85/.emacs.d.git
@@ -143,9 +148,6 @@
       - vim
       - xdefaults
       - zsh
-
-  - name: Installation script
-    shell: ~/Dotfiles/configure-dotfiles.sh
 
   - name: MATE configuration
     shell: ~/Dotfiles/configure-mate.sh
