@@ -127,6 +127,16 @@
       repo: https://github.com/jws85/.emacs.d.git
       dest: ~/.emacs.d/
 
+  - name: Symlink dotfiles
+    shell: stow -d ~/Dotfiles -t ~ {{ item }}
+    with_items:
+      - git
+      - rofi
+      - tmux
+      - vim
+      - xdefaults
+      - zsh
+
   - name: Installation script
     shell: ~/Dotfiles/configure-dotfiles.sh
 
