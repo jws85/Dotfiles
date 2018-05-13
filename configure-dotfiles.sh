@@ -11,11 +11,6 @@ if [ ! -d ~/.oh-my-zsh ]; then
     (cd ~/Dotfiles && stow zsh)
 fi
 
-# emacs
-if [ ! -d ~/.emacs.d ]; then
-    git clone https://github.com/jws85/.emacs.d.git ~/.emacs.d
-fi
-
 # vim
 if [ ! -d ~/.vim ]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

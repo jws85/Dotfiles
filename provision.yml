@@ -122,6 +122,11 @@
       dest: ~/.local/bin/youtube-dl
       mode: a+rx
 
+  - name: Clone emacs setup
+    git:
+      repo: https://github.com/jws85/.emacs.d.git
+      dest: ~/.emacs.d/
+
   - name: Installation script
     shell: ~/Dotfiles/configure-dotfiles.sh
 
