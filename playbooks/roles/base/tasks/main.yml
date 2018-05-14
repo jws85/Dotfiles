@@ -1,0 +1,71 @@
+---
+- name: Install Apt prerequisites
+  apt: name={{ item }}
+  become: yes
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+
+- name: Install packages
+  apt: name={{ item }}
+  become: yes
+  with_items:
+    - cowsay
+    - figlet
+    - fortunes
+    - htop
+    - inxi
+    - irssi
+    - lolcat
+    - minicom
+    - silversearcher-ag
+    - sshfs
+    - stow
+    - tig
+    - tmux
+    - vim-nox
+    - zsh
+
+- name: Ensure directories exist
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/.local/bin
+    - ~/.local/include
+    - ~/.local/lib/pkgconfig
+    - ~/.local/share/man
+    - ~/.vim/autoload
+
+- name: Install youtube-dl
+  get_url:
+    url: https://yt-dl.org/downloads/latest/youtube-dl
+    dest: ~/.local/bin/youtube-dl
+    mode: a+rx
+
+- name: Install vim-plug
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: ~/.vim/autoload/plug.vim
+
+- name: Install antigen
+  get_url:
+    url: https://git.io/antigen
+    dest: ~/.zsh/antigen.zsh
+
+- name: Clone emacs setup
+  git:
+    repo: https://github.com/jws85/.emacs.d.git
+    dest: ~/.emacs.d/
+
+- name: Symlink dotfiles
+  shell: stow -d ~/Dotfiles -t ~ {{ item }}
+  with_items:
+    - git
+    - tmux
+    - vim
+    - zsh
+
+- name: Change shell to zsh
+  become: yes
+  user: name={{ ansible_user_id }} shell=/usr/bin/zsh groups=dialout,disk append=yes

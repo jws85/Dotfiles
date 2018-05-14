@@ -1,0 +1,34 @@
+---
+- name: Add Docker repository key
+  apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+  become: yes
+
+- name: Add repositories
+  apt_repository: repo='{{ item }}'
+  register: ppa
+  become: yes
+  with_items:
+    - 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} nightly'
+
+- name: Update package cache
+  apt: update_cache=yes
+  become: yes
+  when: ppa.changed
+
+# You can use VDE to 'ease' network configuration of VMs on laptops.
+- name: Install KVM packages
+  apt: name={{ item }}
+  become: yes
+  with_items:
+    - bridge-utils
+    - cpu-checker
+    - libvirt-bin
+    - qemu-kvm
+    - uml-utilities
+    - vde2
+
+- name: Install Docker packages
+  apt: name={{ item }}
+  become: yes
+  with_items:
+    - docker-ce # Enabled by the Docker repository above

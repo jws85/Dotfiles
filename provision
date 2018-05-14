@@ -28,4 +28,17 @@ if [ "" == "$HAVE_ANSIBLE" ]; then
 fi
 
 # Provision it all
-ansible-playbook -K -i , ~/Dotfiles/provision.yml
+PLAYBOOK=base
+if [ "server" == "$1" ]; then
+    PLAYBOOK=server
+elif [ "build" == "$1" ]; then
+    PLAYBOOK=build
+elif [ "min-desktop" == "$1" ]; then
+    PLAYBOOK=min-desktop
+elif [ "dev-desktop" == "$1" ]; then
+    PLAYBOOK=dev-desktop
+fi
+
+echo "Running playbook $PLAYBOOK!"
+
+ansible-playbook -i ~/Dotfiles/playbooks/inventory -K ~/Dotfiles/playbooks/$PLAYBOOK.yml
