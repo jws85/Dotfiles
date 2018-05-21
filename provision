@@ -27,8 +27,9 @@ if [ "" == "$HAVE_ANSIBLE" ]; then
     sudo apt-get install ansible python-psutil
 fi
 
-# Provision it all
+# Figure out which playbook to run
 PLAYBOOK=base
+
 if [ "server" == "$1" ]; then
     PLAYBOOK=server
 elif [ "build" == "$1" ]; then
@@ -39,6 +40,12 @@ elif [ "dev-desktop" == "$1" ]; then
     PLAYBOOK=dev-desktop
 fi
 
+CONFIG=~/.playbook.provision
+if [ -f $CONFIG ]; then
+    PLAYBOOK=$( cat $CONFIG )
+fi
+
+# Provision it all
 echo "Running playbook $PLAYBOOK!"
 
 ansible-playbook -i ~/Dotfiles/playbooks/inventory -K ~/Dotfiles/playbooks/$PLAYBOOK.yml
