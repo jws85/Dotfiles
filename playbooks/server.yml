@@ -5,3 +5,6 @@
   roles:
     - base
     - server
+  post_tasks:
+    - name: Create ~/.playbook.provision
+      copy: content=server dest=~/.playbook.provision

@@ -5,3 +5,6 @@
   roles:
     - base
     - desktop
+  post_tasks:
+    - name: Create ~/.playbook.provision
+      copy: content=min-desktop dest=~/.playbook.provision

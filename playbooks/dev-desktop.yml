@@ -7,3 +7,6 @@
     - build
     - server
     - desktop
+  post_tasks:
+    - name: Create ~/.playbook.provision
+      copy: content=dev-desktop dest=~/.playbook.provision
