@@ -45,13 +45,16 @@
     - { key: 'default-show-menubar', value: "false" }
     - { key: 'default-size-columns', value: "100" }
     - { key: 'default-size-rows', value: "35" }
-    - { key: 'use-theme-colors', value: "false" }
-    - { key: 'background-color', value: "'#000000000000'" }
-    - { key: 'foreground-color', value: "'#FFFFFFFFFFFF'" }
     - { key: 'background-type', value: "'transparent'" }
     - { key: 'background-darkness', value: "0.9" }
     - { key: 'scrollbar-position', value: "'hidden'" }
     - { key: 'scrollback-lines', value: "65535" }
+    # Snazzy theme: https://github.com/sindresorhus/hyper-snazzy, slightly edited for darker bg
+    - { key: 'use-theme-colors', value: "false" }
+    - { key: 'bold-color-same-as-fg', value: "true" }
+    - { key: 'background-color', value: "'#141414141919'" }
+    - { key: 'foreground-color', value: "'#EFEFF0F0EBEB'" }
+    - { key: 'palette', value: "'#141414141919:#FFFF5C5C5757:#5A5AF7F78E8D:#F3F3F9F99D9D:#5757C7C6FFFF:#FFFF6A6AC1C1:#9A9AEDEDFEFE:#F1F1F1F1F0F0:#686868686868:#FFFF5C5C5757:#5A5AF7F78E8D:#F3F3F9F99D9D:#5757C7C6FFFF:#FFFF6A6AC1C1:#9A9AEDEDFEFE:#F1F1F1F1F0F0'" }
 
 - name: Set MATE keybindings
   dconf: key="/org/mate/marco/global-keybindings/{{ item.key }}" value={{ item.value }}
