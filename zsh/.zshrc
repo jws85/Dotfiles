@@ -19,6 +19,11 @@ antigen theme refined
 
 antigen apply
 
+# fzf configuration
+export FZF_DEFAULT_COMMAND='ag'
+export FZF_CTRL_T_COMMAND='ag'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 if [[ -a $HOME/.zsh_local ]]; then
     source $HOME/.zsh_local
 fi
