@@ -51,12 +51,13 @@
     - { key: 'background-darkness', value: "0.9" }
     - { key: 'scrollbar-position', value: "'hidden'" }
     - { key: 'scrollback-lines', value: "65535" }
-    # Snazzy theme: https://github.com/sindresorhus/hyper-snazzy, slightly edited for darker bg
+    # Based on the hemisu-dark theme I found in https://github.com/Mayccoll/Gogh
+    # which is based on https://noahfrederick.com/log/hemisu-for-os-x-terminal.html
     - { key: 'use-theme-colors', value: "false" }
     - { key: 'bold-color-same-as-fg', value: "true" }
-    - { key: 'background-color', value: "'#141414141919'" }
-    - { key: 'foreground-color', value: "'#EFEFF0F0EBEB'" }
-    - { key: 'palette', value: "'#141414141919:#FFFF5C5C5757:#5A5AF7F78E8D:#F3F3F9F99D9D:#5757C7C6FFFF:#FFFF6A6AC1C1:#9A9AEDEDFEFE:#F1F1F1F1F0F0:#686868686868:#FFFF5C5C5757:#5A5AF7F78E8D:#F3F3F9F99D9D:#5757C7C6FFFF:#FFFF6A6AC1C1:#9A9AEDEDFEFE:#F1F1F1F1F0F0'" }
+    - { key: 'background-color', value: "'#000000000000'" }
+    - { key: 'foreground-color', value: "'#FFFFFFFFFFFF'" }
+    - { key: 'palette', value: "'#444444444444:#FFFF00005454:#B1B1D6D63030:#9D9D89895E5E:#6767BEBEE3E3:#B5B57676BCBC:#56569A999F9F:#EDEDEDEDEDED:#777777777777:#D6D65E5E7574:#BABAFFFFAAAA:#ECECE1E1C8C8:#9F9FD3D2E5E5:#DEDEB3B2DFDF:#B6B6E0E0E5E5:#FFFFFFFFFFFF'" }
 
 - name: Set MATE keybindings
   dconf: key="/org/mate/marco/global-keybindings/{{ item.key }}" value={{ item.value }}
