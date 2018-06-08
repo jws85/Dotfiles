@@ -18,6 +18,7 @@
     - sxiv
     - wireshark
     - vlc
+    - xsel
     - zeal
 
 - name: Symlink GUI application dotfiles
