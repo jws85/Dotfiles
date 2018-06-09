@@ -74,4 +74,4 @@ let g:lightline = { 'colorscheme': 'jellybeans' }
 " Editing ===========================================================
 
 " Disable autocomment when you hit enter
-set formatoptions-=ro
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
