@@ -28,6 +28,7 @@
   with_items:
     - rofi
     - xdefaults
+    - redshift
 
 - name: Set MATE settings
   dconf: key="/org/mate/{{ item.key }}" value={{ item.value }}
