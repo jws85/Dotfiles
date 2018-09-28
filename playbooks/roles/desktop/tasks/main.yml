@@ -56,8 +56,19 @@
   with_items:
     - ~/.mpd/playlists
 
-- name: Symlink xinitrc to xsession
+- name: Symlink ~/.xinitrc to ~/.xsession
   file: src=~/.xinitrc dst=~/.xsession state=link
+
+- name: Create desktop session for the ~/.xinitrc
+  become: yes
+  copy:
+    dest: /usr/share/xsessions/default.desktop
+    content: |
+      [Desktop Entry]
+      Name=Default
+      Comment=This runs the user's session
+      Exec=default
+      Icon=
 
 - name: Clone StumpWM setup
   git:
