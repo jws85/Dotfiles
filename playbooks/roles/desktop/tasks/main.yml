@@ -16,11 +16,22 @@
     - redshift-gtk
     - remmina
     - rofi
-    - sxiv
     - wireshark
     - vlc
     - xsel
     - zeal
+
+- name: Install minimal desktop environment applications
+  apt: name={{ item }}
+  become: yes
+  with_items:
+    - alsa-utils
+    - compton
+    - dunst
+    - feh
+    - i3lock-fancy
+    - pulseaudio-utils
+    - scrot
 
 - name: Install MPD applications
   apt: name={{ item }}
@@ -33,15 +44,25 @@
 - name: Symlink GUI application dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
+    - dunst
     - mpd
-    - rofi
-    - xdefaults
     - redshift
+    - rofi
+    - xinitrc
+    - xdefaults
+
 - name: Ensure directories exist
   file: path={{ item }} state=directory
   with_items:
     - ~/.mpd/playlists
 
+- name: Symlink xinitrc to xsession
+  file: src=~/.xinitrc dst=~/.xsession state=link
+
+- name: Clone StumpWM setup
+  git:
+    repo: https://github.com/jws85/.stumpwm.d
+    dest: ~/.stumpwm.d
 
 - name: Set MATE settings
   dconf: key="/org/mate/{{ item.key }}" value={{ item.value }}
