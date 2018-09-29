@@ -30,6 +30,7 @@
     - dunst
     - feh
     - i3lock-fancy
+    - lightdm-gtk-greeter
     - pulseaudio-utils
     - scrot
 
@@ -69,6 +70,16 @@
       Comment=This runs the user's session
       Exec=default
       Icon=
+
+- name: Enable lightdm-gtk-greeter
+  become: yes
+  copy:
+    dest: /etc/lightdm/lightdm.conf
+    content: |
+      [SeatDefaults]
+      greeter-session=lightdm-gtk-greeter
+      [Seat:*]
+      greeter-hide-users=true
 
 - name: Clone StumpWM setup
   git:
