@@ -31,5 +31,9 @@ if ! $( ps aux | egrep '[e]macs' | grep -v defunct ); then
     emacs --daemon &
 fi
 
+if [[ -x ~/.xsiteinit ]]; then
+    ~/.xsiteinit
+fi
+
 # Start StumpWM
 exec sbcl --load $HOME/.stumpwm.d/kickstart.lisp
