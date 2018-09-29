@@ -58,7 +58,7 @@
     - ~/.mpd/playlists
 
 - name: Symlink ~/.xinitrc to ~/.xsession
-  file: src=~/.xinitrc dst=~/.xsession state=link
+  file: src=~/.xinitrc dest=~/.xsession state=link
 
 - name: Create desktop session for the ~/.xinitrc
   become: yes
