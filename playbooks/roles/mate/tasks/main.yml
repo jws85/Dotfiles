@@ -32,7 +32,7 @@
     - { key: 'foreground-color', value: "'#FFFFFFFFFFFF'" }
     - { key: 'palette', value: "'#444444444444:#FFFF00005454:#B1B1D6D63030:#9D9D89895E5E:#6767BEBEE3E3:#B5B57676BCBC:#56569A999F9F:#EDEDEDEDEDED:#777777777777:#D6D65E5E7574:#BABAFFFFAAAA:#ECECE1E1C8C8:#9F9FD3D2E5E5:#DEDEB3B2DFDF:#B6B6E0E0E5E5:#FFFFFFFFFFFF'" }
 
-- name: Set MATE keybindings
+- name: Set MATE desktop keybindings
   dconf: key="/org/mate/marco/global-keybindings/{{ item.key }}" value={{ item.value }}
   loop:
     # S-1..S-0: Switch to desktop 1..10
@@ -47,6 +47,18 @@
     - { key: 'switch-to-workspace-9', value: "'<Mod4>9'" }
     - { key: 'switch-to-workspace-10', value: "'<Mod4>0'" }
 
+    # S-Left/S-Right: Switch to desktop on left/right
+    - { key: 'switch-to-workspace-left', value: "'<Mod4>Left'" }
+    - { key: 'switch-to-workspace-right', value: "'<Mod4>Right'" }
+    - { key: 'switch-to-workspace-up', value: "'<Mod4>Up'" }
+    - { key: 'switch-to-workspace-down', value: "'<Mod4>Down'" }
+
+    # S-Tab: Swap to most recently used desktop
+    - { key: 'switch-to-workspace-prev', value: "'<Mod4>Tab'" }
+
+- name: Set MATE window keybindings
+  dconf: key="/org/mate/marco/window-keybindings/{{ item.key }}" value={{ item.value }}
+  loop:
     # S-s-1..S-s-0: Move window to desktop 1..10
     - { key: 'move-to-workspace-1', value: "'<Shift><Mod4>exclam'" }
     - { key: 'move-to-workspace-2', value: "'<Shift><Mod4>at'" }
@@ -59,20 +71,11 @@
     - { key: 'move-to-workspace-9', value: "'<Shift><Mod4>parenleft'" }
     - { key: 'move-to-workspace-10', value: "'<Shift><Mod4>parenright'" }
 
-    # S-Left/S-Right: Switch to desktop on left/right
-    - { key: 'switch-to-workspace-left', value: "'<Mod4>Left'" }
-    - { key: 'switch-to-workspace-right', value: "'<Mod4>Right'" }
-    - { key: 'switch-to-workspace-up', value: "'<Mod4>Up'" }
-    - { key: 'switch-to-workspace-down', value: "'<Mod4>Down'" }
-
     # S-s-Left/S-s-Right: Move window to desktop on left/right
     - { key: 'move-to-workspace-left', value: "'<Shift><Mod4>Left'" }
     - { key: 'move-to-workspace-right', value: "'<Shift><Mod4>Right'" }
     - { key: 'move-to-workspace-up', value: "'<Shift><Mod4>Up'" }
     - { key: 'move-to-workspace-down', value: "'<Shift><Mod4>Down'" }
-
-    # S-Tab: Swap to most recently used desktop
-    - { key: 'switch-to-workspace-prev', value: "'<Mod4>Tab'" }
 
 - name: Set MATE custom keybindings
   dconf: key="/org/mate/desktop/keybindings/{{ item.key }}" value={{ item.value }}
