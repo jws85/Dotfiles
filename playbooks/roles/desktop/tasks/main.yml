@@ -31,6 +31,14 @@
     - mpc
     - cantata
 
+# I prefer to run MPD against my music dir, as my user
+- name: Disable system MPD daemon
+  become: yes
+  systemd:
+    name: mpd
+    state: stopped
+    enabled: no
+
 - name: Symlink GUI application dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
