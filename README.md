@@ -24,10 +24,13 @@ deployments on local machines...
 # What does this ultimately install?
 
 When this all finishes, you'll have a nicely configured MATE
-environment, and a not-quite-configured StumpWM environment.  By that,
-I mean that "additional assembly" will be required, likely to get
-StumpWM setup up in SBCL in the first place and to get it to show up
-in lightdm.
+environment.
+
+I have an Ansible role, not referenced in any of the playbooks, to
+set up a not-quite-configured StumpWM environment.  I keep trying
+minimal tiling environments and giving them up after a month.  I'm
+keeping it around in the off chance that I might want to putter
+around with it again.
 
 # Why not some simpler bash script?
 

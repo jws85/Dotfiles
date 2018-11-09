@@ -1,0 +1,48 @@
+---
+- name: Install minimal desktop environment applications
+  apt: name={{ item }}
+  become: yes
+  with_items:
+    - alsa-utils
+    - compton
+    - dunst
+    - i3lock-fancy
+    - lightdm-gtk-greeter
+    - pulseaudio-utils
+
+- name: Symlink GUI application dotfiles
+  shell: stow -d ~/Dotfiles -t ~ {{ item }}
+  with_items:
+    - dunst
+    - xinitrc
+    - xdefaults
+
+- name: Symlink ~/.xinitrc to ~/.xsession
+  file: src=~/.xinitrc dest=~/.xsession state=link
+
+- name: Create desktop session for the ~/.xinitrc
+  become: yes
+  copy:
+    dest: /usr/share/xsessions/default.desktop
+    content: |
+      [Desktop Entry]
+      Name=Default
+      Comment=This runs the user's session
+      Exec=default
+      Icon=
+
+- name: Enable lightdm-gtk-greeter
+  become: yes
+  copy:
+    dest: /etc/lightdm/lightdm.conf
+    content: |
+      [SeatDefaults]
+      greeter-session=lightdm-gtk-greeter
+      [Seat:*]
+      greeter-hide-users=true
+
+- name: Clone StumpWM setup
+  git:
+    repo: https://github.com/jws85/.stumpwm.d
+    dest: ~/.stumpwm.d
+
