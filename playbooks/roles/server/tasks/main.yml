@@ -32,3 +32,10 @@
   become: yes
   with_items:
     - docker-ce # Enabled by the Docker repository above
+
+- name: Add jws user to docker group
+  become: yes
+  user:
+    name: jws
+    group: docker
+    append: yes
