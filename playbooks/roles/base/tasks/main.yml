@@ -20,6 +20,7 @@
     - irssi
     - lolcat
     - minicom
+    - openssh-server
     - silversearcher-ag
     - sshfs
     - stow
