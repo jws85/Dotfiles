@@ -77,6 +77,15 @@
     - { key: 'move-to-workspace-up', value: "'<Shift><Mod4>Up'" }
     - { key: 'move-to-workspace-down', value: "'<Shift><Mod4>Down'" }
 
+- name: Unbind MATE media keys
+  dconf: key="/org/mate/settings-daemon/plugins/media-keys/{{ item }}" value="'disabled'"
+  loop:
+    - 'play'
+    - 'pause'
+    - 'stop'
+    - 'previous'
+    - 'next'
+
 - name: Set MATE custom keybindings
   dconf: key="/org/mate/desktop/keybindings/{{ item.key }}" value={{ item.value }}
   loop:
@@ -94,3 +103,23 @@
     - { key: 'custom2/action', value: "'emacsclient -c -n --alternate-editor=\"\"'" }
     - { key: 'custom2/binding', value: "'<Mod4>e'" }
     - { key: 'custom2/name', value: "'Emacs Client'" }
+
+    # XF86AudioPlay: MPD play/pause
+    - { key: 'custom3/action', value: "'mpc toggle'" }
+    - { key: 'custom3/binding', value: "'AudioPlay'" }
+    - { key: 'custom3/name', value: "'MPD play/pause'" }
+
+    # XF86AudioStop: MPD stop
+    - { key: 'custom4/action', value: "'mpc stop'" }
+    - { key: 'custom4/binding', value: "'AudioStop'" }
+    - { key: 'custom4/name', value: "'MPD stop'" }
+
+    # XF86AudioPrev: MPD previous song
+    - { key: 'custom5/action', value: "'mpc prev'" }
+    - { key: 'custom5/binding', value: "'AudioPrev'" }
+    - { key: 'custom5/name', value: "'MPD previous song'" }
+
+    # XF86AudioNext: MPD next song
+    - { key: 'custom6/action', value: "'mpc next'" }
+    - { key: 'custom6/binding', value: "'AudioNext'" }
+    - { key: 'custom6/name', value: "'MPD next song'" }
