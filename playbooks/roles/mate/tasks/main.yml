@@ -3,6 +3,9 @@
   dconf: key="/org/mate/{{ item.key }}" value={{ item.value }}
   loop:
     - { key: 'desktop/interface/monospace-font-name', value: "'PragmataPro Mono 10.5'" }
+    # Part of what is necessary to disable GNOME Keyring SSH agent
+    # http://william.shallum.net/random-notes/disabling-gnome-keyring-daemon-ssh-agent-on-mate-desktop
+    - { key: 'desktop/session/gnome-compat-startup', value: "['smproxy']" }
     - { key: 'panel/objects/workspaceswitcherapplet/prefs/display-all-workspaces', value: "true" }
     - { key: 'panel/objects/workspaceswitcherapplet/prefs/num-rows', value: "1" }
     - { key: 'marco/general/num-workspaces', value: "10" }
@@ -123,3 +126,12 @@
     - { key: 'custom6/action', value: "'mpc next'" }
     - { key: 'custom6/binding', value: "'AudioNext'" }
     - { key: 'custom6/name', value: "'MPD next song'" }
+
+# Right now, all this does is add a ~/.config/autostart that disables
+# GNOME Keyring's SSH agent from starting.
+# Note that the change to /org/mate/desktop/session/gnome-compat-startup
+# (see above) is also a necessary part of this.
+- name: Symlink MATE dotfiles
+  shell: stow -d ~/Dotfiles -t ~ {{ item }}
+  with_items:
+    - mate
