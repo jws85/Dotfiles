@@ -9,6 +9,8 @@
     - { key: 'panel/objects/workspaceswitcherapplet/prefs/display-all-workspaces', value: "true" }
     - { key: 'panel/objects/workspaceswitcherapplet/prefs/num-rows', value: "1" }
     - { key: 'marco/general/num-workspaces', value: "10" }
+    # Disable GNOME Screenshot in favor of Flameshot
+    - { key: 'marco/global-keybindings/run-command-screenshot', value: "'disabled'" }
     - { key: 'panel/objects/clockapplet/prefs/format', value: "'24-hour'" }
     - { key: 'panel/objects/clockapplet/prefs/show-date', value: "true" }
     - { key: 'desktop/peripherals/keyboard/kbd/options', value: "['ctrl\tctrl:swapcaps', 'Compose key\tcompose:ralt']" }
@@ -126,6 +128,11 @@
     - { key: 'custom6/action', value: "'mpc next'" }
     - { key: 'custom6/binding', value: "'AudioNext'" }
     - { key: 'custom6/name', value: "'MPD next song'" }
+
+    # PrtSc: Flameshot
+    - { key: 'custom7/action', value: "'flameshot gui'" }
+    - { key: 'custom7/binding', value: "'Print'" }
+    - { key: 'custom7/name', value: "'Flameshot Screenshot'" }
 
 # Right now, all this does is add a ~/.config/autostart that disables
 # GNOME Keyring's SSH agent from starting.
