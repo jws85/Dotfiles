@@ -99,50 +99,50 @@
     - { key: 'custom0/binding', value: "'<Mod4>Return'" }
     - { key: 'custom0/name', value: "'Terminal'" }
 
+    # S-s-RET: Terminal, maximized
+    - { key: 'custom1/action', value: "'mate-terminal --maximize'" }
+    - { key: 'custom1/binding', value: "'<Shift><Mod4>Return'" }
+    - { key: 'custom1/name', value: "'Terminal maximized'" }
+
     # S-SPC: Rofi (launcher)
-    - { key: 'custom1/action', value: "'rofi -show run -display-run \">>> \"'" }
-    - { key: 'custom1/binding', value: "'<Mod4>space'" }
-    - { key: 'custom1/name', value: "'Rofi (Run)'" }
+    - { key: 'custom2/action', value: "'rofi -show run -display-run \">>> \"'" }
+    - { key: 'custom2/binding', value: "'<Mod4>space'" }
+    - { key: 'custom2/name', value: "'Rofi (Run)'" }
 
     # S-e: Emacs
-    - { key: 'custom2/action', value: "'emacsclient -c -n --alternate-editor=\"\"'" }
-    - { key: 'custom2/binding', value: "'<Mod4>e'" }
-    - { key: 'custom2/name', value: "'Emacs Client'" }
+    - { key: 'custom3/action', value: "'emacsclient -c -n --alternate-editor=\"\"'" }
+    - { key: 'custom3/binding', value: "'<Mod4>e'" }
+    - { key: 'custom3/name', value: "'Emacs Client'" }
+
+    # S-s-e: Emacs, maximized
+    - { key: 'custom4/action', value: "'emacsclient -c -n -F \"(list (fullscreen . maximized))\" --alternate-editor=\"\"'" }
+    - { key: 'custom4/binding', value: "'<Shift><Mod4>e'" }
+    - { key: 'custom4/name', value: "'Emacs maximized'" }
 
     # XF86AudioPlay: MPD play/pause
-    - { key: 'custom3/action', value: "'mpc toggle'" }
-    - { key: 'custom3/binding', value: "'AudioPlay'" }
-    - { key: 'custom3/name', value: "'MPD play/pause'" }
+    - { key: 'custom5/action', value: "'mpc toggle'" }
+    - { key: 'custom5/binding', value: "'AudioPlay'" }
+    - { key: 'custom5/name', value: "'MPD play/pause'" }
 
     # XF86AudioStop: MPD stop
-    - { key: 'custom4/action', value: "'mpc stop'" }
-    - { key: 'custom4/binding', value: "'AudioStop'" }
-    - { key: 'custom4/name', value: "'MPD stop'" }
+    - { key: 'custom6/action', value: "'mpc stop'" }
+    - { key: 'custom6/binding', value: "'AudioStop'" }
+    - { key: 'custom6/name', value: "'MPD stop'" }
 
     # XF86AudioPrev: MPD previous song
-    - { key: 'custom5/action', value: "'mpc prev'" }
-    - { key: 'custom5/binding', value: "'AudioPrev'" }
-    - { key: 'custom5/name', value: "'MPD previous song'" }
+    - { key: 'custom7/action', value: "'mpc prev'" }
+    - { key: 'custom7/binding', value: "'AudioPrev'" }
+    - { key: 'custom7/name', value: "'MPD previous song'" }
 
     # XF86AudioNext: MPD next song
-    - { key: 'custom6/action', value: "'mpc next'" }
-    - { key: 'custom6/binding', value: "'AudioNext'" }
-    - { key: 'custom6/name', value: "'MPD next song'" }
+    - { key: 'custom8/action', value: "'mpc next'" }
+    - { key: 'custom8/binding', value: "'AudioNext'" }
+    - { key: 'custom8/name', value: "'MPD next song'" }
 
     # PrtSc: Flameshot
-    - { key: 'custom7/action', value: "'flameshot gui'" }
-    - { key: 'custom7/binding', value: "'Print'" }
-    - { key: 'custom7/name', value: "'Flameshot Screenshot'" }
-
-    # S-s-e: Maximized Emacs
-    - { key: 'custom8/action', value: "'emacsclient -c -n -F \"(list (fullscreen . maximized))\" --alternate-editor=\"\"'" }
-    - { key: 'custom8/binding', value: "'<Shift><Mod4>e'" }
-    - { key: 'custom8/name', value: "'Emacs maximized'" }
-
-    # S-s-RET: Terminal maximized
-    - { key: 'custom9/action', value: "'mate-terminal --maximize'" }
-    - { key: 'custom9/binding', value: "'<Shift><Mod4>Return'" }
-    - { key: 'custom9/name', value: "'Terminal maximized'" }
+    - { key: 'custom9/action', value: "'flameshot gui'" }
+    - { key: 'custom9/binding', value: "'Print'" }
+    - { key: 'custom9/name', value: "'Flameshot Screenshot'" }
 
 # Right now, all this does is add a ~/.config/autostart that disables
 # GNOME Keyring's SSH agent from starting.
