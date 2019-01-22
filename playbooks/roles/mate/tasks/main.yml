@@ -134,6 +134,16 @@
     - { key: 'custom7/binding', value: "'Print'" }
     - { key: 'custom7/name', value: "'Flameshot Screenshot'" }
 
+    # S-s-e: Maximized Emacs
+    - { key: 'custom8/action', value: "'emacsclient -c -n -F \"(list (fullscreen . maximized))\" --alternate-editor=\"\"'" }
+    - { key: 'custom8/binding', value: "'<Shift><Mod4>e'" }
+    - { key: 'custom8/name', value: "'Emacs maximized'" }
+
+    # S-s-RET: Terminal maximized
+    - { key: 'custom9/action', value: "'mate-terminal --maximize'" }
+    - { key: 'custom9/binding', value: "'<Shift><Mod4>Return'" }
+    - { key: 'custom9/name', value: "'Terminal maximized'" }
+
 # Right now, all this does is add a ~/.config/autostart that disables
 # GNOME Keyring's SSH agent from starting.
 # Note that the change to /org/mate/desktop/session/gnome-compat-startup
