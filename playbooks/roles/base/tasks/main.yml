@@ -13,6 +13,7 @@
   become: yes
   with_items:
     - cowsay
+    - cmatrix
     - figlet
     - fortunes
     - htop
