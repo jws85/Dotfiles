@@ -8,7 +8,7 @@
     - { key: 'desktop/session/gnome-compat-startup', value: "['smproxy']" }
     - { key: 'panel/objects/workspaceswitcherapplet/prefs/display-all-workspaces', value: "true" }
     - { key: 'panel/objects/workspaceswitcherapplet/prefs/num-rows', value: "1" }
-    - { key: 'marco/general/num-workspaces', value: "10" }
+    - { key: 'marco/general/num-workspaces', value: "8" }
     # Disable GNOME Screenshot in favor of Flameshot
     - { key: 'marco/global-keybindings/run-command-screenshot', value: "'disabled'" }
     - { key: 'panel/objects/clockapplet/prefs/format', value: "'24-hour'" }
@@ -49,8 +49,8 @@
     - { key: 'switch-to-workspace-6', value: "'<Mod4>6'" }
     - { key: 'switch-to-workspace-7', value: "'<Mod4>7'" }
     - { key: 'switch-to-workspace-8', value: "'<Mod4>8'" }
-    - { key: 'switch-to-workspace-9', value: "'<Mod4>9'" }
-    - { key: 'switch-to-workspace-10', value: "'<Mod4>0'" }
+    - { key: 'switch-to-workspace-8', value: "'<Mod4>9'" }
+    - { key: 'switch-to-workspace-8', value: "'<Mod4>0'" }
 
     # S-Left/S-Right: Switch to desktop on left/right
     - { key: 'switch-to-workspace-left', value: "'<Mod4>Left'" }
@@ -73,8 +73,6 @@
     - { key: 'move-to-workspace-6', value: "'<Shift><Mod4>asciicircum'" }
     - { key: 'move-to-workspace-7', value: "'<Shift><Mod4>ampersand'" }
     - { key: 'move-to-workspace-8', value: "'<Shift><Mod4>asterisk'" }
-    - { key: 'move-to-workspace-9', value: "'<Shift><Mod4>parenleft'" }
-    - { key: 'move-to-workspace-10', value: "'<Shift><Mod4>parenright'" }
 
     # S-s-Left/S-s-Right: Move window to desktop on left/right
     - { key: 'move-to-workspace-left', value: "'<Shift><Mod4>Left'" }
