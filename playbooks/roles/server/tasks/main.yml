@@ -24,6 +24,8 @@
     - cpu-checker
     - libvirt-bin
     - qemu-kvm
+    - virtinst
+    - libosinfo-bin   # osquery-info
     - uml-utilities
     - vde2
 
