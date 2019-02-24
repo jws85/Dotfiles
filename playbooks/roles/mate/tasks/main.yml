@@ -1,4 +1,12 @@
 ---
+- name: Install foreign language support
+  become: yes
+  shell: apt-get install $(check-language-support -l {{ item }})
+  args:
+    warn: no
+  with_items:
+    - ja
+
 - name: Set MATE settings
   dconf: key="/org/mate/{{ item.key }}" value={{ item.value }}
   loop:
