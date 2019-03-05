@@ -158,7 +158,7 @@
     # S-s-a: org-agenda
     - { key: 'custom11/action', value: "'emacsclient -c -n -e \"(jws/org-agenda-single-window)\"'" }
     - { key: 'custom11/binding', value: "'<Shift><Mod4>j'" }
-    - { key: 'custom11/name', value: "'Emacs org-capture'" }
+    - { key: 'custom11/name', value: "'Emacs org-agenda'" }
 
     # S-s-n: deft
     - { key: 'custom12/action', value: "'emacsclient -c -n -e \"(deft)\"'" }
