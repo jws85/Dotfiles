@@ -145,25 +145,30 @@
     - { key: 'custom8/binding', value: "'AudioNext'" }
     - { key: 'custom8/name', value: "'MPD next song'" }
 
+    # S-w: Cantata
+    - { key: 'custom9/action', value: "'cantata'" }
+    - { key: 'custom9/binding', value: "'<Mod4>w'" }
+    - { key: 'custom9/name', value: "'Cantata (MPD client)'" }
+
     # PrtSc: Flameshot
-    - { key: 'custom9/action', value: "'flameshot gui'" }
-    - { key: 'custom9/binding', value: "'Print'" }
-    - { key: 'custom9/name', value: "'Flameshot Screenshot'" }
+    - { key: 'custom10/action', value: "'flameshot gui'" }
+    - { key: 'custom10/binding', value: "'Print'" }
+    - { key: 'custom10/name', value: "'Flameshot Screenshot'" }
 
     # S-s-j: org-capture
-    - { key: 'custom10/action', value: "'emacsclient -c -n -e \"(jws/org-capture-single-window)\"'" }
-    - { key: 'custom10/binding', value: "'<Shift><Mod4>j'" }
-    - { key: 'custom10/name', value: "'Emacs org-capture'" }
+    - { key: 'custom11/action', value: "'emacsclient -c -n -e \"(jws/org-capture-single-window)\"'" }
+    - { key: 'custom11/binding', value: "'<Shift><Mod4>j'" }
+    - { key: 'custom11/name', value: "'Emacs org-capture'" }
 
     # S-s-a: org-agenda
-    - { key: 'custom11/action', value: "'emacsclient -c -n -e \"(jws/org-agenda-single-window)\"'" }
-    - { key: 'custom11/binding', value: "'<Shift><Mod4>j'" }
-    - { key: 'custom11/name', value: "'Emacs org-agenda'" }
+    - { key: 'custom12/action', value: "'emacsclient -c -n -e \"(jws/org-agenda-single-window)\"'" }
+    - { key: 'custom12/binding', value: "'<Shift><Mod4>j'" }
+    - { key: 'custom12/name', value: "'Emacs org-agenda'" }
 
     # S-s-n: deft
-    - { key: 'custom12/action', value: "'emacsclient -c -n -e \"(deft)\"'" }
-    - { key: 'custom12/binding', value: "'<Shift><Mod4>n'" }
-    - { key: 'custom12/name', value: "'Emacs deft'" }
+    - { key: 'custom13/action', value: "'emacsclient -c -n -e \"(deft)\"'" }
+    - { key: 'custom13/binding', value: "'<Shift><Mod4>n'" }
+    - { key: 'custom13/name', value: "'Emacs deft'" }
 
 # Right now, all this does is add a ~/.config/autostart that disables
 # GNOME Keyring's SSH agent from starting.
