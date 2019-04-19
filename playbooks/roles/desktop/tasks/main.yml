@@ -1,4 +1,11 @@
 ---
+- name: Add repositories
+  apt_repository: repo='{{ item }}'
+  register: ppa
+  become: yes
+  with_items:
+    - 'deb http://ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main'
+
 - name: Install GUI applications
   apt: name={{ item }}
   become: yes
@@ -14,6 +21,7 @@
     - git-gui
     - gitg
     - keepassx
+    - nextcloud-client-caja
     - qalculate-gtk
     - redshift-gtk
     - remmina
