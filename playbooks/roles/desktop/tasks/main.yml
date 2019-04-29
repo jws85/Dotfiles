@@ -70,6 +70,7 @@
 - name: Symlink GUI application dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
+    - fman
     - mpd
     - redshift
     - rofi

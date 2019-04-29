@@ -1,0 +1,8 @@
+{
+	"editor": {
+		"args": ["/usr/bin/emacsclient", "-c", "-n", "--alternate-editor=\"\"", "{file}"]
+	},
+	"terminal": {
+		"args": ["/usr/bin/mate-terminal", "--working-directory={curr_dir}"]
+	}
+}
