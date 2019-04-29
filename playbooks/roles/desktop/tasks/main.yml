@@ -5,12 +5,19 @@
     id: 1FCD77DD0DBEF5699AD2610160EE47FBAD3DD469
   become: yes
 
+- name: Add fman repository key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 9CFAF7EB
+  become: yes
+
 - name: Add repositories
   apt_repository: repo='{{ item }}'
   register: ppa
   become: yes
   with_items:
     - 'ppa:nextcloud-devs/client'
+    - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
 
 - name: Update package cache
   apt: update_cache=yes
@@ -28,6 +35,7 @@
     - filezilla
     - firefox
     - flameshot
+    - fman
     - gimp
     - git-gui
     - gitg
