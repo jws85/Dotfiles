@@ -21,6 +21,8 @@
     - { key: 'marco/global-keybindings/run-command-screenshot', value: "'disabled'" }
     - { key: 'panel/objects/clockapplet/prefs/format', value: "'24-hour'" }
     - { key: 'panel/objects/clockapplet/prefs/show-date', value: "true" }
+    - { key: 'screensaver/mode', value: "'single'" }
+    - { key: 'screensaver/themes', value: "['screensavers-surfaces']" }
     - { key: 'desktop/peripherals/keyboard/kbd/options', value: "['ctrl\tctrl:swapcaps', 'Compose key\tcompose:ralt']" }
     - { key: 'desktop/sound/theme-name', value: "'__no_sounds'" }
     - { key: 'desktop/sound/event-sounds', value: "false" }
