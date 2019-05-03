@@ -28,7 +28,6 @@
   apt: name={{ item }}
   become: yes
   with_items:
-    - caja-dropbox
     - chromium-browser
     - emacs25-lucid
     - feh
