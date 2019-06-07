@@ -94,6 +94,15 @@
     - { key: 'move-to-workspace-up', value: "'<Shift><Mod4>Up'" }
     - { key: 'move-to-workspace-down', value: "'<Shift><Mod4>Down'" }
 
+    # S-C-Left/S-C-Right: Move window to monitor on left/right
+    - { key: 'move-to-monitor-w', value: "'<Primary><Mod4>Left'" }
+    - { key: 'move-to-monitor-e', value: "'<Primary><Mod4>Right'" }
+    - { key: 'move-to-monitor-n', value: "'<Primary><Mod4>Up'" }
+    - { key: 'move-to-monitor-s', value: "'<Primary><Mod4>Down'" }
+
+    # S-`: Toggle pinning window to all desktops
+    - { key: 'toggle-on-all-workspaces', value: "'<Mod4>grave'" }
+
 - name: Unbind MATE media keys
   dconf: key="/org/mate/settings-daemon/plugins/media-keys/{{ item }}" value="'disabled'"
   loop:
