@@ -1,3 +1,7 @@
+# To get dconf settings:
+#  1) run "dconf watch /" in a terminal
+#  2) change the setting "normally"
+#  3) see what got changed
 ---
 - name: Install foreign language support
   become: yes
