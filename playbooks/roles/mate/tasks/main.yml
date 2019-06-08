@@ -103,14 +103,20 @@
     # S-`: Toggle pinning window to all desktops
     - { key: 'toggle-on-all-workspaces', value: "'<Mod4>grave'" }
 
-- name: Unbind MATE media keys
-  dconf: key="/org/mate/settings-daemon/plugins/media-keys/{{ item }}" value="'disabled'"
+- name: Set MATE special-keys keybindings
+  dconf: key="/org/mate/settings-daemon/plugins/media-keys/{{ item.key }}" value={{ item.value }}
   loop:
-    - 'play'
-    - 'pause'
-    - 'stop'
-    - 'previous'
-    - 'next'
+    # S-ESC: Log out
+    - { key: 'logout', value: "'<Mod4>Escape'" }
+    # S-s-ESC: Power off
+    - { key: 'power', value: "'<Shift><Mod4>Escape'" }
+
+    # Unbind MATE media keys
+    - { key: 'play', value: "'disabled'" }
+    - { key: 'pause', value: "'disabled'" }
+    - { key: 'stop', value: "'disabled'" }
+    - { key: 'previous', value: "'disabled'" }
+    - { key: 'next', value: "'disabled'" }
 
 - name: Set MATE custom keybindings
   dconf: key="/org/mate/desktop/keybindings/{{ item.key }}" value={{ item.value }}
