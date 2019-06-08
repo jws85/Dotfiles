@@ -195,6 +195,11 @@
     - { key: 'custom15/binding', value: "'<Mod4>f'" }
     - { key: 'custom15/name', value: "'fman'" }
 
+    # S-z: zeal
+    - { key: 'custom16/action', value: "'zeal'" }
+    - { key: 'custom16/binding', value: "'<Mod4>z'" }
+    - { key: 'custom16/name', value: "'Zeal'" }
+
 # Right now, all this does is add a ~/.config/autostart that disables
 # GNOME Keyring's SSH agent from starting.
 # Note that the change to /org/mate/desktop/session/gnome-compat-startup
