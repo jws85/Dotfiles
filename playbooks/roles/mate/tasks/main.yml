@@ -166,9 +166,9 @@
     - { key: 'custom8/binding', value: "'AudioNext'" }
     - { key: 'custom8/name', value: "'MPD next song'" }
 
-    # S-w: Cantata
+    # S-m: Cantata
     - { key: 'custom9/action', value: "'cantata'" }
-    - { key: 'custom9/binding', value: "'<Mod4>w'" }
+    - { key: 'custom9/binding', value: "'<Mod4>m'" }
     - { key: 'custom9/name', value: "'Cantata (MPD client)'" }
 
     # PrtSc: Flameshot
