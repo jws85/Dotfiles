@@ -132,84 +132,89 @@
     - { key: 'custom1/name', value: "'Terminal maximized'" }
 
     # S-SPC: Rofi (launcher)
-    - { key: 'custom2/action', value: "'rofi -show run -display-run \">>> \"'" }
+    - { key: 'custom2/action', value: "'rofi -show run -display-run \"Run>>> \"'" }
     - { key: 'custom2/binding', value: "'<Mod4>space'" }
     - { key: 'custom2/name', value: "'Rofi (Run)'" }
 
+    # S-\: Rofi (window)
+    - { key: 'custom3/action', value: "'rofi -show window -display-window \"Window>>> \"'" }
+    - { key: 'custom3/binding', value: "'<Mod4>backslash'" }
+    - { key: 'custom3/name', value: "'Rofi (Window)'" }
+
     # S-e: Emacs
-    - { key: 'custom3/action', value: "'emacsclient -c -n --alternate-editor=\"\"'" }
-    - { key: 'custom3/binding', value: "'<Mod4>e'" }
-    - { key: 'custom3/name', value: "'Emacs Client'" }
+    - { key: 'custom4/action', value: "'emacsclient -c -n --alternate-editor=\"\"'" }
+    - { key: 'custom4/binding', value: "'<Mod4>e'" }
+    - { key: 'custom4/name', value: "'Emacs Client'" }
 
     # S-s-e: Emacs, maximized
-    - { key: 'custom4/action', value: "'emacsclient -c -n -F \"(list (fullscreen . maximized))\" --alternate-editor=\"\"'" }
-    - { key: 'custom4/binding', value: "'<Shift><Mod4>e'" }
-    - { key: 'custom4/name', value: "'Emacs maximized'" }
+    - { key: 'custom5/action', value: "'emacsclient -c -n -F \"(list (fullscreen . maximized))\" --alternate-editor=\"\"'" }
+    - { key: 'custom5/binding', value: "'<Shift><Mod4>e'" }
+    - { key: 'custom5/name', value: "'Emacs maximized'" }
 
     # XF86AudioPlay: MPD play/pause
-    - { key: 'custom5/action', value: "'mpc toggle'" }
-    - { key: 'custom5/binding', value: "'AudioPlay'" }
-    - { key: 'custom5/name', value: "'MPD play/pause'" }
+    - { key: 'custom6/action', value: "'mpc toggle'" }
+    - { key: 'custom6/binding', value: "'AudioPlay'" }
+    - { key: 'custom6/name', value: "'MPD play/pause'" }
 
     # XF86AudioStop: MPD stop
-    - { key: 'custom6/action', value: "'mpc stop'" }
-    - { key: 'custom6/binding', value: "'AudioStop'" }
-    - { key: 'custom6/name', value: "'MPD stop'" }
+    - { key: 'custom7/action', value: "'mpc stop'" }
+    - { key: 'custom7/binding', value: "'AudioStop'" }
+    - { key: 'custom7/name', value: "'MPD stop'" }
 
     # XF86AudioPrev: MPD previous song
-    - { key: 'custom7/action', value: "'mpc prev'" }
-    - { key: 'custom7/binding', value: "'AudioPrev'" }
-    - { key: 'custom7/name', value: "'MPD previous song'" }
+    - { key: 'custom8/action', value: "'mpc prev'" }
+    - { key: 'custom8/binding', value: "'AudioPrev'" }
+    - { key: 'custom8/name', value: "'MPD previous song'" }
 
     # XF86AudioNext: MPD next song
-    - { key: 'custom8/action', value: "'mpc next'" }
-    - { key: 'custom8/binding', value: "'AudioNext'" }
-    - { key: 'custom8/name', value: "'MPD next song'" }
+    - { key: 'custom9/action', value: "'mpc next'" }
+    - { key: 'custom9/binding', value: "'AudioNext'" }
+    - { key: 'custom9/name', value: "'MPD next song'" }
 
     # S-m: Cantata
-    - { key: 'custom9/action', value: "'cantata'" }
-    - { key: 'custom9/binding', value: "'<Mod4>m'" }
-    - { key: 'custom9/name', value: "'Cantata (MPD client)'" }
+    - { key: 'custom10/action', value: "'cantata'" }
+    - { key: 'custom10/binding', value: "'<Mod4>m'" }
+    - { key: 'custom10/name', value: "'Cantata (MPD client)'" }
 
     # PrtSc: Flameshot
-    - { key: 'custom10/action', value: "'flameshot gui'" }
-    - { key: 'custom10/binding', value: "'Print'" }
-    - { key: 'custom10/name', value: "'Flameshot Screenshot'" }
+    - { key: 'custom11/action', value: "'flameshot gui'" }
+    - { key: 'custom11/binding', value: "'Print'" }
+    - { key: 'custom11/name', value: "'Flameshot Screenshot'" }
 
     # S-s-j: org-capture
-    - { key: 'custom11/action', value: "'emacsclient -c -n -e \"(jws/org-capture-single-window)\"'" }
-    - { key: 'custom11/binding', value: "'<Shift><Mod4>j'" }
-    - { key: 'custom11/name', value: "'Emacs org-capture'" }
+    - { key: 'custom12/action', value: "'emacsclient -c -n -e \"(jws/org-capture-single-window)\"'" }
+    - { key: 'custom12/binding', value: "'<Shift><Mod4>j'" }
+    - { key: 'custom12/name', value: "'Emacs org-capture'" }
 
     # S-s-a: org-agenda
-    - { key: 'custom12/action', value: "'emacsclient -c -n -e \"(jws/org-agenda-single-window)\"'" }
-    - { key: 'custom12/binding', value: "'<Shift><Mod4>a'" }
-    - { key: 'custom12/name', value: "'Emacs org-agenda'" }
+    - { key: 'custom13/action', value: "'emacsclient -c -n -e \"(jws/org-agenda-single-window)\"'" }
+    - { key: 'custom13/binding', value: "'<Shift><Mod4>a'" }
+    - { key: 'custom13/name', value: "'Emacs org-agenda'" }
 
     # S-s-n: deft
-    - { key: 'custom13/action', value: "'emacsclient -c -n -e \"(deft)\"'" }
-    - { key: 'custom13/binding', value: "'<Shift><Mod4>n'" }
-    - { key: 'custom13/name', value: "'Emacs deft'" }
+    - { key: 'custom14/action', value: "'emacsclient -c -n -e \"(deft)\"'" }
+    - { key: 'custom14/binding', value: "'<Shift><Mod4>n'" }
+    - { key: 'custom14/name', value: "'Emacs deft'" }
 
     # S-k: KeePassX
-    - { key: 'custom14/action', value: "'keepassx'" }
-    - { key: 'custom14/binding', value: "'<Mod4>k'" }
-    - { key: 'custom14/name', value: "'KeePassX'" }
+    - { key: 'custom15/action', value: "'keepassx'" }
+    - { key: 'custom15/binding', value: "'<Mod4>k'" }
+    - { key: 'custom15/name', value: "'KeePassX'" }
 
     # S-f: fman
-    - { key: 'custom15/action', value: "'fman'" }
-    - { key: 'custom15/binding', value: "'<Mod4>f'" }
-    - { key: 'custom15/name', value: "'fman'" }
+    - { key: 'custom16/action', value: "'fman'" }
+    - { key: 'custom16/binding', value: "'<Mod4>f'" }
+    - { key: 'custom16/name', value: "'fman'" }
 
     # S-z: zeal
-    - { key: 'custom16/action', value: "'zeal'" }
-    - { key: 'custom16/binding', value: "'<Mod4>z'" }
-    - { key: 'custom16/name', value: "'Zeal'" }
+    - { key: 'custom17/action', value: "'zeal'" }
+    - { key: 'custom17/binding', value: "'<Mod4>z'" }
+    - { key: 'custom17/name', value: "'Zeal'" }
 
     # S-c: Visual Studio Code
-    - { key: 'custom17/action', value: "'code'" }
-    - { key: 'custom17/binding', value: "'<Mod4>c'" }
-    - { key: 'custom17/name', value: "'Visual Studio Code'" }
+    - { key: 'custom18/action', value: "'code'" }
+    - { key: 'custom18/binding', value: "'<Mod4>c'" }
+    - { key: 'custom18/name', value: "'Visual Studio Code'" }
 
 # Right now, all this does is add a ~/.config/autostart that disables
 # GNOME Keyring's SSH agent from starting.
