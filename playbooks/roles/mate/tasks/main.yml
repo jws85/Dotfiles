@@ -78,6 +78,17 @@
 - name: Set MATE window keybindings
   dconf: key="/org/mate/marco/window-keybindings/{{ item.key }}" value={{ item.value }}
   loop:
+    # S-F2: minimize
+    - { key: 'minimize', value: "'<Mod4>F2'" }
+    # S-F3: maximize
+    - { key: 'toggle-maximized', value: "'<Mod4>F3'" }
+    # S-F4: close (Alt-F4)
+    - { key: 'close', value: "'<Mod4>F4'" }
+    # S-F5: move window
+    - { key: 'begin-move', value: "'<Mod4>F5'" }
+    # S-F6: resize window
+    - { key: 'begin-resize', value: "'<Mod4>F6'" }
+
     # S-s-1..S-s-0: Move window to desktop 1..10
     - { key: 'move-to-workspace-1', value: "'<Shift><Mod4>exclam'" }
     - { key: 'move-to-workspace-2', value: "'<Shift><Mod4>at'" }
