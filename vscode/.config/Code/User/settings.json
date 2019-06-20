@@ -5,6 +5,8 @@
     "editor.fontFamily": "'PragmataPro','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "files.associations": {
         "*.inc": "php",
-        "*.fnc": "php"
-    }
+        "*.fnc": "php",
+        "*.ntk": "php"
+    },
+    "extensions.ignoreRecommendations": false
 }
