@@ -39,6 +39,7 @@
     - git-gui
     - gitg
     - keepassx
+    - mpv
     - nextcloud-client-caja
     - qalculate-gtk
     - redshift-gtk
@@ -46,7 +47,6 @@
     - rofi
     - scrot
     - wireshark
-    - mpv
     - xsel
     - zeal
 
