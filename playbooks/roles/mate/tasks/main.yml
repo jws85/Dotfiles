@@ -11,6 +11,12 @@
   with_items:
     - ja
 
+- name: Set fman as default file manager
+  become: no
+  shell: xdg-mime default fman.desktop inode/directory application/x-gnome-saved-search
+  args:
+    warn: no
+
 - name: Set MATE settings
   dconf: key="/org/mate/{{ item.key }}" value={{ item.value }}
   loop:
