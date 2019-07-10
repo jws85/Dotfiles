@@ -213,25 +213,30 @@
     - { key: 'custom14/binding', value: "'<Shift><Mod4>n'" }
     - { key: 'custom14/name', value: "'Emacs deft'" }
 
+    # S-s-c: calc
+    - { key: 'custom15/action', value: "'emacsclient -c -n -e \"(full-calc)\"'" }
+    - { key: 'custom15/binding', value: "'<Shift><Mod4>c'" }
+    - { key: 'custom15/name', value: "'Emacs Calc'" }
+
     # S-k: KeePassX
-    - { key: 'custom15/action', value: "'keepassx'" }
-    - { key: 'custom15/binding', value: "'<Mod4>k'" }
-    - { key: 'custom15/name', value: "'KeePassX'" }
+    - { key: 'custom16/action', value: "'keepassx'" }
+    - { key: 'custom16/binding', value: "'<Mod4>k'" }
+    - { key: 'custom16/name', value: "'KeePassX'" }
 
     # S-f: fman
-    - { key: 'custom16/action', value: "'fman'" }
-    - { key: 'custom16/binding', value: "'<Mod4>f'" }
-    - { key: 'custom16/name', value: "'fman'" }
+    - { key: 'custom17/action', value: "'fman'" }
+    - { key: 'custom17/binding', value: "'<Mod4>f'" }
+    - { key: 'custom17/name', value: "'fman'" }
 
     # S-z: zeal
-    - { key: 'custom17/action', value: "'zeal'" }
-    - { key: 'custom17/binding', value: "'<Mod4>z'" }
-    - { key: 'custom17/name', value: "'Zeal'" }
+    - { key: 'custom18/action', value: "'zeal'" }
+    - { key: 'custom18/binding', value: "'<Mod4>z'" }
+    - { key: 'custom18/name', value: "'Zeal'" }
 
     # S-c: Visual Studio Code
-    - { key: 'custom18/action', value: "'code'" }
-    - { key: 'custom18/binding', value: "'<Mod4>c'" }
-    - { key: 'custom18/name', value: "'Visual Studio Code'" }
+    - { key: 'custom19/action', value: "'code'" }
+    - { key: 'custom19/binding', value: "'<Mod4>c'" }
+    - { key: 'custom19/name', value: "'Visual Studio Code'" }
 
 # Right now, all this does is add a ~/.config/autostart that disables
 # GNOME Keyring's SSH agent from starting.
