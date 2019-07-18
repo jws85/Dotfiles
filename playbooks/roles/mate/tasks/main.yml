@@ -117,8 +117,8 @@
     - { key: 'move-to-monitor-n', value: "'<Primary><Mod4>Up'" }
     - { key: 'move-to-monitor-s', value: "'<Primary><Mod4>Down'" }
 
-    # S-`: Toggle pinning window to all desktops
-    - { key: 'toggle-on-all-workspaces', value: "'<Mod4>grave'" }
+    # S-F7: Toggle pinning window to all desktops
+    - { key: 'toggle-on-all-workspaces', value: "'<Mod4>F7'" }
 
 - name: Set MATE special-keys keybindings
   dconf: key="/org/mate/settings-daemon/plugins/media-keys/{{ item.key }}" value={{ item.value }}
