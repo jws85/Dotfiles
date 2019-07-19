@@ -58,6 +58,7 @@
     - remmina
     - rofi
     - scrot
+    - tilda
     - vivaldi-stable
     - wireshark
     - xsel
@@ -103,6 +104,7 @@
     - mpd
     - redshift
     - rofi
+    - tilda
     - vscode
 
 - name: Ensure directories exist
