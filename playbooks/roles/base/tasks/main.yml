@@ -18,6 +18,8 @@
     - fortunes
     - htop
     - inxi
+    - iotop
+    - iftop
     - irssi
     - lolcat
     - minicom
