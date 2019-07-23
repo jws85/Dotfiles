@@ -104,8 +104,14 @@
     - mpd
     - redshift
     - rofi
-    - tilda
     - vscode
+
+# [FIXME] Tilda writes a regular file on top of the symlink on close,
+# so I can't stow it, so annoying!!!!!!!
+- name: Copy tilda configuration file
+  copy:
+    src: ~/Dotfiles/tilda/.config/tilda/config_0
+    dest: ~/.config/tilda/config_0
 
 - name: Ensure directories exist
   file: path={{ item }} state=directory
