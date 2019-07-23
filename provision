@@ -38,6 +38,8 @@ elif [ "min-desktop" == "$1" ]; then
     PLAYBOOK=min-desktop
 elif [ "dev-desktop" == "$1" ]; then
     PLAYBOOK=dev-desktop
+elif [ "full-desktop" == "$1" ]; then
+    PLAYBOOK=full-desktop
 fi
 
 CONFIG=~/.playbook.provision
