@@ -159,12 +159,12 @@
     - { key: 'custom3/name', value: "'Rofi (Window)'" }
 
     # S-e: Emacs
-    - { key: 'custom4/action', value: "'emacsclient -c -n --alternate-editor=\"\"'" }
+    - { key: 'custom4/action', value: "'em'" }
     - { key: 'custom4/binding', value: "'<Mod4>e'" }
     - { key: 'custom4/name', value: "'Emacs Client'" }
 
     # S-s-e: Emacs, maximized
-    - { key: 'custom5/action', value: "'emacsclient -c -n -F \"(list (fullscreen . maximized))\" --alternate-editor=\"\"'" }
+    - { key: 'custom5/action', value: "'em -f'" }
     - { key: 'custom5/binding', value: "'<Shift><Mod4>e'" }
     - { key: 'custom5/name', value: "'Emacs maximized'" }
 
@@ -199,22 +199,22 @@
     - { key: 'custom11/name', value: "'Flameshot Screenshot'" }
 
     # S-s-j: org-capture
-    - { key: 'custom12/action', value: "'emacsclient -c -n -e \"(jws/org-capture-single-window)\"'" }
+    - { key: 'custom12/action', value: "'em -l \"(jws/org-capture-single-window)\"'" }
     - { key: 'custom12/binding', value: "'<Shift><Mod4>j'" }
     - { key: 'custom12/name', value: "'Emacs org-capture'" }
 
     # S-s-a: org-agenda
-    - { key: 'custom13/action', value: "'emacsclient -c -n -e \"(jws/org-agenda-single-window)\"'" }
+    - { key: 'custom13/action', value: "'em -l \"(jws/org-agenda-single-window)\"'" }
     - { key: 'custom13/binding', value: "'<Shift><Mod4>a'" }
     - { key: 'custom13/name', value: "'Emacs org-agenda'" }
 
     # S-s-n: deft
-    - { key: 'custom14/action', value: "'emacsclient -c -n -e \"(deft)\"'" }
+    - { key: 'custom14/action', value: "'em -l \"(deft)\"'" }
     - { key: 'custom14/binding', value: "'<Shift><Mod4>n'" }
     - { key: 'custom14/name', value: "'Emacs deft'" }
 
     # S-s-c: calc
-    - { key: 'custom15/action', value: "'emacsclient -c -n -e \"(full-calc)\"'" }
+    - { key: 'custom15/action', value: "'em -l \"(full-calc)\"'" }
     - { key: 'custom15/binding', value: "'<Shift><Mod4>c'" }
     - { key: 'custom15/name', value: "'Emacs Calc'" }
 

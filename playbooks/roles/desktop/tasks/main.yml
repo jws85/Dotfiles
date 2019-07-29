@@ -117,3 +117,15 @@
   file: path={{ item }} state=directory
   with_items:
     - ~/.mpd/playlists
+
+- name: Download em client
+  git:
+    repo: https://github.com/jws85/em
+    dest: ~/.local/source/em
+
+- name: Install em client
+  make:
+    chdir: ~/.local/source/em
+    target: install
+    params:
+      PREFIX: ~/.local

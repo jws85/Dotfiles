@@ -40,6 +40,7 @@
     - ~/.local/include
     - ~/.local/lib/pkgconfig
     - ~/.local/share/man
+    - ~/.local/source
     - ~/.vim/autoload
 
 - name: Symlink provisioning script
