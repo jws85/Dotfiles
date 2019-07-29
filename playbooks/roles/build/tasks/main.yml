@@ -3,10 +3,14 @@
   apt: name={{ item }}
   become: yes
   with_items:
+    - apt-file
     - build-essential
     - gdb
     - git-flow
+    - gnupg
+    - pbuilder
     - php-cli
+    - ubuntu-dev-tools
 
 # Hopefully there's never a problem with getcomposer.org :/
 - name: Install Composer
