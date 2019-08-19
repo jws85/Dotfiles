@@ -41,6 +41,7 @@
   apt: name={{ item }}
   become: yes
   with_items:
+    - emacs25-common-non-dfsg
     - emacs25-lucid
     - feh
     - filezilla
