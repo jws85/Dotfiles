@@ -233,11 +233,6 @@
     - { key: 'custom18/binding', value: "'<Mod4>z'" }
     - { key: 'custom18/name', value: "'Zeal'" }
 
-    # S-c: Visual Studio Code
-    - { key: 'custom19/action', value: "'code'" }
-    - { key: 'custom19/binding', value: "'<Mod4>c'" }
-    - { key: 'custom19/name', value: "'Visual Studio Code'" }
-
 # Right now, all this does is add a ~/.config/autostart that disables
 # GNOME Keyring's SSH agent from starting.
 # Note that the change to /org/mate/desktop/session/gnome-compat-startup
