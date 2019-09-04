@@ -45,4 +45,5 @@
   git:
     repo: https://github.com/jws85/.stumpwm.d
     dest: ~/.stumpwm.d
+    update: no
 

@@ -62,12 +62,14 @@
   git:
     repo: https://github.com/jws85/.emacs.d.git
     dest: ~/.emacs.d/
+    update: no
 
 - name: Clone zsh setup
   git:
     repo: https://github.com/jws85/prezto
     dest: ~/.zprezto/
     recursive: yes
+    update: no
 
 - name: Symlink zsh dotfiles
   file: src="~/.zprezto/runcoms/{{ item }}" dest="~/.{{ item }}" state=link

@@ -123,6 +123,7 @@
   git:
     repo: https://github.com/jws85/em
     dest: ~/.local/source/em
+    update: no
 
 - name: Install em client
   make:
