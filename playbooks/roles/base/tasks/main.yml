@@ -8,6 +8,24 @@
     - curl
     - software-properties-common
 
+- name: Add mosh PPA key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: F2923D3F37FEF230BDDC376E3EB9326A7BF6DFCD
+  become: yes
+
+- name: Add mosh PPA
+  apt_repository: repo='{{ item }}'
+  register: ppa
+  become: yes
+  with_items:
+    - 'deb http://ppa.launchpad.net/keithw/mosh/ubuntu {{ ansible_distribution_release }} stable'
+
+- name: Update package cache
+  apt: update_cache=yes
+  become: yes
+  when: ppa.changed
+
 - name: Install packages
   apt: name={{ item }}
   become: yes
@@ -26,6 +44,7 @@
     - irssi
     - lolcat
     - minicom
+    - mosh
     - nmap
     - openssh-server
     - silversearcher-ag
