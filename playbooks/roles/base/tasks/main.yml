@@ -19,7 +19,7 @@
   register: ppa
   become: yes
   with_items:
-    - 'deb http://ppa.launchpad.net/keithw/mosh/ubuntu {{ ansible_distribution_release }} stable'
+    - 'deb http://ppa.launchpad.net/keithw/mosh/ubuntu {{ ansible_distribution_release }} main'
 
 - name: Update package cache
   apt: update_cache=yes
