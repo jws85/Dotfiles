@@ -48,6 +48,7 @@
     - nmap
     - openssh-server
     - silversearcher-ag
+    - speedtest-cli
     - sshfs
     - stow
     - tig
