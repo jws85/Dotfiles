@@ -1,4 +1,10 @@
 ---
+- name: Add kelleyk emacs repository key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 873503A090750CDAEB0754D93FF0E01EEAAFC9CD
+  become: yes
+
 - name: Add Nextcloud repository key
   apt_key:
     keyserver: keyserver.ubuntu.com
@@ -29,6 +35,7 @@
   become: yes
   with_items:
     - 'ppa:nextcloud-devs/client'
+    - 'ppa:kelleyk/emacs'
     - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
     - 'deb http://repo.vivaldi.com/stable/deb/ stable main'
 
@@ -41,8 +48,7 @@
   apt: name={{ item }}
   become: yes
   with_items:
-    - emacs25-common-non-dfsg
-    - emacs25-lucid
+    - emacs26
     - feh
     - filezilla
     - firefox
