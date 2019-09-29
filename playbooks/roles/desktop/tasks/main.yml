@@ -64,6 +64,7 @@
     - redshift-gtk
     - remmina
     - rofi
+    - python3-qtpy # for em
     - scrot
     - tilda
     - vivaldi-stable
