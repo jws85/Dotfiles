@@ -3,14 +3,6 @@
 #  2) change the setting "normally"
 #  3) see what got changed
 ---
-- name: Install foreign language support
-  become: yes
-  shell: apt-get install $(check-language-support -l {{ item }})
-  args:
-    warn: no
-  with_items:
-    - ja
-
 - name: Set fman as default file manager
   become: no
   shell: xdg-mime default fman.desktop inode/directory application/x-gnome-saved-search
