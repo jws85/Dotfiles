@@ -238,6 +238,11 @@
     - { key: 'custom19/binding', value: "'<Mod4>z'" }
     - { key: 'custom19/name', value: "'Zeal'" }
 
+    # S-w: sensible-browser (default web browser)
+    - { key: 'custom20/action', value: "'sensible-browser'" }
+    - { key: 'custom20/binding', value: "'<Mod4>w'" }
+    - { key: 'custom20/name', value: "'Default web browser'" }
+
 # Right now, all this does is add a ~/.config/autostart that disables
 # GNOME Keyring's SSH agent from starting.
 # Note that the change to /org/mate/desktop/session/gnome-compat-startup
