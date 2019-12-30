@@ -1,4 +1,9 @@
 ---
+- name: Disable Ubuntu's message-of-the-day
+  copy:
+    content: ''
+    dest: ~/.hushlogin
+
 - name: Install Apt prerequisites
   apt: name={{ item }}
   become: yes
