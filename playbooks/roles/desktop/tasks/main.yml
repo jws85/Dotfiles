@@ -5,12 +5,6 @@
     id: 873503A090750CDAEB0754D93FF0E01EEAAFC9CD
   become: yes
 
-- name: Add Nextcloud repository key
-  apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: 1FCD77DD0DBEF5699AD2610160EE47FBAD3DD469
-  become: yes
-
 - name: Add Syncthing repository key
   apt_key:
     url: https://syncthing.net/release-key.txt
@@ -40,7 +34,6 @@
   register: ppa
   become: yes
   with_items:
-    - 'ppa:nextcloud-devs/client'
     - 'ppa:kelleyk/emacs'
     - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
     - 'deb http://repo.vivaldi.com/stable/deb/ stable main'
@@ -66,7 +59,6 @@
     - gitg
     - keepassx
     - mpv
-    - nextcloud-client-caja
     - qalculate-gtk
     - redshift-gtk
     - remmina
