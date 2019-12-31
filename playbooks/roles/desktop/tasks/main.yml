@@ -73,6 +73,7 @@
     - rofi
     - python3-qtpy # for em
     - scrot
+    - syncthing
     - tilda
     - vivaldi-stable
     - wireshark
