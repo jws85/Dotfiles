@@ -44,6 +44,7 @@
     - 'ppa:kelleyk/emacs'
     - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
     - 'deb http://repo.vivaldi.com/stable/deb/ stable main'
+    - 'deb https://apt.syncthing.net/ syncthing stable'
 
 - name: Update package cache
   apt: update_cache=yes
