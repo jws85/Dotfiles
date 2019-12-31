@@ -11,6 +11,12 @@
     id: 1FCD77DD0DBEF5699AD2610160EE47FBAD3DD469
   become: yes
 
+- name: Add Syncthing repository key
+  apt_key:
+    url: https://syncthing.net/release-key.txt
+    state: present
+  become: yes
+
 - name: Add fman repository key
   apt_key:
     keyserver: keyserver.ubuntu.com
