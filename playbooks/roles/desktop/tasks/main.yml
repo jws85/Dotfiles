@@ -11,6 +11,12 @@
     state: present
   become: yes
 
+- name: Add Syncthing-GTK repository key
+  apt_key:
+    url: https://download.opensuse.org/repositories/home:kozec/xUbuntu_18.04/Release.key
+    state: present
+  become: yes
+
 - name: Add fman repository key
   apt_key:
     keyserver: keyserver.ubuntu.com
@@ -32,6 +38,7 @@
     - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
     - 'deb http://repo.vivaldi.com/stable/deb/ stable main'
     - 'deb https://apt.syncthing.net/ syncthing stable'
+    - 'deb http://download.opensuse.org/repositories/home:/kozec/xUbuntu_18.04/ /'
 
 - name: Update package cache
   apt: update_cache=yes
@@ -60,6 +67,7 @@
     - python3-qtpy # for em
     - scrot
     - syncthing
+    - syncthing-gtk
     - tilda
     - vivaldi-stable
     - wireshark
