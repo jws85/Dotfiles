@@ -18,16 +18,10 @@
   become: yes
 
 - name: Add Vivaldi repository key
-  become: yes
   apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: 68AEAE71F9FA158703C1CBBC8D04CE49EFB20B23
-
-- name: Add Vivaldi repository key 2
+    url: https://repo.vivaldi.com/stable/linux_signing_key.pub
+    state: present
   become: yes
-  apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: B44B85E3E1A6386BFC79D4119658E8044A3AA3D6
 
 - name: Add repositories
   apt_repository: repo='{{ item }}'
