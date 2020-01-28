@@ -65,6 +65,7 @@
   with_items:
     - mpd
     - mpc
+    - ncmpcpp
     - cantata
 
 # [FIXME] The ansible "snap" command isn't available until 2.8...
