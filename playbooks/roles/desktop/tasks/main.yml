@@ -91,6 +91,12 @@
     name: mpd
     state: stopped
     enabled: no
+- name: Enable user MPD daemon
+  systemd:
+    name: mpd
+    state: started
+    enabled: yes
+    user: yes # deprecated as of 2.7
 
 - name: Symlink GUI application dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
