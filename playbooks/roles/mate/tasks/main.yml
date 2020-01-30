@@ -131,12 +131,12 @@
   dconf: key="/org/mate/desktop/keybindings/{{ item.key }}" value={{ item.value }}
   loop:
     # S-RET: Terminal
-    - { key: 'custom0/action', value: "'mate-terminal'" }
+    - { key: 'custom0/action', value: "'alacritty'" }
     - { key: 'custom0/binding', value: "'<Mod4>Return'" }
     - { key: 'custom0/name', value: "'Terminal'" }
 
-    # S-s-RET: Terminal, maximized
-    - { key: 'custom1/action', value: "'mate-terminal --maximize'" }
+    # S-s-RET: Terminal, maximized... erm, alacritty doesn't support this at the moment
+    - { key: 'custom1/action', value: "'alacritty'" }
     - { key: 'custom1/binding', value: "'<Shift><Mod4>Return'" }
     - { key: 'custom1/name', value: "'Terminal maximized'" }
 
