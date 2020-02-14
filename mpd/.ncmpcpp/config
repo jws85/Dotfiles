@@ -1,3 +1,19 @@
+#header_visibility = no
+header_window_color = "cyan"
+
 visualizer_look = "◆▋"
 visualizer_type = "wave_filled"
+visualizer_color = "cyan"
+
+now_playing_prefix = "$b $1♫"
+now_playing_suffix = "$1♫ $/b"
+song_list_format = " $6%t $1•$5 %a $R$8%l "
+song_status_format = "$6%t $1•$5 %a {$1•$7 {#%N }%b}"
+playlist_display_mode = "classic"
+
 progressbar_look = "─⊙╶"
+progressbar_elapsed_color = "cyan"
+
+main_window_color = "white"
+color1 = "default"
+color2 = "cyan"
