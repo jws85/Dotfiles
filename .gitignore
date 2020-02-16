@@ -1,1 +1,2 @@
 playbooks/*.retry
+/mpd/.ncmpcpp/error.log
