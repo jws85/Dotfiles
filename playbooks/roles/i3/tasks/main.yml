@@ -1,0 +1,11 @@
+---
+- name: Install i3 via apt
+  apt: name={{ item }}
+  become: yes
+  with_items:
+    - i3
+
+- name: Symlink i3 dotfiles
+  shell: stow -d ~/Dotfiles -t ~ {{ item }}
+  with_items:
+    - i3
