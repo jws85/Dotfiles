@@ -68,23 +68,6 @@
     - ncmpcpp
     - cantata
 
-# [FIXME] The ansible "snap" command isn't available until 2.8...
-- name: Install Visual Studio Code
-  become: yes
-  shell: snap install --classic code
-
-- name: Install Visual Studio packages
-  shell: code --install-extension {{ item }}
-  with_items:
-    - Equinusocio.vsc-material-theme
-
-# [FIXME] The ansible "snap" command isn't available until 2.8...
-- name: Install GUI applications via snap
-  become: yes
-  shell: snap install {{ item }}
-  with_items:
-    - insomnia
-
 # I prefer to run MPD against my music dir, as my user
 - name: Disable system MPD daemon
   become: yes
@@ -106,7 +89,6 @@
     - mpd
     - redshift
     - rofi
-    - vscode
 
 # [FIXME] Tilda writes a regular file on top of the symlink on close,
 # so I can't stow it, so annoying!!!!!!!
