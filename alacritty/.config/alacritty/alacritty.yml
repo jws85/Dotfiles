@@ -7,7 +7,7 @@ scrolling:
 font:
   normal:
     family: 'Pragmata Pro Mono'
-  size: 10.5
+  size: 6
 
 # hemisu-dark from https://github.com/Mayccoll/Gogh
 # which is based on https://noahfrederick.com/log/hemisu-for-os-x-terminal.html
