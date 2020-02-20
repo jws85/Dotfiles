@@ -1,10 +1,13 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+#set $font "monospace"
+set $font Pragmata Pro
+set $fontSize 13
+set $wall ~/.wallpaper.png
 
 # Font for window titles
-#font pango:monospace 8
-font pango:Pragmata Pro 13
+font pango:$font $fontSize
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -88,7 +91,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock the screen
-bindsym $mod+Escape exec "i3lock -i ~/Pictures/Walls/astronaut-jellyfish.png"
+bindsym $mod+Escape exec "i3lock -i $wall"
 # launch rofi
 bindsym $mod+space exec "rofi -show run -display-run 'Run>>> '"
 bindsym $mod+Shift+space exec "rofi -show window -display-window 'Windows>>> '"
@@ -162,6 +165,7 @@ bar {
         status_command i3status
         separator_symbol " • "
         tray_output primary
+        font pango:$font $fontSize
 }
 
 # remove window titlebars
@@ -177,4 +181,4 @@ exec setxkbmap -option ctrl:swapcaps
 exec nm-applet
 exec syncthing-gtk
 exec compton
-exec feh --bg-scale ~/Pictures/Walls/astronaut-jellyfish.jpg
+exec feh --bg-scale $wall
