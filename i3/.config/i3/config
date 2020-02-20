@@ -203,10 +203,10 @@ bar {
         	background #0f161e
         }
 	position top
-        status_command i3status
+        status_command i3blocks
         separator_symbol " • "
         tray_output primary
-        font pango:$font $fontSize
+        font pango:$font,FontAwesome $fontSize
 }
 
 # remove window titlebars

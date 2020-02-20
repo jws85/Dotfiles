@@ -1,0 +1,19 @@
+[cpu_usage]
+command=~/.config/i3blocks/blocks/cpu_usage
+interval=2
+label=
+
+[disk_root]
+command=df -h / | awk 'FNR==2{print $5}'
+interval=2
+label=
+
+[battery]
+command=~/.config/i3blocks/blocks/battery
+interval=10
+label=
+
+[date]
+command=date "+%m-%d %H:%M"
+interval=1
+label=
