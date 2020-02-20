@@ -3,7 +3,7 @@
 set $mod Mod4
 #set $font "monospace"
 set $font Pragmata Pro
-set $fontSize 13
+set $fontSize 10
 set $wall ~/.wallpaper.png
 
 # Font for window titles
