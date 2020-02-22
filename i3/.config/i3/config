@@ -178,8 +178,11 @@ bar {
 }
 
 # remove window titlebars
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 new_window 1pixel
+## future window border settings; not compatible with i3 on Ubuntu 18.04
+#default_border pixel 2
+#default_floating_border normal
 
 # force settings on specific windows
 for_window [class="Keepassx"] floating enable
