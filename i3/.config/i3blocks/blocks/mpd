@@ -1,0 +1,15 @@
+#!/bin/sh
+
+mpd_status=$( mpc status )
+lines=$( echo "$mpd_status" | wc | awk '{print $1}' )
+
+if [ $lines -eq "1" ]; then
+    echo "stopped"
+    exit
+fi
+
+playpause=$( echo "$mpd_status" | awk 'FNR==2{print $1}' )
+song=$( echo "$mpd_status" | awk 'FNR==1' )
+
+echo "$playpause $song"
+echo "$song"

@@ -1,3 +1,8 @@
+[mpd]
+command=~/.config/i3blocks/blocks/mpd
+interval=5
+label=
+
 [cpu_usage]
 command=~/.config/i3blocks/blocks/cpu_usage
 interval=2
