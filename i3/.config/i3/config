@@ -186,8 +186,4 @@ for_window [class="Keepassx"] floating enable
 for_window [class="em"] floating enable
 
 # autostart applications
-exec setxkbmap -option ctrl:swapcaps
-exec nm-applet
-exec syncthing-gtk
-exec compton
 exec feh --bg-scale $wall
