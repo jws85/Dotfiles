@@ -30,29 +30,30 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# split in vertical orientation
-bindsym $mod+minus split v
+# resize focused window
+bindsym $mod+Ctrl+h resize shrink width 10px or 5ppt
+bindsym $mod+Ctrl+j resize grow height 10px or 5ppt
+bindsym $mod+Ctrl+k resize shrink height 10px or 5ppt
+bindsym $mod+Ctrl+l resize grow width 10px or 5ppt
 
-# split in horizontal orientation
+## enter fullscreen mode for the focused container
+#bindsym $mod+m fullscreen toggle
+
+# change container layout (stacked, tabbed, split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+minus split v
 bindsym $mod+bar split h
 bindsym $mod+backslash split h
 
-# enter fullscreen mode for the focused container
-bindsym $mod+m fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
-bindsym $mod+Shift+f floating toggle
+bindsym $mod+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+f focus mode_toggle
+bindsym $mod+a focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -94,18 +95,8 @@ bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'You pressed the exit sh
 bindsym $mod+Escape exec "i3lock -i $wall"
 # launch rofi
 bindsym $mod+space exec "rofi -show run -display-run 'Run>>> '"
-bindsym $mod+Shift+space exec "rofi -show window -display-window 'Windows>>> '"
-
-# My personal keybindings (in alpha order)... most of them call various Emacs functions
-bindsym $mod+Ctrl+a exec "em -l '(jws/org-agenda-single-window)'"
-bindsym $mod+Ctrl+c exec "em -l '(full-calc)'"
-bindsym $mod+Ctrl+e exec "em"
-bindsym $mod+Ctrl+f exec "fman"
-bindsym $mod+Ctrl+k exec "keepassx"
-bindsym $mod+Ctrl+m exec "cantata"
-bindsym $mod+Ctrl+n exec "em -l '(deft)'"
-bindsym $mod+Ctrl+o exec "em -l '(jws/org-capture-single-window)'"
-bindsym $mod+Ctrl+w exec "sensible-browser"
+bindsym $mod+slash exec "rofi -show window -display-window 'Windows>>> '"
+# printscreen
 bindsym Print exec "flameshot gui"
 
 # change sound/media settings
@@ -117,9 +108,14 @@ bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 
+# Different modes
+# Exiting any mode can be done with: Return, Escape, Ctrl+g
+# That last one is the effect of permanent Emacs dain bramage ^_^
+
 # change sound/media settings... for keyboards that don't have media keys
 # lookin' atcha, Thinkpad X260 >.<
-mode "sound" {
+set $mode_sound "SOUND:  play/pause •  stop •  prev •  next"
+mode $mode_sound {
 	bindsym Up exec "mpc stop"
 	bindsym Down exec "mpc toggle"
 	bindsym Left exec "mpc prev"
@@ -127,28 +123,61 @@ mode "sound" {
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym Ctrl+g mode "default"
 }
-bindsym $mod+z mode "sound"
+bindsym $mod+z mode $mode_sound
+
+# a "launcher" mode to kick off commonly used utilities
+set $mode_launcher "LAUNCH: [a]genda [c]alc [e]macs [f]man [k]eepass [m]usic [n]otes [o]rg-capture [w]eb"
+mode $mode_launcher {
+	bindsym a exec "em -l '(jws/org-agenda-single-window)'"
+	bindsym c exec "em -l '(full-calc)'"
+	bindsym e exec "em"
+	bindsym f exec "fman"
+	bindsym k exec "keepassx"
+	bindsym m exec "cantata"
+	bindsym n exec "em -l '(deft)'"
+	bindsym o exec "em -l '(jws/org-capture-single-window)'"
+	bindsym w exec "sensible-browser"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Ctrl+g mode "default"
+}
+bindsym $mod+semicolon mode $mode_launcher
 
 # move window, mostly intended for floating windows
-mode "position" {
+set $mode_move "MOVE: h/ left • j/ down • k/ up • l/ right"
+mode $mode_move {
         bindsym h move left
         bindsym j move down
         bindsym k move up
         bindsym l move right
+
+        bindsym Shift+h move left 50 px
+        bindsym Shift+j move down 50 px
+        bindsym Shift+k move up 50 px
+        bindsym Shift+l move right 50 px
 
         bindsym Left move left
         bindsym Down move down
         bindsym Up move up
         bindsym Right move right
 
+	bindsym 0 move position 0 0
+	bindsym c move position center
+
+	bindsym r mode $mode_resize
+
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym Ctrl+g mode "default"
 }
-bindsym $mod+p mode "move"
+bindsym $mod+m mode $mode_move
 
 # resize window, again, mostly intended for floating windows
-mode "resize" {
+set $mode_resize "RESIZE: h/ left • j/ down • k/ up • l/ right"
+mode $mode_resize {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -159,10 +188,13 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
+	bindsym m mode $mode_move
+
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym Ctrl+g mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode $mode_resize
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
