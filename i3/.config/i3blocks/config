@@ -13,9 +13,11 @@ command=df -h / | awk 'FNR==2{print $5}'
 interval=2
 label=
 
+# On my X260, the battery is BAT1, not BAT0
 [battery]
 command=~/.config/i3blocks/blocks/battery
 interval=10
+instance=1
 label=
 
 [date]
