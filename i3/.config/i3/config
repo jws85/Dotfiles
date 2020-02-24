@@ -37,7 +37,7 @@ bindsym $mod+Ctrl+k resize shrink height 10px or 5ppt
 bindsym $mod+Ctrl+l resize grow width 10px or 5ppt
 
 ## enter fullscreen mode for the focused container
-#bindsym $mod+m fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, split)
 bindsym $mod+s layout stacking
@@ -47,13 +47,14 @@ bindsym $mod+bar split h
 bindsym $mod+backslash split h
 
 # toggle tiling / floating
-bindsym $mod+f floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+a focus mode_toggle
+bindsym $mod+o focus mode_toggle
 
 # focus the parent container
-bindsym $mod+p focus parent
+bindsym $mod+Shift+comma focus parent
+bindsym $mod+Shift+period focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -69,6 +70,14 @@ bindsym $mod+0 workspace 10
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Left workspace prev_on_output
 bindsym $mod+Right workspace next_on_output
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
+
+# read 1 character and mark the current window with this character
+bindsym $mod+period exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -l 1 -P 'Mark: '
+
+# read 1 character and go to the window with the character
+bindsym $mod+comma exec i3-input -f "pango:$font $fontSize" -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -90,7 +99,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Escape exec "i3-nagbar -f 'pango:$font $fontSize' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock the screen
 bindsym $mod+Escape exec "i3lock -i $wall"
 # launch rofi
