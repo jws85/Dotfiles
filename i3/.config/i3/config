@@ -101,7 +101,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+Escape exec "i3-nagbar -f 'pango:$font $fontSize' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock the screen
-bindsym $mod+Escape exec "i3lock -i $wall"
+bindsym $mod+Escape exec "i3lock -ti ~/.config/i3/tiling.png -c 00547f"
 # launch rofi
 bindsym $mod+space exec "rofi -show run -display-run 'Run>>> '"
 bindsym $mod+slash exec "rofi -show window -display-window 'Windows>>> '"
