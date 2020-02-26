@@ -4,6 +4,8 @@
   become: yes
   with_items:
     - i3
+    - i3blocks
+    - udiskie
 
 - name: Symlink i3 dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}

@@ -9,6 +9,9 @@ compton -b
 # Notifications
 dunst &
 
+# Automount
+udiskie &
+
 # File sync
 syncthing-gtk &
 
