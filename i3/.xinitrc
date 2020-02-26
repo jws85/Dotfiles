@@ -10,7 +10,7 @@ compton -b
 dunst &
 
 # Automount
-udiskie &
+udiskie --tray &
 
 # File sync
 syncthing-gtk &
