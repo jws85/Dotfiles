@@ -8,7 +8,7 @@
     - server
     - desktop
     - games
-    - mate
+    - i3
   post_tasks:
     - name: Create ~/.playbook.provision
       copy: content=full-desktop dest=~/.playbook.provision

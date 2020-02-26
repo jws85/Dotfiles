@@ -7,7 +7,7 @@
     - build
     - server
     - desktop
-    - mate
+    - i3
   post_tasks:
     - name: Create ~/.playbook.provision
       copy: content=dev-desktop dest=~/.playbook.provision
