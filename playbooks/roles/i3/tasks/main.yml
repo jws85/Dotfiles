@@ -11,3 +11,6 @@
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
     - i3
+
+- name: Copy default wallpaper
+  copy: src=nasa-53884.jpg dest=~/.wallpaper force=no

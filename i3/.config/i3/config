@@ -4,7 +4,7 @@ set $mod Mod4
 #set $font "monospace"
 set $font Pragmata Pro
 set $fontSize 10
-set $wall ~/.wallpaper.png
+set $wall ~/.wallpaper
 
 # Font for window titles
 font pango:$font $fontSize
