@@ -68,10 +68,10 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Left workspace prev_on_output
-bindsym $mod+Right workspace next_on_output
-bindsym $mod+n workspace next
-bindsym $mod+p workspace prev
+bindsym $mod+Left workspace prev
+bindsym $mod+Right workspace next
+bindsym $mod+n workspace next_on_output
+bindsym $mod+p workspace prev_on_output
 
 # read 1 character and mark the current window with this character
 bindsym $mod+period exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -l 1 -P 'Mark: '
