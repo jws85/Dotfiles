@@ -6,6 +6,11 @@ set $font Pragmata Pro
 set $fontSize 10
 set $wall ~/.wallpaper
 
+# Workspace names
+set $webWksp "1:"
+set $ttyWksp "2:"
+set $codeWksp "3:"
+
 # Font for window titles
 font pango:$font $fontSize
 
@@ -57,9 +62,9 @@ bindsym $mod+Shift+comma focus parent
 bindsym $mod+Shift+period focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
+bindsym $mod+1 workspace $webWksp
+bindsym $mod+2 workspace $ttyWksp
+bindsym $mod+3 workspace $codeWksp
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -80,9 +85,9 @@ bindsym $mod+period exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -l 1 -
 bindsym $mod+comma exec i3-input -f "pango:$font $fontSize" -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+1 move container to workspace $webWksp
+bindsym $mod+Shift+2 move container to workspace $ttyWksp
+bindsym $mod+Shift+3 move container to workspace $codeWksp
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -213,6 +218,7 @@ bar {
         }
 	position top
         status_command i3blocks
+        strip_workspace_numbers yes
         separator_symbol " • "
         tray_output primary
         font pango:$font,FontAwesome $fontSize
