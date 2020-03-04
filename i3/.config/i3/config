@@ -4,7 +4,6 @@ set $mod Mod4
 #set $font "monospace"
 set $font Pragmata Pro
 set $fontSize 10
-set $wall ~/.wallpaper
 
 # Workspace names
 set $webWksp "1:"
@@ -20,6 +19,8 @@ set $wksp10 "10:⑩"
 
 # Lock application
 set $i3lock i3lock -ti ~/.config/i3/tiling.png -c 00547f
+# Wallpaper application
+set $fehbg feh --bg-scale ~/.wallpaper
 
 # Font for window titles
 font pango:$font $fontSize
@@ -172,7 +173,7 @@ bindsym $mod+z mode $mode_sound
 set $mode_launcher "LAUNCH: [a]genda [b]g [c]alc [e]macs [f]man [k]eepass [m]usic [n]otes [o]rg-capture [w]eb"
 mode $mode_launcher {
 	bindsym a exec "em -l '(jws/org-agenda-single-window)'", mode "default"
-	bindsym b exec "feh --bg-scale $wall", mode "default"
+	bindsym b exec --no-startup-id $fehbg, mode "default"
 	bindsym c exec "em -l '(full-calc)'", mode "default"
 	bindsym e exec "em", mode "default"
 	bindsym f exec "fman", mode "default"
@@ -268,4 +269,4 @@ for_window [class="em"] floating enable
 focus_follows_mouse no
 
 # autostart applications
-exec feh --bg-scale $wall
+exec --no-startup-id $fehbg
