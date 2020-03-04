@@ -121,13 +121,13 @@ bindsym $mod+slash exec "rofi -show window -display-window 'Windows>>> '"
 bindsym Print exec "flameshot gui"
 
 # change sound/media settings
-bindsym XF86AudioPlay exec "mpc toggle"
-bindsym XF86AudioStop exec "mpc stop"
-bindsym XF86AudioPrev exec "mpc prev"
-bindsym XF86AudioNext exec "mpc next"
-bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioPlay exec --no-startup-id "mpc toggle"
+bindsym XF86AudioStop exec --no-startup-id "mpc stop"
+bindsym XF86AudioPrev exec --no-startup-id "mpc prev"
+bindsym XF86AudioNext exec --no-startup-id "mpc next"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 
 # Different modes
 # Exiting any mode can be done with: Return, Escape, Ctrl+g
@@ -140,7 +140,7 @@ mode $mode_system {
 	# Quits i3
 	bindsym e exec --no-startup-id i3-msg exit
 	# Locks i3
-	bindsym l exec $i3lock, mode "default"
+	bindsym l exec --no-startup-id $i3lock, mode "default"
         # Puts system into suspend (assuming you're infected by systemd)
 	bindsym s exec --no-startup-id $i3lock && systemctl suspend, mode "default"
         # Puts system into hibernate (assuming systemd)
@@ -158,10 +158,10 @@ bindsym $mod+Escape mode $mode_system
 # lookin' atcha, Thinkpad X260 >.<
 set $mode_sound "SOUND:  play/pause •  stop •  prev •  next"
 mode $mode_sound {
-	bindsym Up exec "mpc stop"
-	bindsym Down exec "mpc toggle"
-	bindsym Left exec "mpc prev"
-	bindsym Right exec "mpc next"
+	bindsym Up exec --no-startup-id "mpc stop"
+	bindsym Down exec --no-startup-id "mpc toggle"
+	bindsym Left exec --no-startup-id "mpc prev"
+	bindsym Right exec --no-startup-id "mpc next"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
