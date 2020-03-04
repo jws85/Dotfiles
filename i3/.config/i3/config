@@ -261,6 +261,7 @@ new_window 1pixel
 
 # force settings on specific windows
 for_window [class="Keepassx"] floating enable
+for_window [class="Peek-run"] floating enable
 for_window [class="em"] floating enable
 
 # mouse cursor does NOT focus
