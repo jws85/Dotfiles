@@ -253,5 +253,8 @@ new_window 1pixel
 for_window [class="Keepassx"] floating enable
 for_window [class="em"] floating enable
 
+# mouse cursor does NOT focus
+focus_follows_mouse no
+
 # autostart applications
 exec feh --bg-scale $wall
