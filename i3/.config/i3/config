@@ -142,17 +142,18 @@ mode $mode_sound {
 bindsym $mod+z mode $mode_sound
 
 # a "launcher" mode to kick off commonly used utilities
-set $mode_launcher "LAUNCH: [a]genda [c]alc [e]macs [f]man [k]eepass [m]usic [n]otes [o]rg-capture [w]eb"
+set $mode_launcher "LAUNCH: [a]genda [b]g [c]alc [e]macs [f]man [k]eepass [m]usic [n]otes [o]rg-capture [w]eb"
 mode $mode_launcher {
-	bindsym a exec "em -l '(jws/org-agenda-single-window)'"
-	bindsym c exec "em -l '(full-calc)'"
-	bindsym e exec "em"
-	bindsym f exec "fman"
-	bindsym k exec "keepassx"
-	bindsym m exec "cantata"
-	bindsym n exec "em -l '(deft)'"
-	bindsym o exec "em -l '(jws/org-capture-single-window)'"
-	bindsym w exec "sensible-browser"
+	bindsym a exec "em -l '(jws/org-agenda-single-window)'", mode "default"
+	bindsym b exec "feh --bg-scale $wall", mode "default"
+	bindsym c exec "em -l '(full-calc)'", mode "default"
+	bindsym e exec "em", mode "default"
+	bindsym f exec "fman", mode "default"
+	bindsym k exec "keepassx", mode "default"
+	bindsym m exec "cantata", mode "default"
+	bindsym n exec "em -l '(deft)'", mode "default"
+	bindsym o exec "em -l '(jws/org-capture-single-window)'", mode "default"
+	bindsym w exec "sensible-browser", mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
