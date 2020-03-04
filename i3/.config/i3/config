@@ -135,7 +135,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAUL
 
 # "System" menu
 # h/t https://thevaluable.dev/window-manager-mouseless-i3/
-set $mode_system "SYSTEM: [l]ock • [e]xit i3 • [s]uspend • [h]ibernate • [C-s]hutdown"
+set $mode_system "SYSTEM: [l]ock • [e]xit i3 • [s]uspend • [h]ibernate • [C-r]eboot • [C-s]hutdown"
 mode $mode_system {
 	# Quits i3
 	bindsym e exec --no-startup-id i3-msg exit
@@ -147,6 +147,8 @@ mode $mode_system {
 	bindsym h exec --no-startup-id $i3lock && systemctl hibernate, mode "default"
 	# Powers the system off (assuming systemd)
         bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i
+	# Reboots the system (assuming systemd)
+        bindsym Ctrl+r exec --no-startup-id systemctl reboot -i
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
