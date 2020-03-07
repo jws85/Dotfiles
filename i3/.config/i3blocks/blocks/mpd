@@ -11,7 +11,7 @@ case $BLOCK_BUTTON in
 esac
 
 if [ $lines -eq "1" ]; then
-    echo "stopped"
+    echo " stopped"
     exit
 fi
 
