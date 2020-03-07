@@ -18,5 +18,5 @@ fi
 playpause=$( echo "$mpd_status" | awk 'FNR==2{print $1}' )
 song=$( echo "$mpd_status" | awk 'FNR==1' )
 
-echo "$playpause $song"
-echo "$song"
+echo " $playpause $song"
+echo " $song"

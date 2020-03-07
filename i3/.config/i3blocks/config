@@ -1,17 +1,14 @@
 [mpd]
 command=~/.config/i3blocks/blocks/mpd
 interval=2
-label=
 
 [pulseaudio]
 command=~/.config/i3blocks/blocks/pulseaudio
 interval=1
-label=
 
 [cpu_usage]
 command=~/.config/i3blocks/blocks/cpu_usage
 interval=2
-label=
 
 [disk_root]
 command=df -h / | awk 'FNR==2{print $5}'
@@ -23,7 +20,6 @@ label=
 command=~/.config/i3blocks/blocks/battery
 interval=10
 instance=1
-label=
 
 [date]
 command=date "+%m-%d %H:%M"
