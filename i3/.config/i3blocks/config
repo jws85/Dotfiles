@@ -1,7 +1,12 @@
 [mpd]
 command=~/.config/i3blocks/blocks/mpd
-interval=5
+interval=2
 label=
+
+[pulseaudio]
+command=~/.config/i3blocks/blocks/pulseaudio
+interval=1
+label=
 
 [cpu_usage]
 command=~/.config/i3blocks/blocks/cpu_usage
