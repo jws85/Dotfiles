@@ -18,6 +18,12 @@ syncthing-gtk &
 # Cut down blue light at night
 redshift-gtk &
 
+# Provide a way of using the mouse without moving the mouse
+keynav &
+
+# Hide the mouse cursor when not in use
+unclutter &
+
 if [[ -x ~/.xsiteinit ]]; then
     ~/.xsiteinit
 fi

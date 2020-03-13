@@ -47,7 +47,9 @@
     - git-gui
     - gitg
     - keepassx
+    - keynav
     - mpv
+    - oneko
     - qalculate-gtk
     - redshift-gtk
     - remmina
@@ -57,6 +59,7 @@
     - syncthing
     - syncthing-gtk
     - tilda
+    - unclutter
     - vivaldi-stable
     - wireshark
     - xsel
