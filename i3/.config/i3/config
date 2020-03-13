@@ -172,17 +172,14 @@ mode $mode_sound {
 bindsym $mod+z mode $mode_sound
 
 # a "launcher" mode to kick off commonly used utilities
-set $mode_launcher "LAUNCH: [a]genda [b]g [c]alc [e]macs [f]man [k]eepass [m]usic [n]otes [o]rg-capture [w]eb"
+set $mode_launcher "LAUNCH: [b]g [e]macs [f]man [k]eepass [m]usic [n]eko [w]eb"
 mode $mode_launcher {
-	bindsym a exec "em -l '(jws/org-agenda-single-window)'", mode "default"
 	bindsym b exec --no-startup-id $fehbg, mode "default"
-	bindsym c exec "em -l '(full-calc)'", mode "default"
 	bindsym e exec "em", mode "default"
 	bindsym f exec "fman", mode "default"
 	bindsym k exec "keepassx", mode "default"
 	bindsym m exec "cantata", mode "default"
-	bindsym n exec "em -l '(deft)'", mode "default"
-	bindsym o exec "em -l '(jws/org-capture-single-window)'", mode "default"
+	bindsym n mode $mode_cat
 	bindsym w exec "sensible-browser", mode "default"
 
         bindsym Return mode "default"
@@ -190,6 +187,22 @@ mode $mode_launcher {
         bindsym Ctrl+g mode "default"
 }
 bindsym $mod+semicolon mode $mode_launcher
+
+# purely a silly toy; a cat chases your cursor around (until you kill it...)
+# this menu is bound underneath $mode_launcher
+set $mode_cat "(=^ ◡ ^=): [i]nu • [n]eko • [T]ora-neko • [s]akura • [t]omoyo • [k]ill (O.o)"
+mode $mode_cat {
+	bindsym i exec "oneko -dog", mode "default"
+	bindsym n exec "oneko", mode "default"
+	bindsym Shift+t exec "oneko -tora", mode "default"
+	bindsym s exec "oneko -sakura", mode "default"
+	bindsym t exec "oneko -tomoyo", mode "default"
+	bindsym k exec "killall oneko", mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Ctrl+g mode "default"
+}
 
 # move window, mostly intended for floating windows
 set $mode_move "MOVE: h/ left • j/ down • k/ up • l/ right"
