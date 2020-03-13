@@ -19,5 +19,5 @@ muted=$(pacmd list-sinks |
 if [ "$muted" = "no" ]; then
     printf ' %3s' "$volume"
 else
-    echo " muted"
+    echo " ---"
 fi
