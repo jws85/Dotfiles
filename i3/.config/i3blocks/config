@@ -1,3 +1,9 @@
+# run 'curl wttr.in?format=%c+%t > /tmp/wttr.in' every so often via cron
+# (don't go crazy, be friendly to their rate limits!  I do hourly)
+[weather]
+command=cat /tmp/wttr.in 2>/dev/null
+interval=60
+
 [mpd]
 command=~/.config/i3blocks/blocks/mpd
 interval=2

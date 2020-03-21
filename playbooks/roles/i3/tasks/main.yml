@@ -14,3 +14,6 @@
 
 - name: Copy default wallpaper
   copy: src=nasa-53884.jpg dest=~/.wallpaper force=no
+
+- name: Copy default weather script
+  copy: src=wttr.in dest=/etc/cron.hourly/wttr.in force=no
