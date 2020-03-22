@@ -6,6 +6,7 @@
     - i3
     - i3blocks
     - udiskie
+    - autorandr
 
 - name: Symlink i3 dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
