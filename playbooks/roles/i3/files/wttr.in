@@ -1,3 +1,5 @@
 #!/usr/bin/env sh
 
-curl 'wttr.in?format=%c+%t' >$HOME/.wttr.in 2>>/tmp/wttr.in.errors
+curl --fail --silent 'wttr.in?format=%c+%t' \
+     >$HOME/.wttr.in \
+     2>>/tmp/wttr.in.errors
