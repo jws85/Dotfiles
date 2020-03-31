@@ -118,6 +118,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+space exec "rofi -show run -display-run 'Run>>> '"
 bindsym $mod+slash exec "rofi -show window -display-window 'Windows>>> '"
 # printscreen
+bindsym $mod+Print exec "scrot 'shot.%Y%m%d.%H%M%S.png' -e 'mv $f ~/Pictures'"
 bindsym Print exec "flameshot gui"
 
 # change sound/media settings
