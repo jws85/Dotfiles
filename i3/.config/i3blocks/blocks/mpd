@@ -10,13 +10,20 @@ case $BLOCK_BUTTON in
   5) mpc prev > /dev/null 2>&1 ;;   # scroll down, previous song
 esac
 
+icon=""
 if [ $lines -eq "1" ]; then
-    echo " stopped"
+    echo "$icon stopped"
     exit
 fi
 
 playpause=$( echo "$mpd_status" | awk 'FNR==2{print $1}' )
+if [ $playpause = "[playing]" ]; then
+    icon=""
+elif [ $playpause = "[paused]" ]; then
+    icon=""
+fi
+
 song=$( echo "$mpd_status" | awk 'FNR==1' )
 
-echo " $playpause $song"
-echo " $song"
+echo "$icon $song"
+echo "$icon $song"
