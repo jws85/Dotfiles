@@ -9,13 +9,13 @@ set $fontSize 10
 set $webWksp "1:"
 set $ttyWksp "2:"
 set $codeWksp "3:"
-set $wksp4 "4:④"
-set $wksp5 "5:⑤"
-set $wksp6 "6:⑥"
-set $wksp7 "7:⑦"
-set $wksp8 "8:⑧"
-set $wksp9 "9:⑨"
-set $wksp10 "10:⑩"
+set $wksp4 "4:Ⅳ"
+set $wksp5 "5:Ⅴ"
+set $wksp6 "6:Ⅵ"
+set $wksp7 "7:Ⅶ"
+set $wksp8 "8:Ⅷ"
+set $wksp9 "9:Ⅸ"
+set $wksp10 "10:Ⅹ"
 
 # Lock application
 set $i3lock i3lock -ti ~/.config/i3/tiling.png -c 00547f
