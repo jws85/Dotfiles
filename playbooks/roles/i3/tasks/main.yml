@@ -16,14 +16,15 @@
 - name: Copy default wallpaper
   copy: src=nasa-53884.jpg dest=~/.wallpaper force=no
 
-- name: Copy default weather script
-  become: yes
-  copy: src=wttr.in dest=/etc/wttr.in/script.sh force=no
+- name: Clone my helper scripts
+  git:
+    repo: https://github.com/jws85/scripts
+    dest: ~/.local/source/scripts
+    update: no
 
-- name: Run weather script every fifteen minutes
-  become: yes
-  cron:
-    name: "Run weather script every fifteen minutes"
-    job: /etc/wttr.in/script.sh
-    user: jws
-    minute: "*/15"
+- name: Install helper scripts
+  make:
+    chdir: ~/.local/source/scripts
+    target: install
+    params:
+      PREFIX: ~/.local
