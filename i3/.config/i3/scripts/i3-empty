@@ -1,0 +1,35 @@
+#!/bin/bash
+# Moves to next *empty* workspace
+# This requires my i3 JSON config... it will error out if it doesn't
+# exist!
+
+command -v jq >/dev/null 2>&1 || { echo >&2 "Please install jq!"; exit 1; }
+
+if [ ! -f $CONFIG ]; then
+    echo "i3 JSON config not at $CONFIG!"
+    exit 1
+fi
+
+# Get the currently open workspaces in one array, and sort
+CURRWK=$( i3-msg -t get_workspaces | jq -r 'map(.name)' | sort )
+
+# Get all defined workspaces, and sort
+ALLWK=$( cat ~/.config/i3/config.json | jq -r '.workspaces' | sort )
+# Get the number of defined workspaces
+NUMWK=$( cat ~/.config/i3/config.json | jq -r '.workspaces | length' )
+
+# Find the first unused workspace
+UNUSED=$( comm -13 <(printf "%s" "$CURRWK") <(printf "%s" "$ALLWK") \
+    | head -n1 \
+    | awk -F'"' '{print $2}' )
+
+# If all named workspaces are used, go to the first *un*named one
+if [ "$UNUSED" == "" ]; then
+    UNUSED=$(( $NUMWK + 1 ))
+fi
+
+if [ "$1" == "move" ]; then
+    i3-msg "move container to workspace $UNUSED"
+fi
+
+i3-msg "workspace $UNUSED"

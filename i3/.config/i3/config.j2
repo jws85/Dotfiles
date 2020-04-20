@@ -67,6 +67,7 @@ bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
 bindsym $mod+n workspace next_on_output
 bindsym $mod+p workspace prev_on_output
+bindsym $mod+e exec --no-startup-id "~/.config/i3/scripts/i3-empty"
 
 # read 1 character and mark the current window with this character
 bindsym $mod+period exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -l 1 -P 'Mark: '
@@ -81,6 +82,7 @@ bindsym $mod+Shift+{{ loop.index % 10 }} move container to workspace "{{ workspa
 bindsym $mod+Shift+Tab move container to workspace back_and_forth
 bindsym $mod+Shift+Left move container to workspace prev_on_output
 bindsym $mod+Shift+Right move container to workspace next_on_output
+bindsym $mod+Shift+e exec --no-startup-id "~/.config/i3/scripts/i3-empty move"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
