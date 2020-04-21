@@ -12,16 +12,17 @@ fi
 
 # Get the currently open workspaces in one array, and sort
 CURRWK=$( i3-msg -t get_workspaces | jq -r 'map(.name) | .[]' )
+# Get the max numbered open workspace
+NUMWK=$( i3-msg -t get_workspaces | jq 'map(.num) | max' )
 
 # Get all defined workspaces, and sort
 ALLWK=$( cat ~/.config/i3/config.json | jq -r '.workspaces | .[]' )
-# Get the number of defined workspaces
-NUMWK=$( cat ~/.config/i3/config.json | jq -r '.workspaces | length' )
 
 # Find the first unused workspace
 UNUSED=$( comm --nocheck-order -13 <(printf "%s" "$CURRWK") <(printf "%s" "$ALLWK") | head -n1 )
 
-# If all named workspaces are used, go to the first *un*named one
+# If all named workspaces are used, go to the next one after the max
+# numbered open workspace
 if [ "$UNUSED" == "" ]; then
     UNUSED=$(( $NUMWK + 1 ))
 fi
