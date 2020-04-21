@@ -11,17 +11,15 @@ if [ ! -f $CONFIG ]; then
 fi
 
 # Get the currently open workspaces in one array, and sort
-CURRWK=$( i3-msg -t get_workspaces | jq -r 'map(.name)' | sort )
+CURRWK=$( i3-msg -t get_workspaces | jq -r 'map(.name) | .[]' )
 
 # Get all defined workspaces, and sort
-ALLWK=$( cat ~/.config/i3/config.json | jq -r '.workspaces' | sort )
+ALLWK=$( cat ~/.config/i3/config.json | jq -r '.workspaces | .[]' )
 # Get the number of defined workspaces
 NUMWK=$( cat ~/.config/i3/config.json | jq -r '.workspaces | length' )
 
 # Find the first unused workspace
-UNUSED=$( comm -13 <(printf "%s" "$CURRWK") <(printf "%s" "$ALLWK") \
-    | head -n1 \
-    | awk -F'"' '{print $2}' )
+UNUSED=$( comm --nocheck-order -13 <(printf "%s" "$CURRWK") <(printf "%s" "$ALLWK") | head -n1 )
 
 # If all named workspaces are used, go to the first *un*named one
 if [ "$UNUSED" == "" ]; then
