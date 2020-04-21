@@ -6,7 +6,7 @@ interval=60
 
 [mpd]
 command=~/.config/i3blocks/blocks/mpd
-interval=2
+interval=1
 
 [pulseaudio]
 command=~/.config/i3blocks/blocks/pulseaudio
