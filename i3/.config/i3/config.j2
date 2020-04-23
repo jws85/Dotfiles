@@ -84,10 +84,6 @@ bindsym $mod+Shift+Left move container to workspace prev_on_output
 bindsym $mod+Shift+Right move container to workspace next_on_output
 bindsym $mod+Shift+e exec --no-startup-id "~/.config/i3/scripts/i3-empty move"
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# rebuild config, then restart i3 inplace
-bindsym $mod+Shift+r exec "cd ~/.config/i3/; make; i3-msg restart"
 # launch rofi
 bindsym $mod+space exec "rofi -show run -display-run 'Run>>> '"
 bindsym $mod+slash exec "rofi -show window -display-window 'Windows>>> '"
@@ -145,6 +141,20 @@ mode $mode_sound {
         bindsym Ctrl+g mode "default"
 }
 bindsym $mod+z mode $mode_sound
+
+# perform i3-related actions... mostly
+set $mode_i3 "i3: [b]g [k]eyboard [r]eload [R]estart"
+mode $mode_i3 {
+	bindsym b exec --no-startup-id $fehbg, mode "default"
+	bindsym k exec --no-startup-id "setxkbmap -option ctrl:swapcaps,compose:ralt", mode "default"
+        bindsym r reload
+        bindsym Shift+r exec "cd ~/.config/i3/; make; i3-msg restart"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Ctrl+g mode "default"
+}
+bindsym $mod+BackSpace mode $mode_i3
 
 # a "launcher" mode to kick off commonly used utilities
 set $mode_launcher "LAUNCH: [b]g [e]macs [f]man [k]eepass [m]usic [n]eko [w]eb"
