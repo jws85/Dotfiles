@@ -157,11 +157,11 @@ mode $mode_i3 {
 bindsym $mod+BackSpace mode $mode_i3
 
 # a "launcher" mode to kick off commonly used utilities
-set $mode_launcher "LAUNCH: [b]g [e]macs [f]man [k]eepass [m]usic [n]eko [w]eb"
+set $mode_launcher "LAUNCH: [e]macs [g]imp [f]man [k]eepass [m]usic [n]eko [w]eb"
 mode $mode_launcher {
-	bindsym b exec --no-startup-id $fehbg, mode "default"
 	bindsym e exec "em", mode "default"
 	bindsym f exec "fman", mode "default"
+	bindsym g exec "gimp", mode "default"
 	bindsym k exec "keepassx", mode "default"
 	bindsym m exec "cantata", mode "default"
 	bindsym n mode $mode_cat
