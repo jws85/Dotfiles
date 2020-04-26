@@ -104,22 +104,29 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAUL
 # Exiting any mode can be done with: Return, Escape, Ctrl+g
 # That last one is the effect of permanent Emacs dain bramage ^_^
 
-# "System" menu
+# i3/system menu
 # h/t https://thevaluable.dev/window-manager-mouseless-i3/
-set $mode_system "SYSTEM: [l]ock • [e]xit i3 • [s]uspend • [h]ibernate • [C-r]eboot • [C-s]hutdown"
+set $mode_system "i3: [b]g [k]bd [l]ock [r]eload • [Pause] suspend • [BkSp] exit • [S-BkSp] pwroff • [C-BkSp] reboot"
 mode $mode_system {
-	# Quits i3
-	bindsym e exec --no-startup-id i3-msg exit
+        # Set background
+	bindsym b exec --no-startup-id $fehbg, mode "default"
+        # Set keyboard properly
+	bindsym k exec --no-startup-id "setxkbmap -option ctrl:swapcaps,compose:ralt", mode "default"
 	# Locks i3
 	bindsym l exec --no-startup-id $i3lock, mode "default"
+	# Reloads i3 config
+        bindsym r exec "cd ~/.config/i3/; make; i3-msg restart", mode "default"
+
         # Puts system into suspend (assuming you're infected by systemd)
-	bindsym s exec --no-startup-id $i3lock && systemctl suspend, mode "default"
+	bindsym Pause exec --no-startup-id $i3lock && systemctl suspend, mode "default"
         # Puts system into hibernate (assuming systemd)
-	bindsym h exec --no-startup-id $i3lock && systemctl hibernate, mode "default"
+	bindsym Shift+Pause exec --no-startup-id $i3lock && systemctl hibernate, mode "default"
+        # Quits i3
+	bindsym BackSpace exec --no-startup-id i3-msg exit
 	# Powers the system off (assuming systemd)
-        bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i
+        bindsym Shift+BackSpace exec --no-startup-id systemctl poweroff -i
 	# Reboots the system (assuming systemd)
-        bindsym Ctrl+r exec --no-startup-id systemctl reboot -i
+        bindsym Ctrl+BackSpace exec --no-startup-id systemctl reboot -i
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -142,22 +149,8 @@ mode $mode_sound {
 }
 bindsym $mod+z mode $mode_sound
 
-# perform i3-related actions... mostly
-set $mode_i3 "i3: [b]g [k]eyboard [r]eload [R]estart"
-mode $mode_i3 {
-	bindsym b exec --no-startup-id $fehbg, mode "default"
-	bindsym k exec --no-startup-id "setxkbmap -option ctrl:swapcaps,compose:ralt", mode "default"
-        bindsym r reload
-        bindsym Shift+r exec "cd ~/.config/i3/; make; i3-msg restart"
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym Ctrl+g mode "default"
-}
-bindsym $mod+BackSpace mode $mode_i3
-
 # a "launcher" mode to kick off commonly used utilities
-set $mode_launcher "LAUNCH: [e]macs [g]imp [f]man [k]eepass [m]usic [n]eko [w]eb"
+set $mode_launcher "LAUNCH: [e]macs • [g]imp • [f]man • [k]eepass • [m]usic • [n]eko • [w]eb"
 mode $mode_launcher {
 	bindsym e exec "em", mode "default"
 	bindsym f exec "fman", mode "default"
