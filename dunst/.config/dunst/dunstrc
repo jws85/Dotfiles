@@ -7,7 +7,13 @@
     #   %b  body
     #   %i  iconname (including its path)
     #   %I  iconname (without its path)
-    format = "%s %b"
+    format = "<b>%s</b>\n%b"
+    word_wrap = yes
+
+    icon_position = left
+    max_icon_size = 32
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices
+    show_indicators = yes
 
     # Sort messages by urgency
     sort = yes
@@ -25,8 +31,8 @@
     # key to redisplay last message(s)
     history_key = grave
 
-    geometry = "0x3-5+25"
-
+    geometry = "500x5-5+35"
+    notification_height = 0
     padding = 2
     horizontal_padding = 8
     frame_width = 1
@@ -36,50 +42,24 @@
     # Set to 0 to disable.
     idle_threshold = 120
 
+    browser = /usr/bin/firefox -new-tab
+
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
-    background = "#282828"
-    foreground = "#458588"
-    frame_color = "#458588"
+    background = "#1b1d1e"
+    foreground = "#6c9ef8"
+    frame_color = "#6c9ef8"
     timeout = 6
 
 [urgency_normal]
-    background = "#282828"
-    foreground = "#a89984"
-    frame_color = "#a89984"
+    background = "#1b1d1e"
+    foreground = "#dddddd"
+    frame_color = "#dddddd"
     timeout = 6
 
 [urgency_critical]
-    background = "#282828"
-    foreground = "#cc241d"
-    frame_color = "#cc241d"
+    background = "#1b1d1e"
+    foreground = "#d02b61"
+    frame_color = "#d02b61"
     timeout = 0
-
-
-# Every section that isn't one of the above is interpreted as a rules
-# to override settings for certain messages.
-# Messages can be matched by 'appname', 'summary', 'body' or 'icon'
-# and you can override the 'timeout', 'urgency', 'foreground', 'background'
-# and 'format'.
-# Shell-like globbing will get expanded.
-
-#[signed_on]
-#    appname = Pidgin
-#    summary = "*signed on*"
-#    urgency = low
-#
-#[signed_off]
-#    appname = Pidgin
-#    summary = *signed off*
-#    urgency = low
-#
-#[says]
-#    appname = Pidgin
-#    summary = *says*
-#    urgency = critical
-#
-#[twitter]
-#    appname = Pidgin
-#    summary = *twitter.com*
-#    urgency = normal
