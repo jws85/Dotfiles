@@ -13,6 +13,7 @@
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
     - i3
+    - dunst
 
 - name: Copy default config.json if needed
   copy: src=~/.config/i3/config.sample.json dest=~/.config/i3/config.json force=no
