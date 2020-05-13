@@ -61,6 +61,14 @@
     - vim-nox
     - zsh
 
+- name: Remove packages I don't want
+  apt: name={{ item }} state=absent
+  become: yes
+  with_items:
+    # Causes problems with Firefox where I have to stop my workflow to restart it.
+    # *I* am in control of my computer, and *I* choose when to update.
+    - unattended-upgrades
+
 - name: Ensure directories exist
   file: path={{ item }} state=directory
   with_items:
