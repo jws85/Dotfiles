@@ -19,8 +19,8 @@
         "background": "#1b1d1e",
         "statusline": "#dddddd",
         "separator": "#808080",
-        "active": "#da8548",
-        "focus": "#6c9ef8",
+        "focus": "#a9a1e1",
+        "active": "#6c9ef8",
         "urgent": "#d02b61"
     }
 }
