@@ -11,7 +11,7 @@ if [ ! -f $CONFIG ]; then
 fi
 
 # Get the currently open workspaces in one array, and sort
-CURRWK=$( i3-msg -t get_workspaces | jq -r 'map(.name) | .[]' )
+CURRWK=$( i3-msg -t get_workspaces | jq -r 'sort_by(.num) | map(.name) | .[]' )
 # Get the max numbered open workspace
 NUMWK=$( i3-msg -t get_workspaces | jq 'map(.num) | max' )
 
