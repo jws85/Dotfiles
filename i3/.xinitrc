@@ -3,6 +3,9 @@
 # Swap Caps Lock and Control; set Right Alt to Compose
 setxkbmap -option ctrl:swapcaps,compose:ralt
 
+# Keep the N "clipboards" synced up
+autocutsel -s PRIMARY &
+
 # Compositor
 compton -b
 

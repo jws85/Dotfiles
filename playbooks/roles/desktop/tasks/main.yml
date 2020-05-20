@@ -37,6 +37,7 @@
   become: yes
   with_items:
     - alacritty
+    - autocutsel
     - emacs26
     - feh
     - filezilla
