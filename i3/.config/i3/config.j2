@@ -97,8 +97,8 @@ bindsym XF86AudioStop exec --no-startup-id "mpc stop"
 bindsym XF86AudioPrev exec --no-startup-id "mpc prev"
 bindsym XF86AudioNext exec --no-startup-id "mpc next"
 bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -3%"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +3%"
 
 # Different modes
 # Exiting any mode can be done with: Return, Escape, Ctrl+g
@@ -136,7 +136,7 @@ bindsym $mod+Escape mode $mode_system
 
 # change sound/media settings... for keyboards that don't have media keys
 # lookin' atcha, Thinkpad X260 >.<
-set $mode_sound "SOUND:  play/pause •  stop •  prev •  next"
+set $mode_sound "SOUND:  play/pause •  stop •  prev •  next • [-] vol.dn • [+] vol.up • [BkSp] mute"
 mode $mode_sound {
 	bindsym Up exec --no-startup-id "mpc stop", mode "default"
 	bindsym Down exec --no-startup-id "mpc toggle", mode "default"
@@ -147,6 +147,11 @@ mode $mode_sound {
 	bindsym n exec --no-startup-id "mpc next"
 	bindsym space exec --no-startup-id "mpc toggle", mode "default"
 	bindsym slash exec --no-startup-id "mpd-queue-search", mode "default"
+
+	bindsym BackSpace exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle", mode "default"
+        bindsym minus exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -3%"
+        bindsym equal exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +3%"
+        bindsym Shift+equal exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +3%"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
