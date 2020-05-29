@@ -39,7 +39,7 @@ bindsym $mod+Ctrl+k resize shrink height 10px or 5ppt
 bindsym $mod+Ctrl+l resize grow width 10px or 5ppt
 
 ## enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+m fullscreen toggle
 
 # change container layout (stacked, tabbed, split)
 bindsym $mod+s layout stacking
@@ -49,7 +49,7 @@ bindsym $mod+bar split h
 bindsym $mod+backslash split h
 
 # toggle tiling / floating
-bindsym $mod+Shift+f floating toggle
+bindsym $mod+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+o focus mode_toggle
@@ -188,7 +188,7 @@ mode $mode_cat {
 }
 
 # move window, mostly intended for floating windows
-set $mode_move "MOVE: h/ left • j/ down • k/ up • l/ right"
+set $mode_move "MOVE: h/ left • j/ down • k/ up • l/ right • [c]enter • [r]esize"
 mode $mode_move {
         bindsym h move left
         bindsym j move down
@@ -214,10 +214,10 @@ mode $mode_move {
         bindsym Escape mode "default"
         bindsym Ctrl+g mode "default"
 }
-bindsym $mod+m mode $mode_move
+bindsym $mod+Shift+m mode $mode_move
 
 # resize window, again, mostly intended for floating windows
-set $mode_resize "RESIZE: h/ left • j/ down • k/ up • l/ right"
+set $mode_resize "RESIZE: h/ left • j/ down • k/ up • l/ right • [m]ove"
 mode $mode_resize {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
@@ -235,7 +235,7 @@ mode $mode_resize {
         bindsym Escape mode "default"
         bindsym Ctrl+g mode "default"
 }
-bindsym $mod+r mode $mode_resize
+bindsym $mod+Shift+r mode $mode_resize
 
 client.focused {{ colors.focus }} {{ colors.focus }} {{ colors.background }} {{ colors.focus }} {{ colors.focus }}
 client.focused_inactive {{ colors.active }} {{ colors.active }} {{ colors.background }} {{ colors.active }} {{ colors.active }}
