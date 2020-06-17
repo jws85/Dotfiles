@@ -6,8 +6,6 @@ lines=$( echo "$mpd_status" | wc | awk '{print $1}' )
 case $BLOCK_BUTTON in
   1) mpc toggle > /dev/null 2>&1 ;; # left click, toggle play/pause
   3) mpc stop > /dev/null 2>&1 ;;   # right click, stop
-  4) mpc next > /dev/null 2>&1 ;;   # scroll up, next song
-  5) mpc prev > /dev/null 2>&1 ;;   # scroll down, previous song
 esac
 
 icon=""
