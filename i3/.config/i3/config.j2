@@ -1,6 +1,6 @@
 set $mod Mod4
-set $font {{ font.face }}
-set $fontSize {{ font.size }}
+set $font {{ font.face or 'Fira Code' }}
+set $fontSize {{ font.size or 10 }}
 
 # Lock application
 set $i3lock i3lock {{ utilities.i3lock  or '-c 00547f' }}
