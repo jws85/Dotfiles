@@ -3,7 +3,7 @@ set $font {{ font.face }}
 set $fontSize {{ font.size }}
 
 # Lock application
-set $i3lock i3lock -ti ~/.config/i3/tiling.png -c 00547f
+set $i3lock i3lock {{ utilities.i3lock  or '-c 00547f' }}
 # Wallpaper application
 set $fehbg feh --bg-scale ~/.wallpaper
 
