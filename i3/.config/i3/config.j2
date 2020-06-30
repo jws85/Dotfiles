@@ -166,7 +166,7 @@ mode $mode_sound {
 bindsym $mod+z mode $mode_sound
 
 # a "launcher" mode to kick off commonly used utilities
-set $mode_launcher "LAUNCH: [e]macs • [g]imp • [f]man • [k]eepass • [m]usic • [n]eko • [w]eb"
+set $mode_launcher "LAUNCH: [e]macs • [g]imp • [f]man • [k]eepass • [m]usic • [n]eko • [r]etroarch • [w]eb"
 mode $mode_launcher {
 	bindsym e exec "em", mode "default"
 	bindsym f exec "fman", mode "default"
@@ -174,6 +174,7 @@ mode $mode_launcher {
 	bindsym k exec "keepassx", mode "default"
 	bindsym m exec "cantata", mode "default"
 	bindsym n mode $mode_cat
+	bindsym r exec "retroarch", mode "default"
 	bindsym w exec "sensible-browser", mode "default"
 
         bindsym Return mode "default"
