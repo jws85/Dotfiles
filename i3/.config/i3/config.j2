@@ -125,8 +125,6 @@ mode $mode_system {
 
         # Puts system into suspend (assuming you're infected by systemd)
 	bindsym Pause exec --no-startup-id $i3lock && systemctl suspend, mode "default"
-        # Puts system into hibernate (assuming systemd)
-	bindsym Shift+Pause exec --no-startup-id $i3lock && systemctl hibernate, mode "default"
         # Quits i3
 	bindsym BackSpace exec --no-startup-id i3-msg exit
 	# Powers the system off (assuming systemd)
