@@ -1,8 +1,4 @@
 {
-    "font": {
-        "face": "monospace",
-        "size": 10
-    },
     "workspaces": [
         "1:",
         "2:",
