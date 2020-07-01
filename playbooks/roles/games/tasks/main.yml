@@ -21,5 +21,13 @@
   apt: name={{ item }}
   become: yes
   with_items:
+    - libretro-2048
+    - libretro-bsnes-balanced
+    - libretro-bsnes-performance
+    - libretro-genesisplusgx
+    - libretro-gambatte
+    - libretro-mgba
+    - libretro-mupen64plus
+    - libretro-nestopia
     - nethack-console
     - retroarch
