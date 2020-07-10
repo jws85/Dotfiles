@@ -1,2 +1,2 @@
 all:
-	./genconfig config.j2 config.json >| config
+	torii config.j2 config.json >| config

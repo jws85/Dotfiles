@@ -8,7 +8,11 @@
       - jq  # helper scripts
       - udiskie
       - autorandr
-      - python3-jinja2  # generating i3 config
+
+- name: Install torii
+  shell: pipx install git+https://github.com/jws85/torii.git
+  args:
+    creates: ~/.local/bin/torii
 
 - name: Symlink i3 dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
