@@ -33,48 +33,48 @@
   when: ppa.changed
 
 - name: Install GUI applications via apt
-  apt: name={{ item }}
   become: yes
-  with_items:
-    - alacritty
-    - autocutsel
-    - emacs26
-    - feh
-    - filezilla
-    - firefox
-    - flameshot
-    - fman
-    - fonts-firacode
-    - gimp
-    - git-gui
-    - gitg
-    - keepassx
-    - keynav
-    - mpv
-    - oneko
-    - qalculate-gtk
-    - redshift-gtk
-    - remmina
-    - rofi
-    - python3-qtpy # for em
-    - scrot
-    - syncthing
-    - syncthing-gtk
-    - tilda
-    - unclutter
-    - vivaldi-stable
-    - wireshark
-    - xsel
-    - zeal
+  apt:
+    name:
+      - alacritty
+      - autocutsel
+      - emacs26
+      - feh
+      - filezilla
+      - firefox
+      - flameshot
+      - fman
+      - fonts-firacode
+      - gimp
+      - git-gui
+      - gitg
+      - keepassx
+      - keynav
+      - mpv
+      - oneko
+      - qalculate-gtk
+      - redshift-gtk
+      - remmina
+      - rofi
+      - python3-qtpy # for em
+      - scrot
+      - syncthing
+      - syncthing-gtk
+      - tilda
+      - unclutter
+      - vivaldi-stable
+      - wireshark
+      - xsel
+      - zeal
 
 - name: Install MPD applications
-  apt: name={{ item }}
   become: yes
-  with_items:
-    - mpd
-    - mpc
-    - ncmpcpp
-    - cantata
+  apt:
+    name:
+      - mpd
+      - mpc
+      - ncmpcpp
+      - cantata
 
 # I prefer to run MPD against my music dir, as my user
 - name: Disable system MPD daemon

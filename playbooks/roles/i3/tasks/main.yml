@@ -1,14 +1,14 @@
 ---
 - name: Install i3 via apt
-  apt: name={{ item }}
   become: yes
-  with_items:
-    - i3
-    - i3blocks
-    - jq  # helper scripts
-    - udiskie
-    - autorandr
-    - python3-jinja2  # generating i3 config
+  apt:
+    name:
+      - i3
+      - i3blocks
+      - jq  # helper scripts
+      - udiskie
+      - autorandr
+      - python3-jinja2  # generating i3 config
 
 - name: Symlink i3 dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}

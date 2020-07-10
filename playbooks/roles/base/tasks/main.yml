@@ -5,13 +5,13 @@
     dest: ~/.hushlogin
 
 - name: Install Apt prerequisites
-  apt: name={{ item }}
   become: yes
-  with_items:
-    - apt-transport-https
-    - ca-certificates
-    - curl
-    - software-properties-common
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
 
 - name: Add mosh PPA key
   apt_key:
@@ -32,42 +32,44 @@
   when: ppa.changed
 
 - name: Install packages
-  apt: name={{ item }}
   become: yes
-  with_items:
-    - cowsay
-    - cmatrix
-    - figlet
-    - fortunes
-    - fping
-    - f3
-    - htop
-    - inxi
-    - iotop
-    - iftop
-    - iptraf
-    - irssi
-    - lolcat
-    - minicom
-    - mosh
-    - nmap
-    - openssh-server
-    - silversearcher-ag
-    - speedtest-cli
-    - sshfs
-    - stow
-    - tig
-    - tmux
-    - vim-nox
-    - zsh
+  apt:
+    name:
+      - cowsay
+      - cmatrix
+      - figlet
+      - fortunes
+      - fping
+      - f3
+      - htop
+      - inxi
+      - iotop
+      - iftop
+      - iptraf
+      - irssi
+      - lolcat
+      - minicom
+      - mosh
+      - nmap
+      - openssh-server
+      - silversearcher-ag
+      - speedtest-cli
+      - sshfs
+      - stow
+      - tig
+      - tmux
+      - vim-nox
+      - zsh
 
+# Removing unattended-upgrades because it upgrades Firefox from under me
+# Removing snapd because I hate the ~/snap and df clutter
 - name: Remove packages I don't want
-  apt: name={{ item }} state=absent
   become: yes
-  with_items:
-    # Causes problems with Firefox where I have to stop my workflow to restart it.
-    # *I* am in control of my computer, and *I* choose when to update.
-    - unattended-upgrades
+  apt:
+    name:
+      - unattended-upgrades
+      - snapd
+    state: absent
 
 - name: Ensure directories exist
   file: path={{ item }} state=directory

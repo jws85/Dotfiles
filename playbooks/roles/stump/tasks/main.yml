@@ -1,14 +1,14 @@
 ---
 - name: Install minimal desktop environment applications
-  apt: name={{ item }}
   become: yes
-  with_items:
-    - alsa-utils
-    - compton
-    - dunst
-    - i3lock-fancy
-    - lightdm-gtk-greeter
-    - pulseaudio-utils
+  apt:
+    name:
+      - alsa-utils
+      - compton
+      - dunst
+      - i3lock-fancy
+      - lightdm-gtk-greeter
+      - pulseaudio-utils
 
 - name: Symlink GUI application dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
