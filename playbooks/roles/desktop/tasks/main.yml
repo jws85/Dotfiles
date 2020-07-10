@@ -56,7 +56,6 @@
       - redshift-gtk
       - remmina
       - rofi
-      - python3-qtpy # for em
       - scrot
       - syncthing
       - syncthing-gtk
@@ -111,15 +110,7 @@
   with_items:
     - ~/.mpd/playlists
 
-- name: Download em client
-  git:
-    repo: https://github.com/jws85/em
-    dest: ~/.local/source/em
-    update: no
-
-- name: Install em client
-  make:
-    chdir: ~/.local/source/em
-    target: install
-    params:
-      PREFIX: ~/.local
+- name: Install em
+  shell: pipx install git+https://github.com/jws85/em.git
+  args:
+    creates: ~/.local/bin/em
