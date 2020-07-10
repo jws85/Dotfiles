@@ -88,7 +88,7 @@
     name: mpd
     state: started
     enabled: yes
-    user: yes # deprecated as of 2.7
+    scope: user
 
 - name: Symlink GUI application dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
