@@ -29,6 +29,9 @@ if [ ! -d $HOME/Dotfiles ]; then
     cd $HOME
     git clone https://github.com/jws85/Dotfiles
     cd Dotfiles
+else
+    cd $HOME/Dotfiles
+    git pull
 fi
 
 # Figure out which playbook to run
