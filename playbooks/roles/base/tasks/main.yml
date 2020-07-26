@@ -117,7 +117,7 @@
     - zprofile
     - zshenv
     - zshrc
-    - .p10k.zsh
+    - p10k.zsh
 
 - name: Symlink dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
