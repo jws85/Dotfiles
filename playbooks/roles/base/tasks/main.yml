@@ -37,6 +37,7 @@
     name:
       - cowsay
       - cmatrix
+      - entr
       - figlet
       - fortunes
       - fping
