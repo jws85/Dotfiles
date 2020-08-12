@@ -44,6 +44,7 @@
       - keepassx
       - mpv
       - oneko
+      - python3-tk # for em
       - qalculate-gtk
       - remmina
       - sqlite3 # for org-roam in emacs
