@@ -1,11 +1,11 @@
 ---
-- name: Add Ubuntu PPA repository keys
+- name: Add repository keys by ID
   apt_key: keyserver=keyserver.ubuntu.com id='{{ item }}'
   become: yes
   with_items:
     - 9CFAF7EB # fman
 
-- name: Add other repository keys
+- name: Add repository keys by URL
   apt_key: state=present url='{{ item }}'
   become: yes
   with_items:
