@@ -53,13 +53,13 @@
       - mosh
       - nmap
       - openssh-server
-      - silversearcher-ag
+      - ripgrep
       - speedtest-cli
       - sshfs
       - stow
       - tig
       - tmux
-      - vim-nox
+      - neovim
       - zsh
 
 # Removing unattended-upgrades because it upgrades Firefox from under me
