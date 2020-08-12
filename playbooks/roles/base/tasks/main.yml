@@ -13,11 +13,6 @@
       - curl
       - software-properties-common
 
-- name: Update package cache
-  apt: update_cache=yes
-  become: yes
-  when: ppa.changed
-
 - name: Install packages
   become: yes
   apt:
