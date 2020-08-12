@@ -11,7 +11,7 @@
 
 "" Script/plugin installer ==========================================
 
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 " sane defaults
 Plug 'tpope/vim-sensible'

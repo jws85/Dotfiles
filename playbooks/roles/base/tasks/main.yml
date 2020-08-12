@@ -52,6 +52,7 @@
     - ~/.local/lib/pkgconfig
     - ~/.local/share/man
     - ~/.local/source
+    - ~/.config/nvim/autoload
 
 - name: Symlink provisioning script
   file: src="~/Dotfiles/provision" dest="~/.local/bin/provision" state=link
@@ -91,6 +92,13 @@
   with_items:
     - git
     - tmux
+    - vim
+
+- name: Install vim-plug
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: ~/.config/nvim/autoload/plug.vim
+    mode: 0644
 
 - name: Symlink tmux dotfile
   file: src='~/.tmux/tmux.conf' dest='~/.tmux.conf' state=link
