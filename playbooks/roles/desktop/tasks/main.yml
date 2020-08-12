@@ -32,9 +32,7 @@
   apt:
     name:
       - alacritty
-      - autocutsel
       - emacs-snapshot
-      - feh
       - filezilla
       - firefox
       - flameshot
@@ -44,19 +42,13 @@
       - git-gui
       - gitg
       - keepassx
-      - keynav
       - mpv
       - oneko
       - qalculate-gtk
-      - redshift-gtk
       - remmina
-      - rofi
-      - scrot
       - sqlite3 # for org-roam in emacs
       - syncthing
       - syncthing-gtk
-      - tilda
-      - unclutter
       - wireshark
       - xsel
       - zeal
@@ -69,6 +61,11 @@
       - mpc
       - ncmpcpp
       - cantata
+
+- name: Ensure directories exist
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/.mpd/playlists
 
 # I prefer to run MPD against my music dir, as my user
 - name: Disable system MPD daemon
@@ -90,20 +87,6 @@
     - alacritty
     - fman
     - mpd
-    - redshift
-    - rofi
-
-# [FIXME] Tilda writes a regular file on top of the symlink on close,
-# so I can't stow it, so annoying!!!!!!!
-- name: Copy tilda configuration file
-  copy:
-    src: ~/Dotfiles/tilda/.config/tilda/config_0
-    dest: ~/.config/tilda/config_0
-
-- name: Ensure directories exist
-  file: path={{ item }} state=directory
-  with_items:
-    - ~/.mpd/playlists
 
 - name: Install em
   shell: pipx install git+https://github.com/jws85/em.git
