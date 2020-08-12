@@ -3,13 +3,14 @@
   apt_key: keyserver=keyserver.ubuntu.com id='{{ item }}'
   become: yes
   with_items:
-    - 873503A090750CDAEB0754D93FF0E01EEAAFC9CD # ppa:kelleyk/emacs
     - 9CFAF7EB # fman
 
 - name: Add other repository keys
   apt_key: state=present url='{{ item }}'
   become: yes
   with_items:
+    # ubuntu-elisp ppa
+    - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0d7bae435adbc6c3e4918a74062d648fd62fce72'
     - https://syncthing.net/release-key.txt
     - https://download.opensuse.org/repositories/home:kozec/xUbuntu_18.04/Release.key # syncthing-gtk
 
@@ -18,7 +19,7 @@
   register: ppa
   become: yes
   with_items:
-    - 'ppa:kelleyk/emacs'
+    - 'ppa:ubuntu-elisp/ppa'
     - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
     - 'deb https://apt.syncthing.net/ syncthing stable'
     - 'deb http://download.opensuse.org/repositories/home:/kozec/xUbuntu_18.04/ /'
@@ -34,7 +35,7 @@
     name:
       - alacritty
       - autocutsel
-      - emacs26
+      - emacs-snapshot
       - feh
       - filezilla
       - firefox
