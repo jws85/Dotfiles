@@ -12,7 +12,6 @@
     # ubuntu-elisp ppa
     - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0d7bae435adbc6c3e4918a74062d648fd62fce72'
     - https://syncthing.net/release-key.txt
-    - https://download.opensuse.org/repositories/home:kozec/xUbuntu_18.04/Release.key # syncthing-gtk
 
 - name: Add repositories
   apt_repository: repo='{{ item }}'
@@ -22,7 +21,6 @@
     - 'ppa:ubuntu-elisp/ppa'
     - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
     - 'deb https://apt.syncthing.net/ syncthing stable'
-    - 'deb http://download.opensuse.org/repositories/home:/kozec/xUbuntu_18.04/ /'
 
 - name: Update package cache
   apt: update_cache=yes
