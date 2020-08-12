@@ -1,0 +1,12 @@
+---
+- name: Install KVM packages
+  become: yes
+  apt:
+    name:
+      - bridge-utils
+      - cpu-checker
+      - libvirt-bin
+      - qemu-kvm
+      - virtinst
+      - libosinfo-bin   # osquery-info
+      - uml-utilities

@@ -15,20 +15,6 @@
   become: yes
   when: ppa.changed
 
-# You can use VDE to 'ease' network configuration of VMs on laptops.
-- name: Install KVM packages
-  become: yes
-  apt:
-    name:
-      - bridge-utils
-      - cpu-checker
-      - libvirt-bin
-      - qemu-kvm
-      - virtinst
-      - libosinfo-bin   # osquery-info
-      - uml-utilities
-      - vde2
-
 - name: Install Docker packages
   become: yes
   apt:
