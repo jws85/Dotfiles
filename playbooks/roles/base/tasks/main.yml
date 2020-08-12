@@ -62,16 +62,6 @@
       - neovim
       - zsh
 
-# Removing unattended-upgrades because it upgrades Firefox from under me
-# Removing snapd because I hate the ~/snap and df clutter
-- name: Remove packages I don't want
-  become: yes
-  apt:
-    name:
-      - unattended-upgrades
-      - snapd
-    state: absent
-
 - name: Ensure directories exist
   file: path={{ item }} state=directory
   with_items:
