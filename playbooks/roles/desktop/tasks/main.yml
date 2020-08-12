@@ -10,7 +10,6 @@
   apt_key: state=present url='{{ item }}'
   become: yes
   with_items:
-    - https://repo.vivaldi.com/stable/linux_signing_key.pub
     - https://syncthing.net/release-key.txt
     - https://download.opensuse.org/repositories/home:kozec/xUbuntu_18.04/Release.key # syncthing-gtk
 
@@ -21,7 +20,6 @@
   with_items:
     - 'ppa:kelleyk/emacs'
     - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
-    - 'deb http://repo.vivaldi.com/stable/deb/ stable main'
     - 'deb https://apt.syncthing.net/ syncthing stable'
     - 'deb http://download.opensuse.org/repositories/home:/kozec/xUbuntu_18.04/ /'
 
@@ -59,7 +57,6 @@
       - syncthing-gtk
       - tilda
       - unclutter
-      - vivaldi-stable
       - wireshark
       - xsel
       - zeal
