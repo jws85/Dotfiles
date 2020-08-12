@@ -53,6 +53,7 @@
       - remmina
       - rofi
       - scrot
+      - sqlite3 # for org-roam in emacs
       - syncthing
       - syncthing-gtk
       - tilda
