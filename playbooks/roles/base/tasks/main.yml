@@ -45,7 +45,7 @@
       - zsh
 
 - name: Ensure directories exist
-  file: path={{ item }} state=directory
+  file: path={{ item }} state=directory mode=755
   with_items:
     - ~/.local/bin
     - ~/.local/include
@@ -67,6 +67,7 @@
   get_url:
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: ~/.vim/autoload/plug.vim
+    mode: 644
 
 - name: Clone emacs setup
   git:
