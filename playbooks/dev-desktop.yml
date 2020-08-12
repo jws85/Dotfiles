@@ -7,7 +7,7 @@
     - build
     - server
     - desktop
-    - i3
+    - gnome
   post_tasks:
     - name: Create ~/.playbook.provision
       copy: content=dev-desktop dest=~/.playbook.provision

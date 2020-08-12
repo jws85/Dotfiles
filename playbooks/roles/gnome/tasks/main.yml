@@ -1,0 +1,21 @@
+# Settings for GNOME 3 as available in Pop_OS 20.04
+#
+# To get dconf settings:
+#  1) run "dconf watch /" in a terminal
+#  2) change the setting "normally"
+#  3) see what got changed
+---
+- name: Install GNOME packages
+  become: yes
+  apt:
+    name:
+      - gnome-tweak-tool
+
+- name: Set fman as default file manager
+  become: no
+  shell: xdg-mime default fman.desktop inode/directory application/x-gnome-saved-search
+  args:
+    warn: no
+
+- name: Keyboard customization
+  dconf: key='/org/gnome/desktop/input-sources/xkb-options' value="['ctrl:swapcaps', 'compose:ralt']"

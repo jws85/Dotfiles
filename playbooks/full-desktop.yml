@@ -8,7 +8,7 @@
     - server
     - desktop
     - games
-    - i3
+    - gnome
   post_tasks:
     - name: Create ~/.playbook.provision
       copy: content=full-desktop dest=~/.playbook.provision
