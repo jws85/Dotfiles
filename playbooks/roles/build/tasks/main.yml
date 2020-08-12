@@ -24,3 +24,4 @@
   get_url:
     url: https://git.io/.gdbinit
     dest: ~/.gdbinit
+    mode: 0644

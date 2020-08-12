@@ -6,4 +6,4 @@
     - base
   post_tasks:
     - name: Create ~/.playbook.provision
-      copy: content=base dest=~/.playbook.provision mode=644
+      copy: content=base dest=~/.playbook.provision mode=0644

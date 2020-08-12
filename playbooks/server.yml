@@ -8,4 +8,4 @@
     - kvm
   post_tasks:
     - name: Create ~/.playbook.provision
-      copy: content=server dest=~/.playbook.provision mode=644
+      copy: content=server dest=~/.playbook.provision mode=0644

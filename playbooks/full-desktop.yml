@@ -11,4 +11,4 @@
     - gnome
   post_tasks:
     - name: Create ~/.playbook.provision
-      copy: content=full-desktop dest=~/.playbook.provision mode=644
+      copy: content=full-desktop dest=~/.playbook.provision mode=0644

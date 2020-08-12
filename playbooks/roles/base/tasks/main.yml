@@ -45,7 +45,7 @@
       - zsh
 
 - name: Ensure directories exist
-  file: path={{ item }} state=directory mode=755
+  file: path={{ item }} state=directory mode=0755
   with_items:
     - ~/.local/bin
     - ~/.local/include
