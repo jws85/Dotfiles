@@ -6,10 +6,16 @@ command -v git >/dev/null 2>&1 || {
     sudo apt-get install git
 }
 
-HAVE_GIT=$( dpkg-query -W --showformat='${Status}\n' 'python3-pip' | grep "install ok installed" )
-if [ "" == "$HAVE_GIT" ]; then
+HAVE_PIP=$( dpkg-query -W --showformat='${Status}\n' 'python3-pip' | grep "install ok installed" )
+if [ "" == "$HAVE_PIP" ]; then
     echo "Installing pip"
     sudo apt-get install python3-pip
+fi
+
+HAVE_VENV=$( dpkg-query -W --showformat='${Status}\n' 'python3-venv' | grep "install ok installed" )
+if [ "" == "$HAVE_VENV" ]; then
+    echo "Installing python3-venv"
+    sudo apt-get install python3-venv
 fi
 
 command -v pipx >/dev/null 2>&1 || {
