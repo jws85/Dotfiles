@@ -12,6 +12,11 @@
       - php-cli
       - ubuntu-dev-tools
 
+- name: Install poetry
+  shell: pipx install poetry
+  args:
+    creates: ~/.local/bin/poetry
+
 # Hopefully there's never a problem with getcomposer.org :/
 - name: Install Composer
   shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
