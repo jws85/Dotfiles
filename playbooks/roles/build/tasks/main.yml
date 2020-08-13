@@ -12,6 +12,13 @@
       - php-cli
       - ubuntu-dev-tools
 
+- name: Install npm and node
+  become: yes
+  apt:
+    name:
+      - nodejs
+      - npm
+
 - name: Install poetry
   shell: pipx install poetry
   args:
