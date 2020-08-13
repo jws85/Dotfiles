@@ -35,6 +35,7 @@
       - mosh
       - nmap
       - openssh-server
+      - renameutils
       - ripgrep
       - speedtest-cli
       - sshfs
