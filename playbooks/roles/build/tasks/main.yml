@@ -24,6 +24,14 @@
   args:
     creates: ~/.local/bin/poetry
 
+- name: Install ptpython
+  shell: pipx install ptpython
+  args:
+    creates: ~/.local/bin/ptpython
+
+- name: Symlink Python dotfiles
+  shell: stow -d ~/Dotfiles -t ~ python
+
 # Hopefully there's never a problem with getcomposer.org :/
 - name: Install Composer
   shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
