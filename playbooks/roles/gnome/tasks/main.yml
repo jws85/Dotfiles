@@ -32,6 +32,6 @@
     value: "{{ item.value }}"
   loop:
     # S-RET: Terminal
-    - { key: 'custom0/action', value: "'alacritty'" }
+    - { key: 'custom0/command', value: "'alacritty'" }
     - { key: 'custom0/binding', value: "'<Super>semicolon'" }
     - { key: 'custom0/name', value: "'Terminal'" }
