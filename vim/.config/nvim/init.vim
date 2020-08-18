@@ -16,6 +16,12 @@ call plug#begin(stdpath('data') . '/plugged')
 " sane defaults
 Plug 'tpope/vim-sensible'
 
+let mapleader = ' '
+
+" language modes ----------------------------------------------------
+
+Plug 'sheerun/vim-polyglot'
+
 " appearance --------------------------------------------------------
 
 " brings in a few colorschemes
@@ -23,6 +29,12 @@ Plug 'rafi/awesome-vim-colorschemes'
 
 " statusbar
 Plug 'itchyny/lightline.vim'
+
+" opening -----------------------------------------------------------
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+nnoremap <silent> <Leader><Space> :Files<cr>
 
 " editing -----------------------------------------------------------
 
@@ -32,14 +44,14 @@ Plug 'tpope/vim-surround'
 " autodetect indentation settings
 Plug 'tpope/vim-sleuth'
 
-" Move around file
-Plug 'easymotion/vim-easymotion'
+" extend repeat to more things
+Plug 'tpope/vim-repeat'
 
-" project-wide search, á la Sublime Text and friends
-Plug 'ctrlpvim/ctrlp.vim'
+" various movement things
+Plug 'tpope/vim-unimpaired'
 
 " auto-comment/auto-uncomment
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
