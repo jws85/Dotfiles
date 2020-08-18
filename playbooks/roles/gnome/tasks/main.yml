@@ -35,3 +35,18 @@
     - { key: 'custom0/command', value: "'alacritty'" }
     - { key: 'custom0/binding', value: "'<Super>semicolon'" }
     - { key: 'custom0/name', value: "'Terminal'" }
+
+- name: Set Super-PrtSc to open flameshot
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/{{ item.key }}"
+    value: "{{ item.value }}"
+  loop:
+    # S-PrtSc: Flameshot
+    - { key: 'custom1/command', value: "'flameshot gui'" }
+    - { key: 'custom1/binding', value: "'<Super>Print'" }
+    - { key: 'custom1/name', value: "'Screenshot with Flameshot'" }
+
+- name: Add all of my custom keybindings
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
