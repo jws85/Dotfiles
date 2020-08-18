@@ -28,6 +28,7 @@
       - inxi
       - iotop
       - iftop
+      - ipcalc
       - iptraf
       - irssi
       - lolcat
