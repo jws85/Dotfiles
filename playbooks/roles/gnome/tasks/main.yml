@@ -25,3 +25,13 @@
   loop:
     - '/org/gnome/desktop/interface/clock-format'
     - '/org/gtk/settings/file-chooser/clock-format'
+
+- name: Set Super-semicolon to open alacritty
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/{{ item.key }}"
+    value: "{{ item.value }}"
+  loop:
+    # S-RET: Terminal
+    - { key: 'custom0/action', value: "'alacritty'" }
+    - { key: 'custom0/binding', value: "'<Super>semicolon'" }
+    - { key: 'custom0/name', value: "'Terminal'" }
