@@ -20,6 +20,9 @@
 - name: Keyboard customization
   dconf: key='/org/gnome/desktop/input-sources/xkb-options' value="['ctrl:swapcaps', 'compose:ralt']"
 
+- name: Show day of the week on clock
+  dconf: key='/org/gnome/desktop/interface/clock-show-weekday' value="true"
+
 - name: Use 24-hour clock
   dconf: key={{ item }} value="'24h'"
   loop:
