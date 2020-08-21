@@ -24,6 +24,7 @@
       - fortunes
       - fping
       - f3
+      - graphviz
       - htop
       - inxi
       - iotop
