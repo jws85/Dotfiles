@@ -89,6 +89,9 @@
     - fman
     - mpd
 
+- name: Update file associations
+  shell: update-desktop-database ~/.local/share/applications/
+
 - name: Install em
   shell: pipx install git+https://github.com/jws85/em.git
   args:

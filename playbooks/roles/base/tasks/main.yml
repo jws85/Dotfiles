@@ -92,6 +92,7 @@
 - name: Symlink dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
+    - emacs
     - git
     - tmux
     - vim
