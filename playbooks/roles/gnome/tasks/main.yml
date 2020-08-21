@@ -10,6 +10,7 @@
   apt:
     name:
       - gnome-tweak-tool
+      - gnome-shell-pomodoro
 
 - name: Set fman as default file manager
   become: no
