@@ -6,6 +6,6 @@
     - base
     - desktop
     - gnome
-  post_tasks:
+  pre_tasks:
     - name: Create ~/.playbook.provision
       copy: content=min-desktop dest=~/.playbook.provision mode=0644

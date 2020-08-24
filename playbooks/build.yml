@@ -5,6 +5,6 @@
   roles:
     - base
     - build
-  post_tasks:
+  pre_tasks:
     - name: Create ~/.playbook.provision
       copy: content=build dest=~/.playbook.provision mode=0644

@@ -4,6 +4,6 @@
   gather_facts: yes
   roles:
     - base
-  post_tasks:
+  pre_tasks:
     - name: Create ~/.playbook.provision
       copy: content=base dest=~/.playbook.provision mode=0644

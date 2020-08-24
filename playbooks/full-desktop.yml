@@ -9,6 +9,6 @@
     - desktop
     - games
     - gnome
-  post_tasks:
+  pre_tasks:
     - name: Create ~/.playbook.provision
       copy: content=full-desktop dest=~/.playbook.provision mode=0644

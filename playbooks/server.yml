@@ -6,6 +6,6 @@
     - base
     - docker
     - kvm
-  post_tasks:
+  pre_tasks:
     - name: Create ~/.playbook.provision
       copy: content=server dest=~/.playbook.provision mode=0644
