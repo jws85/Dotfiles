@@ -68,6 +68,14 @@
   with_items:
     - ~/.mpd/playlists
 
+# MPD's config must exist before starting the daemon
+- name: Symlink GUI application dotfiles
+  shell: stow -d ~/Dotfiles -t ~ {{ item }}
+  with_items:
+    - alacritty
+    - fman
+    - mpd
+
 # I prefer to run MPD against my music dir, as my user
 - name: Disable system MPD daemon
   become: yes
@@ -81,13 +89,6 @@
     state: started
     enabled: yes
     scope: user
-
-- name: Symlink GUI application dotfiles
-  shell: stow -d ~/Dotfiles -t ~ {{ item }}
-  with_items:
-    - alacritty
-    - fman
-    - mpd
 
 - name: Update file associations
   shell: update-desktop-database ~/.local/share/applications/
