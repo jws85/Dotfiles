@@ -1,8 +1,8 @@
 {
 	"editor": {
-		"args": ["/usr/bin/emacsclient", "-c", "-n", "--alternate-editor=\"\"", "{file}"]
+		"args": ["/home/jws/.local/bin/em", "{file}"]
 	},
 	"terminal": {
-		"args": ["/usr/bin/mate-terminal", "--working-directory={curr_dir}"]
+		"args": ["/usr/bin/alacritty", "--working-directory={curr_dir}"]
 	}
 }
