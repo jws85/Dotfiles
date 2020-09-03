@@ -59,6 +59,7 @@
   apt:
     name:
       - mpd
+      - mpdris2
       - mpc
       - ncmpcpp
       - cantata
