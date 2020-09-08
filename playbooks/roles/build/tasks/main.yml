@@ -65,6 +65,12 @@
     creates: /usr/local/bin/composer
     warn: no
 
+- name: Symlink PHP dotfiles
+  shell: stow -d ~/Dotfiles -t ~ php
+
+- name: Symlink Go dotfiles
+  shell: stow -d ~/Dotfiles -t ~ go
+
 - name: Install gdbinit
   get_url:
     url: https://git.io/.gdbinit
