@@ -1,4 +1,22 @@
 ---
+- name: Add repository keys by URL
+  apt_key: state=present url='{{ item }}'
+  become: yes
+  with_items:
+    - 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key'
+
+- name: Add repositories
+  apt_repository: repo='{{ item }}'
+  register: ppa
+  become: yes
+  with_items:
+    - 'deb https://deb.nodesource.com/node_12.x focal main'
+
+- name: Update package cache
+  apt: update_cache=yes
+  become: yes
+  when: ppa.changed
+
 - name: Install build packages
   become: yes
   apt:
@@ -17,7 +35,6 @@
   apt:
     name:
       - nodejs
-      - npm
 
 - name: Install poetry
   shell: pipx install poetry
