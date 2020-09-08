@@ -36,6 +36,14 @@
     name:
       - nodejs
 
+- name: Create Node global install directory
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/.npm-packages/
+
+- name: Symlink Node dotfiles
+  shell: stow -d ~/Dotfiles -t ~ node
+
 - name: Install poetry
   shell: pipx install poetry
   args:
