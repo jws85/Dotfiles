@@ -23,6 +23,7 @@
     name:
       - apt-file
       - build-essential
+      - clangd
       - gdb
       - git-flow
       - gnupg
