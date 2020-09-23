@@ -1,9 +1,4 @@
 ---
-- name: Update package cache
-  apt: update_cache=yes
-  become: yes
-  when: ppa.changed
-
 - name: Install PHP packages
   become: yes
   apt:
@@ -16,6 +11,13 @@
   become: yes
   args:
     creates: /usr/local/bin/composer
+    warn: no
+
+# Requires NodeJS
+- name: Install Intelephense
+  shell: npm install -g intelephense
+  args:
+    creates: ~/.npm-packages/bin/intelephense
     warn: no
 
 - name: Symlink PHP dotfiles
