@@ -9,5 +9,12 @@
   args:
     creates: ~/.local/bin/ptpython
 
+# Requires NodeJS
+- name: Install Pyright
+  shell: npm install -g pyright
+  args:
+    creates: ~/.npm-packages/bin/pyright
+    warn: no
+
 - name: Symlink Python dotfiles
   shell: stow -d ~/Dotfiles -t ~ python
