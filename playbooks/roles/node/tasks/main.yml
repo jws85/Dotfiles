@@ -1,0 +1,32 @@
+---
+- name: Add repository keys by URL
+  apt_key: state=present url='{{ item }}'
+  become: yes
+  with_items:
+    - 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key'
+
+- name: Add repositories
+  apt_repository: repo='{{ item }}'
+  register: ppa
+  become: yes
+  with_items:
+    - 'deb https://deb.nodesource.com/node_12.x focal main'
+
+- name: Update package cache
+  apt: update_cache=yes
+  become: yes
+  when: ppa.changed
+
+- name: Install npm and node
+  become: yes
+  apt:
+    name:
+      - nodejs
+
+- name: Create Node global install directory
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/.npm-packages/
+
+- name: Symlink Node dotfiles
+  shell: stow -d ~/Dotfiles -t ~ node

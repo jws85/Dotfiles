@@ -4,7 +4,11 @@
   gather_facts: yes
   roles:
     - base
-    - build
+    - c
+    - go
+    - node
+    - php
+    - python
     - docker
     - desktop
     - gnome

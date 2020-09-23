@@ -4,7 +4,11 @@
   gather_facts: yes
   roles:
     - base
-    - build
+    - c
+    - go
+    - node
+    - php
+    - python
   pre_tasks:
     - name: Create ~/.playbook.provision
       copy: content=build dest=~/.playbook.provision mode=0644

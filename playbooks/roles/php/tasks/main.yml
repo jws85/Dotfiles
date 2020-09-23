@@ -1,0 +1,22 @@
+---
+- name: Update package cache
+  apt: update_cache=yes
+  become: yes
+  when: ppa.changed
+
+- name: Install PHP packages
+  become: yes
+  apt:
+    name:
+      - php-cli
+
+# Hopefully there's never a problem with getcomposer.org :/
+- name: Install Composer
+  shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  become: yes
+  args:
+    creates: /usr/local/bin/composer
+    warn: no
+
+- name: Symlink PHP dotfiles
+  shell: stow -d ~/Dotfiles -t ~ php

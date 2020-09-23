@@ -1,0 +1,3 @@
+---
+- name: Symlink Go dotfiles
+  shell: stow -d ~/Dotfiles -t ~ go

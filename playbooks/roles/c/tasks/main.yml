@@ -1,0 +1,16 @@
+---
+- name: Install C packages
+  become: yes
+  apt:
+    name:
+      - build-essential
+      - clangd
+      - gdb
+      - gnupg
+      - pbuilder
+
+- name: Install gdbinit
+  get_url:
+    url: https://git.io/.gdbinit
+    dest: ~/.gdbinit
+    mode: 0644
