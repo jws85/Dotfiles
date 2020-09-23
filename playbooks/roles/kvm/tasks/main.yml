@@ -5,7 +5,7 @@
     name:
       - bridge-utils
       - cpu-checker
-      - libvirt-bin
+      - libvirt-daemon
       - qemu-kvm
       - virtinst
       - libosinfo-bin   # osquery-info
