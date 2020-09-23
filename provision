@@ -57,6 +57,10 @@ if [ "server" == "$1" ]; then
     PLAYBOOK=server
 elif [ "build" == "$1" ]; then
     PLAYBOOK=build
+elif [ "php-build" == "$1" ]; then
+    PLAYBOOK=php-build
+elif [ "python-build" == "$1" ]; then
+    PLAYBOOK=python-build
 elif [ "min-desktop" == "$1" ]; then
     PLAYBOOK=min-desktop
 elif [ "dev-desktop" == "$1" ]; then

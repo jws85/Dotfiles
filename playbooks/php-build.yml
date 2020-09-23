@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: yes
+  roles:
+    - base
+    - c
+    # Many PHP projects are web projects; ergo, they need node
+    # Furthermore, Intelephense (an LSP server) needs node
+    - node
+    - php
+  pre_tasks:
+    - name: Create ~/.playbook.provision
+      copy: content=php-build dest=~/.playbook.provision mode=0644

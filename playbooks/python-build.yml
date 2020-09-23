@@ -5,6 +5,8 @@
   roles:
     - base
     - c
+    - node
+    - python
   pre_tasks:
     - name: Create ~/.playbook.provision
-      copy: content=build dest=~/.playbook.provision mode=0644
+      copy: content=python-build dest=~/.playbook.provision mode=0644
