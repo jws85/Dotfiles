@@ -22,3 +22,6 @@
 
 - name: Symlink PHP dotfiles
   shell: stow -d ~/Dotfiles -t ~ php
+
+- name: Install PHP utilities via composer
+  shell: composer global install
