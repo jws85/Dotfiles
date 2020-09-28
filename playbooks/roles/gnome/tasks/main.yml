@@ -18,6 +18,12 @@
   args:
     warn: no
 
+- name: Update desktop database
+  become: no
+  shell: update-desktop-database ~/.local/share/applications/
+  args:
+    warn: no
+
 - name: Keyboard customization
   dconf: key='/org/gnome/desktop/input-sources/xkb-options' value="['ctrl:swapcaps', 'compose:ralt']"
 

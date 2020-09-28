@@ -74,6 +74,7 @@
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
     - alacritty
+    - emacs
     - fman
     - mpd
 
