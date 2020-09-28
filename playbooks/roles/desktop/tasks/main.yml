@@ -10,15 +10,15 @@
   become: yes
   with_items:
     # ubuntu-elisp ppa
-    - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0d7bae435adbc6c3e4918a74062d648fd62fce72'
+    - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x873503a090750cdaeb0754d93ff0e01eeaafc9cd'
     - https://syncthing.net/release-key.txt
 
 - name: Add repositories
-  apt_repository: repo='{{ item }}'
+  apt_repository: repo='{{ item }}' mode=0644
   register: ppa
   become: yes
   with_items:
-    - 'ppa:ubuntu-elisp/ppa'
+    - 'ppa:kelleyk/emacs'
     - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
     - 'deb https://apt.syncthing.net/ syncthing stable'
 
@@ -32,7 +32,7 @@
   apt:
     name:
       - alacritty
-      - emacs-snapshot
+      - emacs27
       - filezilla
       - firefox
       - flameshot
