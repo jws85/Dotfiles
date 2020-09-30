@@ -50,6 +50,7 @@
       - sqlite3 # for org-roam in emacs
       - syncthing
       - syncthing-gtk
+      - webp
       - wireshark
       - xsel
       - zeal
