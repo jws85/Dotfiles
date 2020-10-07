@@ -28,5 +28,17 @@
   with_items:
     - ~/.npm-packages/
 
+- name: Install typescript-language-server
+  shell: npm install -g typescript-language-server
+  args:
+    creates: ~/.npm-packages/bin/typescript-language-server
+    warn: no
+
+- name: Install typescript
+  shell: npm install -g typescript-language-server
+  args:
+    creates: ~/.npm-packages/bin/tsc
+    warn: no
+
 - name: Symlink Node dotfiles
   shell: stow -d ~/Dotfiles -t ~ node
