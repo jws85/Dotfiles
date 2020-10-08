@@ -1,0 +1,10 @@
+#!/bin/sh
+# Sets wallpaper on GNOME 3
+
+if [ -z "$1" ]; then
+	echo "USAGE: $0 wall"
+	exit
+fi
+
+path=$(realpath $1)
+gsettings set org.gnome.desktop.background picture-uri "file://$path"

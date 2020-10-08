@@ -1,0 +1,6 @@
+#!/bin/sh
+# Recursively fixes permissions of files stored on a dumb filesystem
+# like FAT32 or NTFS
+
+find "$1" -type f -exec chmod -v 644 {} \;
+find "$1" -type d -exec chmod -v 755 {} \;
