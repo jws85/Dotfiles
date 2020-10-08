@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# Controlling my potty mouth...
+#
+# You need curl and ripgrep installed.
+
+# Banned word list:
+#
+# I found the list in question pretty quickly, and liked it because it was
+# short and contained most of the stuff I'd prefer not to make it into
+# published output.
+#
+# It has some words that are contextually bad.  You can argue whether they
+# should be there or not, but might as well warn about them generally.
+#
+# It has some leetspeak/weirdly spaced epithets that I'd argue should not be in
+# the list (shades of George Carlin talking about whether Samuel L.  Jackson's
+# favorite word should be in his 'seven dirty words' list) and probably should
+# be handled algorithmically...
+
+# Explanation of disclaimer:
+#
+# Note that the regex we build here delimits on word boundaries.  This means
+# that if you write a string with bad words surrounded by other alphanumeric
+# characters, say, Scunthorpe, it wouldn't find it.  This is bad for me,
+# because sometimes I rage-name methods when annoyed with the computer.
+#
+# On the other hand, if we didn't delimit on word boundaries, the words 'class'
+# and 'button' trigger output, which is pretty bad in a programming context!
+#
+# I would use bowdler as an initial tool to see if there may be problems, and
+# if you do see problems, do an 'ag' on the more problematic words that might
+# be present.
+
+BADWORDS=$HOME/.badwords
+if [ ! -f $BADWORDS ]; then
+	curl http://www.bannedwordlist.com/lists/swearWords.txt --output $BADWORDS
+fi
+
+REGEX=$( cat $BADWORDS | tr '\r\n' '||' | sed 's/||/|/g' )
+
+rg "\s($REGEX)\s"
+
+if [ $? -ne 0 ]; then
+	echo "DISCLAIMER: Just because bowdler didn't find anything, doesn't mean it isn't there!"
+	exit 1
+fi

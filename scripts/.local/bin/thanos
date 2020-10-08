@@ -1,0 +1,20 @@
+#!/bin/bash
+# thanos: snap symlinks
+#
+# thanos(1) turns a symlink into an actual real file.  By default
+# thanos just deletes the symlink and copies the contents of the
+# actual file to where the symlink was.  Optionally one could have
+# it behave as a move; but that is DANGEROUS if you have multiple
+# symlinks to the same place.
+#
+# By snapping symlinks, I mean the sense here[1].
+#
+# The name snap is already taken[2].
+#
+# [1] http://jargon.net/jargonfile/s/snap.html
+#
+# [2] https://snapcraft.io/
+
+REAL=$( realpath $1 )
+rm $1
+cp $REAL $1
