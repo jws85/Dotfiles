@@ -47,6 +47,7 @@
       - python3-tk # for em
       - qalculate-gtk
       - remmina
+      - sox # to generate white noise!
       - sqlite3 # for org-roam in emacs
       - syncthing
       - syncthing-gtk

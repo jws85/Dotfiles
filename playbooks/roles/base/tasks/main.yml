@@ -96,6 +96,7 @@
   with_items:
     - emacs
     - git
+    - scripts
     - tmux
     - vim
 
