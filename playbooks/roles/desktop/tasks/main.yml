@@ -49,39 +49,9 @@
       - xsel
       - zeal
 
-- name: Install MPD applications
-  become: yes
-  apt:
-    name:
-      - mpd
-      - mpdris2
-      - mpc
-      - ncmpcpp
-      - cantata
-
-- name: Ensure directories exist
-  file: path={{ item }} state=directory
-  with_items:
-    - ~/.mpd/playlists
-
 # MPD's config must exist before starting the daemon
 - name: Symlink GUI application dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
     - alacritty
     - fman
-    - mpd
-
-# I prefer to run MPD against my music dir, as my user
-- name: Disable system MPD daemon
-  become: yes
-  systemd:
-    name: mpd
-    state: stopped
-    enabled: no
-- name: Enable user MPD daemon
-  systemd:
-    name: mpd
-    state: started
-    enabled: yes
-    scope: user
