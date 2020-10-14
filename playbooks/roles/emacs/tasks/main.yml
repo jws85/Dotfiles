@@ -1,0 +1,41 @@
+---
+- name: Add repository keys by URL
+  apt_key: state=present url='{{ item }}'
+  become: yes
+  with_items:
+    # ubuntu-elisp ppa
+    - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x873503a090750cdaeb0754d93ff0e01eeaafc9cd'
+
+- name: Add repositories
+  apt_repository: repo='{{ item }}' mode=0644
+  register: ppa
+  become: yes
+  with_items:
+    - 'ppa:kelleyk/emacs'
+
+- name: Update package cache
+  apt: update_cache=yes
+  become: yes
+  when: ppa.changed
+
+- name: Install emacs and associated packages
+  become: yes
+  apt:
+    name:
+      - emacs27
+      - fonts-firacode
+      - python3-tk # for em
+      - sqlite3 # for org-roam in emacs
+
+- name: Symlink dotfiles
+  shell: stow -d ~/Dotfiles -t ~ {{ item }}
+  with_items:
+    - emacs
+
+- name: Update file associations
+  shell: update-desktop-database ~/.local/share/applications/
+
+- name: Install em
+  shell: pipx install git+https://github.com/jws85/em.git
+  args:
+    creates: ~/.local/bin/em

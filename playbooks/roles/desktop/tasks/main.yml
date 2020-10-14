@@ -9,8 +9,6 @@
   apt_key: state=present url='{{ item }}'
   become: yes
   with_items:
-    # ubuntu-elisp ppa
-    - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x873503a090750cdaeb0754d93ff0e01eeaafc9cd'
     - https://syncthing.net/release-key.txt
 
 - name: Add repositories
@@ -18,7 +16,6 @@
   register: ppa
   become: yes
   with_items:
-    - 'ppa:kelleyk/emacs'
     - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
     - 'deb https://apt.syncthing.net/ syncthing stable'
 
@@ -32,23 +29,19 @@
   apt:
     name:
       - alacritty
-      - emacs27
       - filezilla
       - firefox
       - flameshot
       - fman
-      - fonts-firacode
       - gimp
       - git-gui
       - gitg
       - keepassx
       - mpv
       - oneko
-      - python3-tk # for em
       - qalculate-gtk
       - remmina
       - sox # to generate white noise!
-      - sqlite3 # for org-roam in emacs
       - syncthing
       - syncthing-gtk
       - webp
@@ -76,7 +69,6 @@
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
     - alacritty
-    - emacs
     - fman
     - mpd
 
@@ -93,11 +85,3 @@
     state: started
     enabled: yes
     scope: user
-
-- name: Update file associations
-  shell: update-desktop-database ~/.local/share/applications/
-
-- name: Install em
-  shell: pipx install git+https://github.com/jws85/em.git
-  args:
-    creates: ~/.local/bin/em

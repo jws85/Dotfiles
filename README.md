@@ -17,7 +17,7 @@ git clone https://github.com/jws85/Dotfiles
 - `server`: `base` , `kvm`, and `docker`
 - `build`: `base` and `build`
 - `min-desktop`: `base`, `desktop`, and `gnome`
-- `dev-desktop`: Everything in `min-desktop` + `build` + `docker`
+- `dev-desktop`: Everything in `min-desktop` + `build` + `docker` + `emacs`
 - `full-desktop`: Everything in `dev-desktop` + `games`
 
 On subsequent runs, `LEVEL` can be omitted.

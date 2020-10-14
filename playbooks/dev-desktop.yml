@@ -11,6 +11,7 @@
     - python
     - docker
     - desktop
+    - emacs
     - gnome
   pre_tasks:
     - name: Create ~/.playbook.provision
