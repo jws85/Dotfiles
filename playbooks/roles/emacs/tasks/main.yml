@@ -22,6 +22,7 @@
   become: yes
   apt:
     name:
+      - dvipng
       - emacs27
       - fonts-firacode
       - pandoc
