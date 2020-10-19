@@ -28,7 +28,9 @@
       - pandoc
       - python3-tk # for em
       - sqlite3 # for org-roam in emacs
+      # say goodbye to about a gig of space
       - texlive
+      - texlive-plain-generic
 
 - name: Symlink dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
