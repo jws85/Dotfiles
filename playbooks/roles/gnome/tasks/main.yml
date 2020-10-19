@@ -36,6 +36,16 @@
     - '/org/gnome/desktop/interface/clock-format'
     - '/org/gtk/settings/file-chooser/clock-format'
 
+- name: Enable night time yellow filter
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/color/{ item.key }}"
+    value: "{{ item.value }}"
+  loop:
+    # S-RET: Terminal
+    - { key: 'night-light-enabled', value: "true" }
+    - { key: 'night-light-schedule-automatic', value: "true" }
+    - { key: 'night-light-temperature', value: "uint32 3700" }
+
 - name: Set Super-semicolon to open alacritty
   dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/{{ item.key }}"
