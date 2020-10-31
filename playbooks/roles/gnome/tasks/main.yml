@@ -41,7 +41,6 @@
     key: "/org/gnome/settings-daemon/plugins/color/{ item.key }}"
     value: "{{ item.value }}"
   loop:
-    # S-RET: Terminal
     - { key: 'night-light-enabled', value: "true" }
     - { key: 'night-light-schedule-automatic', value: "true" }
     - { key: 'night-light-temperature', value: "uint32 3700" }
@@ -51,25 +50,28 @@
     key: "/org/gnome/desktop/wm/keybindings/toggle-on-all-workspaces"
     value: "['<Super>period']"
 
+- name: Unset PrtSc button
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/screenshot"
+    value: "@as []"
+
 - name: Set Super-semicolon to open terminal
   dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/{{ item.key }}"
     value: "{{ item.value }}"
   loop:
-    # S-RET: Terminal
     - { key: 'custom0/command', value: "'kitty'" }
     - { key: 'custom0/binding', value: "'<Super>semicolon'" }
     - { key: 'custom0/name', value: "'Terminal'" }
 
-- name: Set Super-PrtSc to open flameshot
+- name: Use PrtSc to open gnome-screenshot interactively
   dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/{{ item.key }}"
     value: "{{ item.value }}"
   loop:
-    # S-PrtSc: Flameshot
-    - { key: 'custom1/command', value: "'flameshot gui'" }
-    - { key: 'custom1/binding', value: "'<Super>Print'" }
-    - { key: 'custom1/name', value: "'Screenshot with Flameshot'" }
+    - { key: 'custom1/command', value: "'gnome-screenshot -i'" }
+    - { key: 'custom1/binding', value: "'Print'" }
+    - { key: 'custom1/name', value: "'Screenshot'" }
 
 - name: Add all of my custom keybindings
   dconf:
