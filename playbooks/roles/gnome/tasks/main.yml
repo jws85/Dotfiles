@@ -46,13 +46,13 @@
     - { key: 'night-light-schedule-automatic', value: "true" }
     - { key: 'night-light-temperature', value: "uint32 3700" }
 
-- name: Set Super-semicolon to open alacritty
+- name: Set Super-semicolon to open terminal
   dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/{{ item.key }}"
     value: "{{ item.value }}"
   loop:
     # S-RET: Terminal
-    - { key: 'custom0/command', value: "'alacritty'" }
+    - { key: 'custom0/command', value: "'kitty'" }
     - { key: 'custom0/binding', value: "'<Super>semicolon'" }
     - { key: 'custom0/name', value: "'Terminal'" }
 
