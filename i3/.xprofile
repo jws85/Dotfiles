@@ -1,3 +1,0 @@
-# try to make compose key work... https://unix.stackexchange.com/a/77473
-export XMODIFIERS="@im=none"
-
