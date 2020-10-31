@@ -46,6 +46,11 @@
     - { key: 'night-light-schedule-automatic', value: "true" }
     - { key: 'night-light-temperature', value: "uint32 3700" }
 
+- name: Set Super-period to toggle window stickiness
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/toggle-on-all-workspaces"
+    value: "['<Super>period']"
+
 - name: Set Super-semicolon to open terminal
   dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/{{ item.key }}"
