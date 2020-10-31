@@ -38,6 +38,7 @@
       - kitty
       - mpv
       - oneko
+      - peek
       - qalculate-gtk
       - remmina
       - sox # to generate white noise!
