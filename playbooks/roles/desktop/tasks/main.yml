@@ -28,7 +28,6 @@
   become: yes
   apt:
     name:
-      - alacritty
       - filezilla
       - firefox
       - flameshot
@@ -37,6 +36,7 @@
       - git-gui
       - gitg
       - keepassxc
+      - kitty
       - mpv
       - oneko
       - qalculate-gtk
@@ -49,9 +49,8 @@
       - xsel
       - zeal
 
-# MPD's config must exist before starting the daemon
 - name: Symlink GUI application dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
-    - alacritty
     - fman
+    - kitty
