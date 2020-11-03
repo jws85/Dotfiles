@@ -44,6 +44,7 @@
       - sox # to generate white noise!
       - syncthing
       - syncthing-gtk
+      - vim-gtk3 # to enable +clipboard in vim for kitty scrollback
       - webp
       - wireshark
       - xsel
