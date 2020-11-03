@@ -48,7 +48,7 @@
       - stow
       - tig
       - tmux
-      - neovim
+      - vim
       - zsh
 
 - name: Ensure directories exist
