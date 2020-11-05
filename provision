@@ -36,7 +36,7 @@ source $HOME/.bashrc
 
 command -v ansible >/dev/null 2>&1 || {
     echo "Installing ansible"
-    pipx install ansible
+    pipx install ansible --include-deps
 }
 
 # Clone my dotfiles into ~/Dotfiles
