@@ -69,6 +69,11 @@
   args:
     creates: ~/.local/bin/youtube-dl
 
+- name: Install bpytop
+  shell: pipx install bpytop
+  args:
+    creates: ~/.local/bin/bpytop
+
 - name: Clone emacs setup
   git:
     repo: https://github.com/jws85/.emacs.d.git
