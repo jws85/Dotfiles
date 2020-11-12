@@ -1,0 +1,18 @@
+#!/bin/bash
+# Given a PDF, digest it into images -- specifically group 4 CCITT TIFFs
+# Requires poppler-utils and netpbm
+# Note that pdfimages is a SEPARATE command in poppler-utils that does
+# something else entirely (extracting actual image data out of text PDFs)
+
+command -v pdftoppm >/dev/null 2>&1 || echo "Need to install pdftoppm (Debian: poppler-utils)"
+command -v pgmtopbm >/dev/null 2>&1 || echo "Need to install pgmtopbm (Debian: netpbm)"
+command -v pnmtotiff >/dev/null 2>&1 || echo "Need to install pnmtotiff (Debian: netpbm)"
+
+pdftoppm -r 300 -f 1 -gray $1 $2
+
+for pgm in $( ls $2*.pgm ); do
+    tiff=${pgm%.pgm}.tiff
+    echo $tiff
+    cat $pgm | pgmtopbm -threshold -value 0.85 | pnmtotiff -rowsperstrip=65535 -g4 -xresolution=300 -yresolution=300 > $tiff
+    rm -f $pgm
+done
