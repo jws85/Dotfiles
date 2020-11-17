@@ -3,7 +3,7 @@
         "overtrue/phplint": "@stable",
         "psy/psysh": "@stable",
         "deployer/deployer": "@stable",
-        "squizlabs/php_codesniffer": "@stable",
+        "squizlabs/php_codesniffer": "*",
         "phpcompatibility/php-compatibility": "@stable",
         "dealerdirect/phpcodesniffer-composer-installer": "@stable"
     },
