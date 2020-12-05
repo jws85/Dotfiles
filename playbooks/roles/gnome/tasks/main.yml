@@ -55,6 +55,31 @@
     key: "/org/gnome/settings-daemon/plugins/media-keys/screenshot"
     value: "@as []"
 
+- name: Unset "focus active notification" Super-n binding
+  dconf:
+    key: "/org/gnome/shell/keybindings/focus-active-notification"
+    value: "@as []"
+
+- name: Set Super-p to move workspace up
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-up"
+    value: "['<Primary><Super>Up', '<Primary><Super>k', '<Super>p']"
+
+- name: Set Super-Shift-p to move window up a workspace
+  dconf:
+    key: "/org/gnome/shell/extensions/pop-shell/pop-workspace-up"
+    value: "['<Shift><Super>Up', '<Shift><Super>k', '<Shift><Super>p']"
+
+- name: Set Super-n to move workspace down
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-down"
+    value: "['<Primary><Super>Down', '<Primary><Super>j', '<Super>n']"
+
+- name: Set Super-Shift-n to move window down a workspace
+  dconf:
+    key: "/org/gnome/shell/extensions/pop-shell/pop-workspace-down"
+    value: "['<Shift><Super>Down', '<Shift><Super>j', '<Shift><Super>n']"
+
 - name: Set Super-semicolon to open terminal
   dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/{{ item.key }}"
