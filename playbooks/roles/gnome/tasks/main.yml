@@ -55,7 +55,12 @@
     key: "/org/gnome/settings-daemon/plugins/media-keys/screenshot"
     value: "@as []"
 
-- name: Unset "focus active notification" Super-n binding
+- name: Unset Super-n (Focus active notification)
+  dconf:
+    key: "/org/gnome/shell/keybindings/focus-active-notification"
+    value: "@as []"
+
+- name: Unset Super-f (Open home folder)
   dconf:
     key: "/org/gnome/shell/keybindings/focus-active-notification"
     value: "@as []"
@@ -79,6 +84,11 @@
   dconf:
     key: "/org/gnome/shell/extensions/pop-shell/pop-workspace-down"
     value: "['<Shift><Super>Down', '<Shift><Super>j', '<Shift><Super>n']"
+
+- name: Set Super-f to toggle floating mode
+  dconf:
+    key: "/org/gnome/shell/extensions/pop-shell/toggle-floating"
+    value: "['<Super>f']"
 
 - name: Set Super-semicolon to open terminal
   dconf:
