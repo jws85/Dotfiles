@@ -35,7 +35,6 @@
       - git-gui
       - gitg
       - keepassxc
-      - kitty
       - mpv
       - oneko
       - peek
@@ -49,6 +48,14 @@
       - wireshark
       - xsel
       - zeal
+
+- name: Install kitty
+  shell: curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+  args:
+    creates: ~/.local/kitty.app/bin/kitty
+
+- name: Symlink kitty into PATH
+  file: src="~/.local/kitty.app/bin/kitty" dest="~/.local/bin/kitty" state=link
 
 - name: Symlink GUI application dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
