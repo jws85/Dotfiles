@@ -9,6 +9,7 @@ visualizer_color = "cyan"
 
 now_playing_prefix = "$b $1♫"
 now_playing_suffix = "$1♫ $/b"
+song_window_title_format = "[ncmpcpp] %a - %t"
 song_list_format = " $6%t $1•$5 %a $R$8%l $0"
 song_status_format = "$6%t $1•$5 %a {$1•$7 {#%N }%b}"
 playlist_display_mode = "classic"
