@@ -14,7 +14,7 @@
     - mpd
     - emacs
     - games
-    - gnome
+    - i3
   pre_tasks:
     - name: Create ~/.playbook.provision
       copy: content=full-desktop dest=~/.playbook.provision mode=0644
