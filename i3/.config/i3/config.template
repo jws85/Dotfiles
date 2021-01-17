@@ -1,9 +1,10 @@
 set $mod Mod4
 set $font {{ font.face | d('Fira Code') }}
 set $fontSize {{ font.size | d(10) }}
+set $terminal {{ utilities.terminal | d('alacritty') }}
 
 # Lock application
-set $i3lock i3lock {{ utilities.i3lock | d('-c 00547f') }}
+set $lock xscreensaver-command -l
 # Wallpaper application
 set $fehbg feh --bg-scale ~/.wallpaper
 
@@ -14,7 +15,7 @@ font pango:$font $fontSize
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+x kill
@@ -23,6 +24,10 @@ bindsym $mod+Delete kill
 # run xkill
 bindsym --release $mod+Shift+x exec xkill
 bindsym --release $mod+Shift+Delete exec kill
+
+# character picker using rofi: https://github.com/fdw/rofimoji
+# requires rofi, xdotool
+bindsym $mod+u exec rofimoji
 
 # change focus
 bindsym $mod+h focus left
@@ -91,8 +96,8 @@ bindsym $mod+Shift+n move container to workspace next_on_output
 bindsym $mod+Shift+e exec --no-startup-id "~/.config/i3/scripts/i3-empty move"
 
 # launch rofi
-bindsym $mod+space exec "rofi -show run -display-run 'Run>>> '"
-bindsym $mod+slash exec "rofi -show window -display-window 'Windows>>> '"
+bindsym $mod+space exec "rofi -show run"
+bindsym $mod+slash exec "rofi -show window"
 # printscreen
 bindsym $mod+Print exec "scrot 'shot.%Y%m%d.%H%M%S.png' -e 'mv $f ~/Pictures'"
 bindsym Print exec "flameshot gui"
@@ -119,13 +124,13 @@ mode $mode_system {
         # Set keyboard properly
 	bindsym k exec --no-startup-id "setxkbmap -option ctrl:swapcaps,compose:ralt", mode "default"
 	# Locks i3
-	bindsym l exec --no-startup-id $i3lock, mode "default"
+	bindsym l exec --no-startup-id $lock, mode "default"
 	# Reloads i3 config
         bindsym r exec "cd ~/.config/i3/; make; i3-msg restart", mode "default"
 
         # Puts system into suspend (assuming you're infected by systemd)
-	bindsym Pause exec --no-startup-id $i3lock && systemctl suspend, mode "default"
-	bindsym Shift+s exec --no-startup-id $i3lock && systemctl suspend, mode "default"
+	bindsym Pause exec --no-startup-id $lock && systemctl suspend, mode "default"
+	bindsym Shift+s exec --no-startup-id $lock && systemctl suspend, mode "default"
         # Quits i3
 	bindsym BackSpace exec --no-startup-id i3-msg exit
 	# Powers the system off (assuming systemd)
@@ -170,7 +175,7 @@ mode $mode_launcher {
 	bindsym e exec "em", mode "default"
 	bindsym f exec "fman", mode "default"
 	bindsym g exec "gimp", mode "default"
-	bindsym k exec "keepassx", mode "default"
+	bindsym k exec "keepassxc", mode "default"
 	bindsym m exec "cantata", mode "default"
 	bindsym n mode $mode_cat
 	bindsym r exec "retroarch", mode "default"
@@ -257,21 +262,23 @@ bar {
         font pango:$font,FontAwesome $fontSize
 }
 
-# remove window titlebars
-for_window [class="^.*"] border pixel 1
-new_window 1pixel
-## future window border settings; not compatible with i3 on Ubuntu 18.04
-#default_border pixel 2
-#default_floating_border normal
+# future window border settings; not compatible with i3 on Ubuntu 18.04
+default_border pixel 2
+default_floating_border normal
 
 # force settings on specific windows
-for_window [class="Keepassx"] floating enable
-for_window [class="Peek-run"] floating enable
-for_window [class="mpv"] floating enable
-for_window [class="em"] floating enable
+#for_window [class="Keepassx"] floating enable
+#for_window [class="Peek-run"] floating enable
+#for_window [class="mpv"] floating enable
+#for_window [class="em"] floating enable
 
 # mouse cursor does NOT focus
 focus_follows_mouse no
 
 # autostart applications
 exec --no-startup-id $fehbg
+exec --no-startup-id udiskie --tray
+exec --no-startup-id dunst
+exec --no-startup-id nm-applet
+exec --no-startup-id compton -b
+exec --no-startup-id xscreensaver -nosplash &

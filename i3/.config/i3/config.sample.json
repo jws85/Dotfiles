@@ -12,11 +12,11 @@
         "10:Ⅹ"
     ],
     "colors": {
-        "background": "#1b1d1e",
-        "statusline": "#dddddd",
-        "separator": "#808080",
-        "focus": "#a9a1e1",
-        "active": "#6c9ef8",
-        "urgent": "#d02b61"
+        "background": "#282a36",
+        "statusline": "#f8f8f2",
+        "separator": "#6272a4",
+        "focus": "#ff79c6",
+        "active": "#ffb86c",
+        "urgent": "#ff5555"
     }
 }
