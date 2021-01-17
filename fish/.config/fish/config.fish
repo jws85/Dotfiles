@@ -9,4 +9,12 @@ function hybrid_bindings --description "Vi-style bindings that inherit emacs-sty
 end
 set -g fish_key_bindings hybrid_bindings
 
+# Set the text that is printed upon first opening the shell
+function fish_greeting
+    hostname | figlet -f smslant | lolcat
+    uptime | xargs
+    echo
+    fortune
+end
+
 alias x=exit
