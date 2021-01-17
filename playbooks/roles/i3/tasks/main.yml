@@ -3,11 +3,23 @@
   become: yes
   apt:
     name:
+      - autorandr
+      - dunst
+      - flameshot
       - i3
       - i3blocks
       - jq  # helper scripts
+      - rofi
+      - scrot
       - udiskie
-      - autorandr
+      - xscreensaver
+      - xscreensaver-data-extra
+      - xscreensaver-gl-extra
+
+- name: Install rofimoji
+  shell: pipx install git+https://github.com/fdw/rofimoji
+  args:
+    creates: ~/.local/bin/rofimoji
 
 - name: Install torii
   shell: pipx install git+https://github.com/jws85/torii.git
