@@ -1,0 +1,23 @@
+#!/bin/sh
+
+default_sink=$(pacmd info | grep "Default sink name" | awk -F': ' '{print $2}')
+
+case $BLOCK_BUTTON in
+  1) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;  # left click, toggle mute
+  3) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;  # right click, toggle mute
+  4) pactl set-sink-volume @DEFAULT_SINK@ +3%  ;;  # scroll up, louder
+  5) pactl set-sink-volume @DEFAULT_SINK@ -3%  ;;  # scroll down, quieter
+esac
+
+volume=$(pacmd list-sinks |
+             awk '/^\s+name: /{indefault = $2 == "<'$default_sink'>"}
+                  /^\s+volume: / && indefault {print $5; exit}')
+muted=$(pacmd list-sinks |
+             awk '/^\s+name: /{indefault = $2 == "<'$default_sink'>"}
+                  /^\s+muted: / && indefault {print $2; exit}')
+
+if [ "$muted" = "no" ]; then
+    printf ' %3s' "$volume"
+else
+    echo " ---"
+fi

@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# How long to clip artist/title tags to before displaying
+CLIPLENGTH=25
+
+# This is a big scary line that breaks down as follows:
+# - mpc prints the artist tag on one line and the title on the next
+# - awk replaces artist/title longer than CLIPLENGTH chars with exactly
+#   CLIPLENGTH chars plus an ellipsis
+# - sed collapses the first and second lines only
+#
+# The idea is that sometimes there are songs tagged with very long lists
+# of people (esp. classical, soundtrack, musicals).  These get too long
+# and push other meters out of view.  So, for instance
+#
+#   Leslie Odom Jr., Anthony Ramos, Daveed Diggs, Okieriete Onaodowan, Lin-Manuel Miranda, Phillipa Soo, Christopher Jackson & Cast - Alexander Hamilton
+#
+# gets trimmed to
+#
+#   Leslie Odom Jr., Anthony Ramos… - Alexander Hamilton
+#
+# which is a lot more reasonable, I think we can all agree on that
+mpd_status=$( mpc status -f '%artist%\n%title%' | awk '{if((FNR<2)&&(length($0)>'$CLIPLENGTH')){print substr($0,0,'$CLIPLENGTH')"…"}else{print$0}}' | sed ':a;N;$!ba;s/\n/ - /' )
+
+lines=$( echo "$mpd_status" | wc | awk '{print $1}' )
+
+case $BLOCK_BUTTON in
+  1) mpc toggle > /dev/null 2>&1 ;; # left click, toggle play/pause
+  3) mpc stop > /dev/null 2>&1 ;;   # right click, stop
+esac
+
+icon=""
+if [ $lines -eq "1" ]; then
+    echo "$icon stopped"
+    exit
+fi
+
+playpause=$( echo "$mpd_status" | awk 'FNR==2{print $1}' )
+if [ $playpause = "[playing]" ]; then
+    icon=""
+elif [ $playpause = "[paused]" ]; then
+    icon=""
+fi
+
+song=$( echo "$mpd_status" | awk 'FNR==1' )
+
+echo "$icon $song"
+echo "$icon $song"

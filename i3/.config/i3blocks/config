@@ -1,0 +1,31 @@
+[weather]
+command=wx minimal
+interval=60
+
+[mpd]
+command=~/.config/i3blocks/blocks/mpd
+interval=1
+
+[pulseaudio]
+command=~/.config/i3blocks/blocks/pulseaudio
+interval=1
+
+[cpu_usage]
+command=~/.config/i3blocks/blocks/cpu_usage
+interval=2
+
+[disk_root]
+command=df -h / | awk 'FNR==2{print $5}'
+interval=2
+label=
+
+# On my X260, the battery is BAT1, not BAT0
+[battery]
+command=~/.config/i3blocks/blocks/battery
+interval=10
+instance=1
+
+[date]
+command=date "+%a %m.%d %H:%M"
+interval=1
+label=

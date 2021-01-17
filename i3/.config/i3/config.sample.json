@@ -1,0 +1,22 @@
+{
+    "workspaces": [
+        "1:",
+        "2:",
+        "3:",
+        "4:Ⅳ",
+        "5:Ⅴ",
+        "6:Ⅵ",
+        "7:Ⅶ",
+        "8:Ⅷ",
+        "9:Ⅸ",
+        "10:Ⅹ"
+    ],
+    "colors": {
+        "background": "#1b1d1e",
+        "statusline": "#dddddd",
+        "separator": "#808080",
+        "focus": "#a9a1e1",
+        "active": "#6c9ef8",
+        "urgent": "#d02b61"
+    }
+}
