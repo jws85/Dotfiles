@@ -18,3 +18,8 @@ function fish_greeting
 end
 
 alias x=exit
+
+# Load site-specific settings
+if test -f ~/.config/fish/site.fish
+    source ~/.config/fish/site.fish
+end
