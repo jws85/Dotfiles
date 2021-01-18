@@ -1,2 +1,2 @@
 all:
-	torii config.j2 config.json >| config
+	torii config.template config.json >| config
