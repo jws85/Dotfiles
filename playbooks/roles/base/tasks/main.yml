@@ -83,13 +83,20 @@
     update: no
 
 - name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'vimrc', dest: '~/.vimrc' }
+
+- name: Symlink dotfiles
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
     - emacs
     - fish
     - git
     - scripts
-    - vim
 
 - name: Download, install, and update fisher
   shell: fish -c "curl -L git.io/fisher | source && fisher install" < ~/.config/fish/fish_plugins

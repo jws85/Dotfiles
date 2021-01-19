@@ -54,4 +54,3 @@
   shell: stow -d ~/Dotfiles -t ~ {{ item }}
   with_items:
     - fman
-    - vim
