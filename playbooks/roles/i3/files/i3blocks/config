@@ -3,15 +3,15 @@ command=wx minimal
 interval=60
 
 [mpd]
-command=~/.config/i3blocks/blocks/mpd
+command=i3blocks-mpd
 interval=1
 
 [pulseaudio]
-command=~/.config/i3blocks/blocks/pulseaudio
+command=i3blocks-pulseaudio
 interval=1
 
 [cpu_usage]
-command=~/.config/i3blocks/blocks/cpu_usage
+command=i3blocks-cpu
 interval=2
 
 [disk_root]
@@ -21,7 +21,7 @@ label=
 
 # On my X260, the battery is BAT1, not BAT0
 [battery]
-command=~/.config/i3blocks/blocks/battery
+command=i3blocks-battery
 interval=10
 instance=1
 

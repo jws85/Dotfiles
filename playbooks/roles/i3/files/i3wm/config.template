@@ -71,7 +71,7 @@ bindsym $mod+bracketleft workspace prev
 bindsym $mod+bracketright workspace next
 bindsym $mod+p workspace prev_on_output
 bindsym $mod+n workspace next_on_output
-bindsym $mod+e exec --no-startup-id "~/.config/i3/scripts/i3-empty"
+bindsym $mod+e exec --no-startup-id i3-empty
 
 # read 1 character and mark the current window with this character
 bindsym $mod+period exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -l 1 -P 'Mark: '
@@ -88,7 +88,7 @@ bindsym $mod+Shift+bracketleft move container to workspace prev
 bindsym $mod+Shift+bracketright move container to workspace next
 bindsym $mod+Shift+p move container to workspace prev_on_output
 bindsym $mod+Shift+n move container to workspace next_on_output
-bindsym $mod+Shift+e exec --no-startup-id "~/.config/i3/scripts/i3-empty move"
+bindsym $mod+Shift+e exec --no-startup-id i3-empty move
 
 # launch rofi
 bindsym $mod+space exec "rofi -show run"

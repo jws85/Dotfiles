@@ -28,21 +28,34 @@
     creates: ~/.local/bin/torii
 
 - name: Symlink i3 dotfiles
-  shell: stow -d ~/Dotfiles -t ~ {{ item }}
-  with_items:
-    - i3
-    - dunst
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'dunst/dunstrc', dest: '~/.config/dunst/dunstrc' }
+    - { src: 'i3wm/config.template', dest: '~/.config/i3/config.template' }
+    - { src: 'i3wm/Makefile', dest: '~/.config/i3/Makefile' }
+    - { src: 'i3blocks/config', dest: '~/.config/i3blocks/config' }
+    - { src: 'scripts/i3-empty', dest: '~/.local/bin/i3-empty' }
+    - { src: 'scripts/i3blocks-battery', dest: '~/.local/bin/i3blocks-battery' }
+    - { src: 'scripts/i3blocks-cpu', dest: '~/.local/bin/i3blocks-cpu' }
+    - { src: 'scripts/i3blocks-mpd', dest: '~/.local/bin/i3blocks-mpd' }
+    - { src: 'scripts/i3blocks-pulseaudio', dest: '~/.local/bin/i3blocks-pulseaudio' }
 
-- name: Copy default config.json if needed
-  copy: src=~/.config/i3/config.sample.json dest=~/.config/i3/config.json force=no
+- name: Copy default config if needed
+  copy:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    force: no
+  loop:
+    - { src: 'i3wm/config.json', dest: '~/.config/i3/config.json' }
+    - { src: 'defaultwall.jpg', dest: '~/.wallpaper' }
 
 - name: Generate i3 config
   make:
     chdir: ~/.config/i3
     target: all
-
-- name: Copy default wallpaper
-  copy: src=defaultwall.jpg dest=~/.wallpaper force=no
 
 - name: Clone my helper scripts
   git:
