@@ -19,11 +19,6 @@ bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+x kill
-bindsym $mod+Delete kill
-
-# run xkill
-bindsym --release $mod+Shift+x exec xkill
-bindsym --release $mod+Shift+Delete exec kill
 
 # character picker using rofi: https://github.com/fdw/rofimoji
 # requires rofi, xdotool
@@ -117,12 +112,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAUL
 
 # i3/system menu
 # h/t https://thevaluable.dev/window-manager-mouseless-i3/
-set $mode_system "i3: [b]g [k]bd [l]ock [r]eload • [Pause] suspend • [BkSp] exit • [S-BkSp] pwroff • [C-BkSp] reboot"
+set $mode_system "i3: [l]ock • [r]eload • [Pause] suspend • [BkSp] exit • [S-BkSp] pwroff • [C-BkSp] reboot"
 mode $mode_system {
-        # Set background
-	bindsym b exec --no-startup-id $fehbg, mode "default"
-        # Set keyboard properly
-	bindsym k exec --no-startup-id "setxkbmap -option ctrl:swapcaps,compose:ralt", mode "default"
 	# Locks i3
 	bindsym l exec --no-startup-id $lock, mode "default"
 	# Reloads i3 config
@@ -170,14 +161,16 @@ mode $mode_sound {
 bindsym $mod+z mode $mode_sound
 
 # a "launcher" mode to kick off commonly used utilities
-set $mode_launcher "LAUNCH: [e]macs • [g]imp • [f]man • [k]eepass • [m]usic • [n]eko • [r]etroarch • [w]eb"
+set $mode_launcher "LAUNCH: [b]g [e]m [f]man [g]fx [k]bd [m]usic [n]eko [p]ass [r]etroarch [w]eb"
 mode $mode_launcher {
+	bindsym b exec --no-startup-id $fehbg, mode "default"
 	bindsym e exec "em", mode "default"
 	bindsym f exec "fman", mode "default"
 	bindsym g exec "gimp", mode "default"
-	bindsym k exec "keepassxc", mode "default"
+	bindsym k exec --no-startup-id "setxkbmap -option ctrl:swapcaps,compose:ralt", mode "default"
 	bindsym m exec "cantata", mode "default"
 	bindsym n mode $mode_cat
+	bindsym p exec "keepassxc", mode "default"
 	bindsym r exec "retroarch", mode "default"
 	bindsym w exec "sensible-browser", mode "default"
 
