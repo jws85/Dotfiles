@@ -105,6 +105,13 @@
 
 - name: Download, install, and update fisher
   shell: fish -c "curl -L git.io/fisher | source && fisher install" < ~/.config/fish/fish_plugins
+  args:
+    creates: ~/.config/fish/completions/fisher.fish
+
+- name: Install Starship prompt command
+  shell: curl -fsSL https://starship.rs/install.sh | bash -s -- -b $HOME/.local/bin -y
+  args:
+    creates: ~/.local/bin/starship
 
 - name: Install vim-plug
   get_url:
