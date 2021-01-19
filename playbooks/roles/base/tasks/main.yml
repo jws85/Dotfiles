@@ -61,7 +61,7 @@
     - ~/.local/lib/pkgconfig
     - ~/.local/share/man
     - ~/.local/source
-    - ~/.config/nvim/autoload
+    - ~/.config/fish
 
 - name: Symlink provisioning script
   file: src="~/Dotfiles/provision" dest="~/.local/bin/provision" state=link

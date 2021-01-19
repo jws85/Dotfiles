@@ -15,6 +15,7 @@ function fish_greeting
     uptime | xargs
     echo
     fortune
+    echo
 end
 
 alias x=exit
@@ -23,3 +24,10 @@ alias x=exit
 if test -f ~/.config/fish/site.fish
     source ~/.config/fish/site.fish
 end
+
+# Settings for the hydro prompt
+set --global hydro_color_prompt brmagenta
+set --global hydro_color_pwd brcyan
+set --global hydro_color_git brblue
+set --global hydro_color_error brred
+set --global hydro_color_duration brgreen
