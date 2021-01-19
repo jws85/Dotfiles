@@ -88,24 +88,23 @@
     dest: "{{ item.dest }}"
     state: link
   loop:
+    - { src: 'digrc', dest: '~/.digrc' }
+    - { src: 'gitconfig', dest: '~/.gitconfig' }
     - { src: 'vimrc', dest: '~/.vimrc' }
+    - { src: 'fish/config.fish', dest: '~/.config/fish/config.fish' }
+    - { src: 'fish/fish_plugins', dest: '~/.config/fish/fish_plugins' }
 
-- name: Symlink dotfiles
-  shell: stow -d ~/Dotfiles -t ~ {{ item }}
-  with_items:
-    - emacs
-    - fish
-    - git
-    - scripts
+    - { src: 'scripts/bin2music', dest: '~/.local/bin/bin2music' }
+    - { src: 'scripts/bowdler', dest: '~/.local/bin/bowdler' }
+    - { src: 'scripts/noise', dest: '~/.local/bin/noise' }
+    - { src: 'scripts/pdf2images', dest: '~/.local/bin/pdf2images' }
+    - { src: 'scripts/permfix', dest: '~/.local/bin/permfix' }
+    - { src: 'scripts/rocketpost', dest: '~/.local/bin/rocketpost' }
+    - { src: 'scripts/setwall', dest: '~/.local/bin/setwall' }
+    - { src: 'scripts/thanos', dest: '~/.local/bin/thanos' }
 
 - name: Download, install, and update fisher
   shell: fish -c "curl -L git.io/fisher | source && fisher install" < ~/.config/fish/fish_plugins
-
-- name: Create ~/.digrc
-  copy:
-    dest: ~/.digrc
-    content: |
-      +noall +answer
 
 - name: Install vim-plug
   get_url:
