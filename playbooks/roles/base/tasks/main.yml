@@ -113,9 +113,6 @@
     dest: ~/.config/nvim/autoload/plug.vim
     mode: 0644
 
-- name: Symlink tmux dotfile
-  file: src='~/.tmux/tmux.conf' dest='~/.tmux.conf' state=link
-
 - name: Change shell to fish
   become: yes
   user: name={{ ansible_user_id }} shell=/usr/bin/fish groups=dialout,disk append=yes
