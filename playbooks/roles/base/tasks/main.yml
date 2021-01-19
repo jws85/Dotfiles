@@ -23,6 +23,7 @@
       - cowsay
       - cmatrix
       - diceware
+      - dtach
       - entr
       - figlet
       - fish
@@ -50,7 +51,6 @@
       - sshfs
       - stow
       - tig
-      - tmux
       - vim
 
 - name: Ensure directories exist
@@ -89,7 +89,6 @@
     - fish
     - git
     - scripts
-    - tmux
     - vim
 
 - name: Download, install, and update fisher
