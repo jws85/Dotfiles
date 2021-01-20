@@ -81,4 +81,4 @@ echo "Running playbook $PLAYBOOK!"
 # boring ol' defaults in terms of fitting stuff on my screen
 export ANSIBLE_NOCOWS=1
 
-ansible-playbook -i ~/Dotfiles/playbooks/inventory -K ~/Dotfiles/playbooks/$PLAYBOOK.yml
+ansible-playbook -i ~/Dotfiles/inventory -K ~/Dotfiles/$PLAYBOOK.yml

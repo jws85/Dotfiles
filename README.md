@@ -73,7 +73,4 @@ functionality and work that was "already done for me."
 
 # What remains untested?
 
-On 20.04:
-
-- `kvm`
-- `games`
+It's my personal config, expect everything to be always broken.
