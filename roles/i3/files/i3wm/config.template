@@ -1,6 +1,6 @@
 set $mod Mod4
-set $font {{ font.face | d('Fira Code') }}
-set $fontSize {{ font.size | d(10) }}
+set $font {{ font.face | d('monospace') }}
+set $fontSize {{ font.size | d(11) }}
 set $terminal {{ utilities.terminal | d('alacritty') }}
 
 # Lock application

@@ -24,7 +24,6 @@
     name:
       - dvipng
       - emacs27
-      - fonts-firacode
       - pandoc
       - python3-tk # for em
       - sqlite3 # for org-roam in emacs

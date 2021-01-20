@@ -1,5 +1,10 @@
 # https://raw.githubusercontent.com/alacritty/alacritty/master/alacritty.yml
 
+# Disable attempts to rescale font based on DPI
+# q.v. https://github.com/alacritty/alacritty/issues/1501
+env:
+  WINIT_X11_SCALE_FACTOR: '1.0'
+
 import:
   - /home/jws/.config/alacritty/dracula.yml
 
@@ -11,9 +16,9 @@ scrolling:
   multiplier: 5
 
 font:
-  size: 10.0
+  size: 11.0
   normal:
-    family: PragmataPro Mono
+    family: monospace
 
 background_opacity: 0.95
 
