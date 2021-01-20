@@ -45,6 +45,7 @@
     - { src: 'xdefaults', dest: '~/.Xdefaults' }
     - { src: 'xinitrc', dest: '~/.xinitrc' }
     - { src: 'xinitrc', dest: '~/.xsession' }
+    - { src: 'xscreensaver', dest: '~/.xscreensaver' }
     - { src: 'dunst/dunstrc', dest: '~/.config/dunst/dunstrc' }
     - { src: 'i3wm/config.template', dest: '~/.config/i3/config.template' }
     - { src: 'i3wm/Makefile', dest: '~/.config/i3/Makefile' }
