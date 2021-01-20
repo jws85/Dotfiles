@@ -50,7 +50,24 @@
       - xsel
       - zeal
 
-- name: Symlink GUI application dotfiles
-  shell: stow -d ~/Dotfiles -t ~ {{ item }}
+- name: Ensure directories exist
+  file: path={{ item }} state=directory mode=0755
   with_items:
-    - fman
+    - ~/.config/alacritty
+    - ~/.config/fman/Local
+    - ~/.config/fman/Plugins/User/Settings
+
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'alacritty/alacritty.yml', dest: '~/.config/alacritty/alacritty.yml' }
+    - { src: 'alacritty/dracula.yml', dest: '~/.config/alacritty/dracula.yml' }
+
+    - { src: 'fman/Dialogs.json', dest: '~/.config/fman/Local/Dialogs.json' }
+    - { src: 'fman/Settings/Apps (Linux).json', dest: '~/.config/fman/Plugins/User/Settings/Apps (Linux).json' }
+    - { src: 'fman/Settings/Core Settings (Linux).json', dest: '~/.config/fman/Plugins/User/Settings/Core Settings (Linux).json' }
+    - { src: 'fman/Settings/File Associations (Linux).json', dest: '~/.config/fman/Plugins/User/Settings/File Associations (Linux).json' }
+    - { src: 'fman/Settings/Key Bindings (Linux).json', dest: '~/.config/fman/Plugins/User/Settings/Key Bindings (Linux).json' }
