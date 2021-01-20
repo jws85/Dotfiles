@@ -13,7 +13,7 @@
   file: path={{ item }} state=directory
   with_items:
     - ~/.config/mpd
-    - ~/.mpd/playlists
+    - ~/.config/mpd/playlists
     - ~/.ncmpcpp
 
 # MPD's config must exist before starting the daemon
