@@ -31,6 +31,12 @@
       - texlive
       - texlive-plain-generic
 
+- name: Clone emacs configuration
+  git:
+    repo: https://github.com/jws85/.emacs.d.git
+    dest: ~/.emacs.d/
+    update: no
+
 - name: Ensure directories exist
   file: path={{ item }} state=directory
   with_items:

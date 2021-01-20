@@ -92,12 +92,6 @@
   args:
     creates: ~/.local/bin/bpytop
 
-- name: Clone emacs setup
-  git:
-    repo: https://github.com/jws85/.emacs.d.git
-    dest: ~/.emacs.d/
-    update: no
-
 - name: Symlink dotfiles
   file:
     src: "{{ role_path}}/files/{{ item.src }}"
