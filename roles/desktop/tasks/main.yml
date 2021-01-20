@@ -10,6 +10,8 @@
   become: yes
   with_items:
     - https://syncthing.net/release-key.txt
+    # ppa:aslatter/ppa
+    - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3A160895CC2CE253085D08A552B24DF7D43B5377'
 
 - name: Add repositories
   apt_repository: repo='{{ item }}' mode=0644
@@ -18,6 +20,8 @@
   with_items:
     - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
     - 'deb https://apt.syncthing.net/ syncthing stable'
+    # ppa:aslatter/ppa -- alacritty
+    - 'ppa:aslatter/ppa'
 
 - name: Update package cache
   apt: update_cache=yes
