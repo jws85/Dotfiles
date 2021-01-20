@@ -32,10 +32,18 @@
       - texlive
       - texlive-plain-generic
 
-- name: Symlink dotfiles
-  shell: stow -d ~/Dotfiles -t ~ {{ item }}
+- name: Ensure directories exist
+  file: path={{ item }} state=directory
   with_items:
-    - emacs
+    - ~/.local/share/applications
+
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'desktop/org-protocol.desktop', dest: '~/.local/share/applications/org-protocol.desktop' }
 
 - name: Update file associations
   shell: update-desktop-database ~/.local/share/applications/
