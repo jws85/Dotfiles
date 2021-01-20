@@ -16,9 +16,14 @@
 
 # MPD's config must exist before starting the daemon
 - name: Symlink dotfiles
-  shell: stow -d ~/Dotfiles -t ~ {{ item }}
-  with_items:
-    - mpd
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'mpd.conf', dest: '~/.config/mpd/mpd.conf' }
+    - { src: 'ncmpcpp/bindings', dest: '~/.ncmpcpp/bindings' }
+    - { src: 'ncmpcpp/config', dest: '~/.ncmpcpp/config' }
 
 # I prefer to run MPD against my music dir, as my user
 - name: Disable system MPD daemon
