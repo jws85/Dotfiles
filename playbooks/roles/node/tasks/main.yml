@@ -35,10 +35,16 @@
     warn: no
 
 - name: Install typescript
-  shell: npm install -g typescript-language-server
+  shell: npm install -g typescript
   args:
     creates: ~/.npm-packages/bin/tsc
     warn: no
 
-- name: Symlink Node dotfiles
-  shell: stow -d ~/Dotfiles -t ~ node
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'npmrc', dest: '~/.npmrc' }
+    - { src: 'node.fish', dest: '~/.config/fish/local/node.fish' }
