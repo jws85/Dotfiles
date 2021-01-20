@@ -128,6 +128,7 @@
   shell: curl -fsSL https://starship.rs/install.sh | bash -s -- -b $HOME/.local/bin -y
   args:
     creates: ~/.local/bin/starship
+    warn: false
 
 - name: Change shell to fish
   become: yes
