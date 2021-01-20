@@ -45,6 +45,8 @@
       - oneko
       - peek
       - qalculate-gtk
+      - qutebrowser
+      - qutebrowser-qtwebengine
       - remmina
       - sox # to generate white noise!
       - syncthing
@@ -62,6 +64,7 @@
     - ~/.config/fman/Local
     - ~/.config/fman/Plugins/User/Settings
     - ~/.config/mpv
+    - ~/.config/qutebrowser/dracula
 
 - name: Symlink dotfiles
   file:
@@ -79,6 +82,11 @@
     - { src: 'fman/Settings/Key Bindings (Linux).json', dest: '~/.config/fman/Plugins/User/Settings/Key Bindings (Linux).json' }
 
     - { src: 'mpv/input.conf', dest: '~/.config/mpv/input.conf' }
+
+    - { src: 'qutebrowser/config.py', dest: '~/.config/qutebrowser/config.py' }
+    - { src: 'qutebrowser/dracula/draw.py', dest: '~/.config/qutebrowser/dracula/draw.py' }
+    - { src: 'qutebrowser/dracula/__init__.py', dest: '~/.config/qutebrowser/dracula/__init__.py' }
+    - { src: 'qutebrowser/dracula/readme.md', dest: '~/.config/qutebrowser/dracula/readme.md' }
 
 - name: Copy default config if needed
   copy:
