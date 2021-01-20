@@ -28,6 +28,11 @@
     creates: ~/.npm-packages/bin/pyright
     warn: no
 
+- name: Ensure directories exist
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/.config/ptpython
+
 - name: Symlink dotfiles
   file:
     src: "{{ role_path}}/files/{{ item.src }}"

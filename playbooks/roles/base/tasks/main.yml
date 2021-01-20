@@ -49,7 +49,6 @@
       - ripgrep
       - speedtest-cli
       - sshfs
-      - stow
       - tig
       - vim
 

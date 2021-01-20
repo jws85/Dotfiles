@@ -35,8 +35,5 @@
     - { src: 'composer.lock', dest: '~/.config/composer/composer.lock' }
     - { src: 'php.fish', dest: '~/.config/fish/local/php.fish' }
 
-- name: Symlink PHP dotfiles
-  shell: stow -d ~/Dotfiles -t ~ php
-
 - name: Install PHP utilities via composer
   shell: composer global install
