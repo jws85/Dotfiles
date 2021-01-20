@@ -1,3 +1,8 @@
 ---
-- name: Symlink Go dotfiles
-  shell: stow -d ~/Dotfiles -t ~ go
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'go.fish', dest: '~/.config/fish/local/go.fish' }
