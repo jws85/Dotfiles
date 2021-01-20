@@ -9,8 +9,10 @@
       - gnupg
       - pbuilder
 
-- name: Install gdbinit
-  get_url:
-    url: https://git.io/.gdbinit
-    dest: ~/.gdbinit
-    mode: 0644
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'gdbinit', dest: '~/.gdbinit' }
