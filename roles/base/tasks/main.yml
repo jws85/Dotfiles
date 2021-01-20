@@ -52,6 +52,22 @@
       - tig
       - vim
 
+- name: Remove packages I don't want
+  become: yes
+  apt:
+    name:
+      # Removing because it updates Firefox from under me, causing infuriating
+      # error messages:
+      # https://askubuntu.com/questions/1279041/disabling-firefox-background-upgrades
+      - unattended-upgrades
+      # Removing because:
+      #  - it clutters up df output
+      #  - you can't change ~/snap to ~/Snap
+      #  - flatpak is more open
+      - snapd
+    state: absent
+
+
 - name: Ensure directories exist
   file: path={{ item }} state=directory mode=0755
   with_items:
