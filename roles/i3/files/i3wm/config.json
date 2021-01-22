@@ -13,7 +13,8 @@
     ],
     "autostart": [
         "unclutter",
-        "nm-applet"
+        "nm-applet",
+        "redshift"
     ],
     "colors": {
         "background": "#282a36",
