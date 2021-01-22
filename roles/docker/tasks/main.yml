@@ -26,5 +26,5 @@
   become: yes
   user:
     name: jws
-    group: docker
+    groups: docker
     append: yes

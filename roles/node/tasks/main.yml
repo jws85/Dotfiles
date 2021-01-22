@@ -28,12 +28,6 @@
   with_items:
     - ~/.npm-packages/
 
-- name: Install typescript-language-server
-  shell: npm install -g typescript-language-server
-  args:
-    creates: ~/.npm-packages/bin/typescript-language-server
-    warn: no
-
 - name: Symlink dotfiles
   file:
     src: "{{ role_path}}/files/{{ item.src }}"
@@ -42,3 +36,9 @@
   loop:
     - { src: 'npmrc', dest: '~/.npmrc' }
     - { src: 'node.fish', dest: '~/.config/fish/local/node.fish' }
+
+- name: Install typescript-language-server
+  shell: npm install -g typescript-language-server
+  args:
+    creates: ~/.npm-packages/bin/typescript-language-server
+    warn: no

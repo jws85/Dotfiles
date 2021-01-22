@@ -62,6 +62,7 @@
   file: path={{ item }} state=directory mode=0755
   with_items:
     - ~/.config/alacritty
+    - ~/.config/fontconfig
     - ~/.config/fman/Local
     - ~/.config/fman/Plugins/User/Settings
     - ~/.config/mpv

@@ -21,9 +21,7 @@
   become: yes
   apt:
     name:
-      - libretro-2048
-      - libretro-bsnes-balanced
-      - libretro-bsnes-performance
+      - libretro-bsnes-mercury-performance
       - libretro-genesisplusgx
       - libretro-gambatte
       - libretro-mgba

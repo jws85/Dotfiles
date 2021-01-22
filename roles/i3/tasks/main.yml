@@ -27,6 +27,14 @@
   args:
     creates: ~/.local/bin/torii
 
+- name: Ensure directories exist
+  file: path={{ item }} state=directory mode=0755
+  with_items:
+    - ~/.config/dunst
+    - ~/.config/i3
+    - ~/.config/i3blocks
+    - ~/.config/rofi
+
 - name: Symlink i3 dotfiles
   file:
     src: "{{ role_path}}/files/{{ item.src }}"
@@ -37,6 +45,7 @@
     - { src: 'xdefaults', dest: '~/.Xdefaults' }
     - { src: 'xinitrc', dest: '~/.xinitrc' }
     - { src: 'xinitrc', dest: '~/.xsession' }
+    - { src: 'xscreensaver', dest: '~/.xscreensaver' }
     - { src: 'dunst/dunstrc', dest: '~/.config/dunst/dunstrc' }
     - { src: 'i3wm/config.template', dest: '~/.config/i3/config.template' }
     - { src: 'i3wm/Makefile', dest: '~/.config/i3/Makefile' }

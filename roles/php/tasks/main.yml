@@ -4,6 +4,7 @@
   apt:
     name:
       - php-cli
+      - php-xml
 
 # Hopefully there's never a problem with getcomposer.org :/
 - name: Install Composer
