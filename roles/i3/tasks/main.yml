@@ -5,7 +5,7 @@
     name:
       - autorandr
       - dunst
-      - feh
+      - feh # wallpaper
       - flameshot
       - i3
       - i3blocks
@@ -14,6 +14,7 @@
       - scrot
       - udiskie
       - unclutter
+      - xdotool # for rofimoji
       - xscreensaver
       - xscreensaver-data-extra
       - xscreensaver-gl-extra
