@@ -5,6 +5,7 @@
     name:
       - autorandr
       - dunst
+      - feh
       - flameshot
       - i3
       - i3blocks
