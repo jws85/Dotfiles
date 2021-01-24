@@ -270,9 +270,11 @@ focus_follows_mouse no
 
 # autostart applications
 exec --no-startup-id $fehbg
-exec --no-startup-id udiskie --tray
 exec --no-startup-id dunst
-exec --no-startup-id nm-applet
+exec --no-startup-id udiskie --tray
 exec --no-startup-id compton -b
 exec --no-startup-id xscreensaver -nosplash
-exec --no-startup-id unclutter
+
+{% for app in autostart: %}
+exec --no-startup-id {{ app }}
+{% endfor %}

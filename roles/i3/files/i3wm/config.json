@@ -11,6 +11,11 @@
         "9:Ⅸ",
         "10:Ⅹ"
     ],
+    "autostart": [
+        "unclutter",
+        "nm-applet",
+        "redshift"
+    ],
     "colors": {
         "background": "#282a36",
         "statusline": "#f8f8f2",
