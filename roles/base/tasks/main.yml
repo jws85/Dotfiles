@@ -78,6 +78,7 @@
     - ~/.local/source
     - ~/.config/fish
     - ~/.config/fish/local
+    - ~/.config/fish/functions
 
 - name: Symlink provisioning script
   file: src="~/Dotfiles/provision" dest="~/.local/bin/provision" state=link
@@ -103,6 +104,7 @@
     - { src: 'vimrc', dest: '~/.vimrc' }
     - { src: 'fish/config.fish', dest: '~/.config/fish/config.fish' }
     - { src: 'fish/fish_plugins', dest: '~/.config/fish/fish_plugins' }
+    - { src: 'fish/functions/copy.fish', dest: '~/.config/fish/functions/copy.fish' }
 
     - { src: 'scripts/bin2music', dest: '~/.local/bin/bin2music' }
     - { src: 'scripts/bowdler', dest: '~/.local/bin/bowdler' }
