@@ -17,15 +17,6 @@ function fish_greeting
     fortune
 end
 
-# Helpful aliases
-function s
-    fish_title "ssh " $argv
-    set TERM xterm-256color
-    ssh $argv
-end
-
-alias x=exit
-
 # Load site-specific settings
 for file in ~/.config/fish/local/*
     source $file
