@@ -1,4 +1,5 @@
 set -g theme_date_format "+%m.%d %H:%M:%S"
+set PATH ~/.local/bin $PATH
 
 # From the fish manual: file:///usr/share/doc/fish/index.html#command-line-editor
 function hybrid_bindings --description "Vi-style bindings that inherit emacs-style bindings in all modes"
