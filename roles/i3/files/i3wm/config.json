@@ -12,9 +12,14 @@
         "10:Ⅹ"
     ],
     "autostart": [
+        "dunst",
+        "udiskie --tray",
+        "compton -b",
+        "xscreensaver -nosplash",
         "unclutter",
         "nm-applet",
-        "redshift"
+        "redshift",
+        "$fehbg"
     ],
     "colors": {
         "background": "#282a36",
