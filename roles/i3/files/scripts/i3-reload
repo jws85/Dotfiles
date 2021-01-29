@@ -1,0 +1,4 @@
+#!/bin/bash
+
+( cd $HOME/.config/i3 ; torii config.template config.json >| config )
+i3-msg -q reload

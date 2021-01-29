@@ -50,10 +50,10 @@
     - { src: 'xscreensaver', dest: '~/.xscreensaver' }
     - { src: 'dunst/dunstrc', dest: '~/.config/dunst/dunstrc' }
     - { src: 'i3wm/config.template', dest: '~/.config/i3/config.template' }
-    - { src: 'i3wm/Makefile', dest: '~/.config/i3/Makefile' }
     - { src: 'i3blocks/config', dest: '~/.config/i3blocks/config' }
     - { src: 'rofi/config.rasi', dest: '~/.config/rofi/config.rasi' }
     - { src: 'scripts/i3-empty', dest: '~/.local/bin/i3-empty' }
+    - { src: 'scripts/i3-reload', dest: '~/.local/bin/i3-reload' }
     - { src: 'scripts/i3blocks-battery', dest: '~/.local/bin/i3blocks-battery' }
     - { src: 'scripts/i3blocks-cpu', dest: '~/.local/bin/i3blocks-cpu' }
     - { src: 'scripts/i3blocks-mpd', dest: '~/.local/bin/i3blocks-mpd' }
@@ -69,9 +69,9 @@
     - { src: 'defaultwall.jpg', dest: '~/.wallpaper' }
 
 - name: Generate i3 config
-  make:
-    chdir: ~/.config/i3
-    target: all
+  shell: i3-reload
+  args:
+    creates: ~/.config/i3/config
 
 - name: Clone my helper scripts
   git:

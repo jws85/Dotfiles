@@ -117,7 +117,7 @@ mode $mode_system {
 	# Locks i3
 	bindsym l exec --no-startup-id $lock, mode "default"
 	# Reloads i3 config
-        bindsym r exec "cd ~/.config/i3/; make; i3-msg restart", mode "default"
+        bindsym r exec i3-reload, mode "default"
 
         # Puts system into suspend (assuming you're infected by systemd)
 	bindsym Pause exec --no-startup-id $lock && systemctl suspend, mode "default"
