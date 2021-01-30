@@ -20,6 +20,12 @@
       - xscreensaver-data-extra
       - xscreensaver-gl-extra
 
+- name: Ensure the Qt style copies from GTK
+  lineinfile:
+    path: ~/.profile
+    regexp: '^export\s+QT_STYLE_OVERRIDE='
+    line: 'export QT_STYLE_OVERRIDE=gtk2'
+
 - name: Install rofimoji
   shell: pipx install git+https://github.com/fdw/rofimoji
   args:
