@@ -10,6 +10,7 @@
       - i3
       - i3blocks
       - jq  # helper scripts
+      - lxappearance  # easy way to set GTK theme
       - rofi
       - scrot
       - udiskie
