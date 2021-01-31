@@ -59,6 +59,7 @@
     - { src: 'i3wm/config.template', dest: '~/.config/i3/config.template' }
     - { src: 'i3blocks/config', dest: '~/.config/i3blocks/config' }
     - { src: 'rofi/config.rasi', dest: '~/.config/rofi/config.rasi' }
+
     - { src: 'scripts/i3-empty', dest: '~/.local/bin/i3-empty' }
     - { src: 'scripts/i3-goto-mark', dest: '~/.local/bin/i3-goto-mark' }
     - { src: 'scripts/i3-reload', dest: '~/.local/bin/i3-reload' }
@@ -66,6 +67,7 @@
     - { src: 'scripts/i3blocks-cpu', dest: '~/.local/bin/i3blocks-cpu' }
     - { src: 'scripts/i3blocks-mpd', dest: '~/.local/bin/i3blocks-mpd' }
     - { src: 'scripts/i3blocks-pulseaudio', dest: '~/.local/bin/i3blocks-pulseaudio' }
+    - { src: 'scripts/pavol', dest: '~/.local/bin/pavol' }
 
 - name: Copy default config if needed
   copy:
