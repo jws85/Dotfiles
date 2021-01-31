@@ -1,0 +1,4 @@
+#!/bin/bash
+
+MARK=$(i3-msg -t get_marks | jq -r '.[]' | rofi -dmenu -p 'Marks')
+i3-msg "[con_mark=\"$MARK\"] focus"

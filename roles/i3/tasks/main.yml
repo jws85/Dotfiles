@@ -60,6 +60,7 @@
     - { src: 'i3blocks/config', dest: '~/.config/i3blocks/config' }
     - { src: 'rofi/config.rasi', dest: '~/.config/rofi/config.rasi' }
     - { src: 'scripts/i3-empty', dest: '~/.local/bin/i3-empty' }
+    - { src: 'scripts/i3-goto-mark', dest: '~/.local/bin/i3-goto-mark' }
     - { src: 'scripts/i3-reload', dest: '~/.local/bin/i3-reload' }
     - { src: 'scripts/i3blocks-battery', dest: '~/.local/bin/i3blocks-battery' }
     - { src: 'scripts/i3blocks-cpu', dest: '~/.local/bin/i3blocks-cpu' }
