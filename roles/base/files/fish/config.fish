@@ -1,12 +1,29 @@
 set -g theme_date_format "+%m.%d %H:%M:%S"
 set PATH ~/.local/bin $PATH
 
+# See https://github.com/fish-shell/fish-shell/issues/1891#issuecomment-451961517
+function expand-dot-to-parent-directory-path -d 'expand ... to ../.. etc'
+    # Get commandline up to cursor
+    set -l cmd (commandline --cut-at-cursor)
+
+    # Match last line
+    switch $cmd[-1]
+        case '*..'
+            commandline --insert '/.'
+        case '*'
+            commandline --insert '.'
+    end
+end
+
 # From the fish manual: file:///usr/share/doc/fish/index.html#command-line-editor
 function hybrid_bindings --description "Vi-style bindings that inherit emacs-style bindings in all modes"
     for mode in default insert visual
         fish_default_key_bindings -M $mode
     end
     fish_vi_key_bindings --no-erase
+    # Any other relevant bindings should go below:
+    # Add the code to expand ... to ../..
+    bind . expand-dot-to-parent-directory-path
 end
 set -g fish_key_bindings hybrid_bindings
 
