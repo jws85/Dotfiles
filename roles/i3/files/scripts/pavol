@@ -3,17 +3,21 @@
 MAX_LIMIT=120
 PERCENT=5
 
-if [ -z "$1" ]; then
-    echo "Usage: $0 [up|down|current|mute|is-muted]"
-    exit 1
-fi
-
 function get_default_sink_volume {
     # https://unix.stackexchange.com/a/230533
     SINK=$( pactl list short sinks | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,' | head -n 1 )
     VOL_OLD=$( pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' )
     return $VOL_OLD
 }
+
+function usage {
+    echo "Usage: $0 [up|down|current|mute|is-muted]"
+    exit 1
+}
+
+if [ -z "$1" ]; then
+    usage
+fi
 
 if [ "$1" = "up" ]; then
     get_default_sink_volume
@@ -41,5 +45,8 @@ elif [ "$1" = "mute" ]; then
 elif [ "$1" = "is-muted" ]; then
     SINK=$( pactl list short sinks | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,' | head -n 1 )
     pactl list sinks | grep '^[[:space:]]Mute:' | head -n $(( $SINK + 1 )) | tail -n 1 | awk '{print $2}'
+
+else
+    usage
 
 fi
