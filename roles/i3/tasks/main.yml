@@ -75,8 +75,10 @@
     dest: "{{ item.dest }}"
     force: no
   loop:
-    - { src: 'i3wm/config.json', dest: '~/.config/i3/config.json' }
     - { src: 'defaultwall.jpg', dest: '~/.wallpaper' }
+    - { src: 'gtk2/gtkrc-2.0', dest: '~/.gtkrc-2.0' }
+    - { src: 'gtk3/settings.ini', dest: '~/.config/gtk-3.0/settings.ini' }
+    - { src: 'i3wm/config.json', dest: '~/.config/i3/config.json' }
 
 - name: Generate i3 config
   shell: i3-reload
