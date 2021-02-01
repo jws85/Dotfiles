@@ -161,18 +161,19 @@ mode $mode_sound {
 bindsym $mod+z mode $mode_sound
 
 # a "launcher" mode to kick off commonly used utilities
-set $mode_launcher "LAUNCH: [b]g [e]m [f]man [g]fx [k]bd [m]usic [n]eko [p]ass [r]etroarch [w]eb"
+set $mode_launcher "LAUNCH: lx[a]ppearance [b]g [e]m [f]fox [g]fx [k]bd [n]eko kee[p]ass [q]ute [r]etroarch [z]eal"
 mode $mode_launcher {
+	bindsym a exec "lxappearance", mode "default"
 	bindsym b exec --no-startup-id $fehbg, mode "default"
 	bindsym e exec "em", mode "default"
-	bindsym f exec "fman", mode "default"
+	bindsym f exec "firefox", mode "default"
 	bindsym g exec "gimp", mode "default"
-	bindsym k exec --no-startup-id "setxkbmap -option ctrl:swapcaps,compose:ralt", mode "default"
-	bindsym m exec "cantata", mode "default"
-	bindsym n mode $mode_cat
+	bindsym k mode $mode_keyboard
+	bindsym n mode $mode_neko
 	bindsym p exec "keepassxc", mode "default"
+	bindsym q exec "qutebrowser", mode "default"
 	bindsym r exec "retroarch", mode "default"
-	bindsym w exec "sensible-browser", mode "default"
+	bindsym z exec "zeal", mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -180,10 +181,26 @@ mode $mode_launcher {
 }
 bindsym $mod+semicolon mode $mode_launcher
 
-# purely a silly toy; a cat chases your cursor around (until you kill it...)
+# change keyboard options; sometimes I'm on an Ergodox with Ctrl in the right place,
+# sometimes I'm on a laptop keyboard that has to be told to do the right thing
 # this menu is bound underneath $mode_launcher
-set $mode_cat "(=^ ◡ ^=): [i]nu • [n]eko • [T]ora-neko • [s]akura • [t]omoyo • [k]ill (O.o)"
-mode $mode_cat {
+set $mode_keyboard "KEYBOARD: [r]eset • [c]ompose • [s]wapcaps"
+mode $mode_keyboard {
+	bindsym r exec --no-startup-id "setxkbmap -option"
+	bindsym s exec --no-startup-id "setxkbmap -option ctrl:swapcaps"
+	bindsym c exec --no-startup-id "setxkbmap -option compose:ralt"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Ctrl+g mode "default"
+}
+
+# neko mode
+# purely a silly toy; a cat (or dog, or anime character) chases your cursor aroun
+# (until you kill it...)
+# this menu is bound underneath $mode_launcher
+set $mode_neko "(=^ ◡ ^=): [i]nu • [n]eko • [T]ora-neko • [s]akura • [t]omoyo • [k]ill (O.o)"
+mode $mode_neko {
 	bindsym i exec "oneko -dog", mode "default"
 	bindsym n exec "oneko", mode "default"
 	bindsym Shift+t exec "oneko -tora", mode "default"
