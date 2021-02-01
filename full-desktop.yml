@@ -14,6 +14,7 @@
     - mpd
     - emacs
     - games
+    - gtk-flat
     - i3
   pre_tasks:
     - name: Create ~/.playbook.provision

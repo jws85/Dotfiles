@@ -1,0 +1,36 @@
+---
+- name: Add PPA keys for Flat Remix
+  apt_key: state=present url='{{ item }}'
+  become: yes
+  with_items:
+    # ppa:daniruiz/flat-remix
+    - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xba309d7c0cbe9a2df584ac50a074f0583066c9c9'
+
+- name: Add PPA for Flat Remix
+  apt_repository: repo='{{ item }}' mode=0644
+  register: ppa
+  become: yes
+  with_items:
+    # ppa:daniruiz/flat-remix -- GTK Flat Remix theme
+    - 'ppa:daniruiz/flat-remix'
+
+- name: Update package cache
+  apt: update_cache=yes
+  become: yes
+  when: ppa.changed
+
+- name: Install flat-remix-gtk and numix-circle
+  become: yes
+  apt:
+    name:
+      - flat-remix-gtk
+      - numix-icon-theme-circle
+
+- name: Copy default config if needed
+  copy:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    force: no
+  loop:
+    - { src: 'gtkrc-2.0', dest: '~/.gtkrc-2.0' }
+    - { src: 'gtk3.ini', dest: '~/.config/gtk-3.0/settings.ini' }
