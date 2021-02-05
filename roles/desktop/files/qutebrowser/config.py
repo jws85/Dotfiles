@@ -16,6 +16,8 @@ config.unbind('}}', mode='normal')
 config.unbind('J', mode='normal')
 config.unbind('K', mode='normal')
 config.unbind('ss', mode='normal')
+# I don't use bookmarks
+config.unbind('M', mode='normal')
 
 config.bind('J', 'scroll-page 0 1')
 config.bind('K', 'scroll-page 0 -1')
@@ -24,6 +26,12 @@ config.bind(']', 'tab-next')
 config.bind('{', 'tab-move -')
 config.bind('}', 'tab-move +')
 config.bind('s', 'buffer ')
+
+# I don't like bookmarks; I find they get holed up in a walled garden that nothing
+# can leave.  I use quickmarks, but other than that, I like to make org-roam captures
+# of a page I'm interested in coming back to, which the below does.  The :roam command
+# is defined in the aliases.
+config.bind('M', 'roam')
 
 # aliases to run javascript bookmarklets
 c.aliases.update({
