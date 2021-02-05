@@ -29,7 +29,7 @@ config.bind('[', 'tab-prev')
 config.bind(']', 'tab-next')
 config.bind('{', 'tab-move -')
 config.bind('}', 'tab-move +')
-config.bind('s', 'buffer ')
+config.bind('s', 'set-cmd-text -s :buffer ')
 
 # I don't like bookmarks; I find they get holed up in a walled garden that nothing
 # can leave.  I use quickmarks, but other than that, I like to make org-roam captures
