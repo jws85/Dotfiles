@@ -67,6 +67,7 @@
     - ~/.config/fman/Plugins/User/Settings
     - ~/.config/mpv
     - ~/.config/qutebrowser/dracula
+    - ~/.local/share/qutebrowser/userscripts
 
 - name: Symlink dotfiles
   file:
@@ -89,6 +90,7 @@
     - { src: 'qutebrowser/dracula/draw.py', dest: '~/.config/qutebrowser/dracula/draw.py' }
     - { src: 'qutebrowser/dracula/__init__.py', dest: '~/.config/qutebrowser/dracula/__init__.py' }
     - { src: 'qutebrowser/dracula/readme.md', dest: '~/.config/qutebrowser/dracula/readme.md' }
+    - { src: 'qutebrowser/qute-keepassxc', dest: '~/.local/share/qutebrowser/userscripts/qute-keepassxc' }
 
 - name: Copy default config if needed
   copy:

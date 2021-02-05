@@ -37,10 +37,14 @@ config.bind('s', 'set-cmd-text -s :buffer ')
 # is defined in the aliases.
 config.bind('M', 'roam')
 
+# Talk to KeepassXC via its browser interface
+config.bind(',k', 'keepassxc')
+
 # aliases to run javascript bookmarklets
 c.aliases.update({
     'roam': "open javascript:location.href='org-protocol://roam-ref?template=r&ref='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)",
-    'dark': "open javascript:document.querySelectorAll('*').forEach(e=>e.setAttribute('style','background-color:#222;background-image:none;color:#'+(/^A|BU/.test(e.tagName)?'36c;text-decoration:underline;':'eee;')+e.getAttribute('style')))"
+    'dark': "open javascript:document.querySelectorAll('*').forEach(e=>e.setAttribute('style','background-color:#222;background-image:none;color:#'+(/^A|BU/.test(e.tagName)?'36c;text-decoration:underline;':'eee;')+e.getAttribute('style')))",
+    'keepassxc': "spawn --userscript qute-keepassxc -k 'jwsmith2spam@gmail.com' -s /run/user/1000/kpxc_server"
 })
 
 c.auto_save.session = True
