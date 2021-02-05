@@ -12,6 +12,7 @@
         "10:Ⅹ"
     ],
     "autostart": [
+        "mate-polkit",
         "dunst",
         "udiskie --tray",
         "compton -b",
