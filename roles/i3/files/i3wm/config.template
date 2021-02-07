@@ -273,6 +273,7 @@ bar {
 }
 
 # future window border settings; not compatible with i3 on Ubuntu 18.04
+hide_edge_borders smart
 default_border pixel 2
 default_floating_border normal
 
