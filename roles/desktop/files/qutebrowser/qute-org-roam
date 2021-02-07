@@ -1,0 +1,34 @@
+#!/bin/bash
+
+if [ -z "$QUTE_FIFO" ] ; then
+    cat 1>&2 <<EOF
+Error: $0 can not be run as a standalone script.
+It is a qutebrowser userscript. In order to use it, call it using
+'spawn --userscript' as described in qute://help/userscripts.html
+EOF
+    exit 1
+fi
+
+# Read bookmark data out of Emacs (look at my .emacs.d/config.org for more info)
+# The (jws/org-roam-bookmarks-rofi) generates a temp file; this was the ONLY
+# way I could get this to work............
+TMPFILE=$( emacsclient --eval '(jws/org-roam-bookmarks-rofi)' | sed 's/"//g' )
+
+# Number the file, show rofi, get the file number in question
+NUM=$( nl $TMPFILE | rofi -dmenu -i -p 'Bookmarks' | awk '{print $1}' )
+echo $NUM
+
+# If we cancelled rofi, there should be no number.
+# Stop the whole process if that's so (or else sed picks up the first line)
+if [ -z "$NUM" ]; then
+    exit 1
+fi
+
+# Grab the line number, and get the URL from the file
+URL=$( sed $NUM'q;d' $TMPFILE | awk '{print $NF}' )
+
+# Delete the tempfile
+rm -f $TMPFILE
+
+# Open in qutebrowser
+echo "open -t https:$URL" >> $QUTE_FIFO

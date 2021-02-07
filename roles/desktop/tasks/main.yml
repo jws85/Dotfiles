@@ -91,6 +91,7 @@
     - { src: 'qutebrowser/dracula/__init__.py', dest: '~/.config/qutebrowser/dracula/__init__.py' }
     - { src: 'qutebrowser/dracula/readme.md', dest: '~/.config/qutebrowser/dracula/readme.md' }
     - { src: 'qutebrowser/qute-keepassxc', dest: '~/.local/share/qutebrowser/userscripts/qute-keepassxc' }
+    - { src: 'qutebrowser/qute-org-roam', dest: '~/.local/share/qutebrowser/userscripts/qute-org-roam' }
 
 - name: Copy default config if needed
   copy:

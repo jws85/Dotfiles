@@ -20,8 +20,6 @@ config.unbind('}}', mode='normal')
 config.unbind('J', mode='normal')
 config.unbind('K', mode='normal')
 config.unbind('ss', mode='normal')
-# I don't use bookmarks
-config.unbind('M', mode='normal')
 
 config.bind('J', 'scroll-page 0 1')
 config.bind('K', 'scroll-page 0 -1')
@@ -35,14 +33,16 @@ config.bind('s', 'set-cmd-text -s :buffer ')
 # can leave.  I use quickmarks, but other than that, I like to make org-roam captures
 # of a page I'm interested in coming back to, which the below does.  The :roam command
 # is defined in the aliases.
-config.bind('M', 'roam')
+config.bind(',rm', 'roam-save')
+config.bind(',rb', 'roam-load')
 
 # Talk to KeepassXC via its browser interface
 config.bind(',k', 'keepassxc')
 
 # aliases to run javascript bookmarklets
 c.aliases.update({
-    'roam': "open javascript:location.href='org-protocol://roam-ref?template=r&ref='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)",
+    'roam-save': "open javascript:location.href='org-protocol://roam-ref?template=r&ref='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)",
+    'roam-load': "spawn --userscript qute-org-roam",
     'dark': "open javascript:document.querySelectorAll('*').forEach(e=>e.setAttribute('style','background-color:#222;background-image:none;color:#'+(/^A|BU/.test(e.tagName)?'36c;text-decoration:underline;':'eee;')+e.getAttribute('style')))",
     'keepassxc': "spawn --userscript qute-keepassxc -k 'jwsmith2spam@gmail.com' -s /run/user/1000/kpxc_server"
 })
