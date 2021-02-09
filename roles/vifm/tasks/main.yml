@@ -1,0 +1,21 @@
+---
+- name: Install
+  become: yes
+  apt:
+    name:
+      - vifm
+
+- name: Ensure directories exist
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/.config/vifm
+    - ~/.config/vifm/colors
+
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'vifmrc', dest: '~/.config/vifm/vifmrc' }
+    - { src: 'colors/dracula.vifm', dest: '~/.config/vifm/colors/dracula.vifm' }
