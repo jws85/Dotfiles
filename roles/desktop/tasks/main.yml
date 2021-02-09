@@ -1,10 +1,4 @@
 ---
-- name: Add repository keys by ID
-  apt_key: keyserver=keyserver.ubuntu.com id='{{ item }}'
-  become: yes
-  with_items:
-    - 9CFAF7EB # fman
-
 - name: Add repository keys by URL
   apt_key: state=present url='{{ item }}'
   become: yes
@@ -16,7 +10,6 @@
   register: ppa
   become: yes
   with_items:
-    - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
     - 'deb https://apt.syncthing.net/ syncthing stable'
 
 - name: Update package cache
@@ -55,8 +48,6 @@
   file: path={{ item }} state=directory mode=0755
   with_items:
     - ~/.config/fontconfig
-    - ~/.config/fman/Local
-    - ~/.config/fman/Plugins/User/Settings
     - ~/.config/mpv
 
 - name: Symlink dotfiles
@@ -65,12 +56,6 @@
     dest: "{{ item.dest }}"
     state: link
   loop:
-    - { src: 'fman/Dialogs.json', dest: '~/.config/fman/Local/Dialogs.json' }
-    - { src: 'fman/Settings/Apps (Linux).json', dest: '~/.config/fman/Plugins/User/Settings/Apps (Linux).json' }
-    - { src: 'fman/Settings/Core Settings (Linux).json', dest: '~/.config/fman/Plugins/User/Settings/Core Settings (Linux).json' }
-    - { src: 'fman/Settings/File Associations (Linux).json', dest: '~/.config/fman/Plugins/User/Settings/File Associations (Linux).json' }
-    - { src: 'fman/Settings/Key Bindings (Linux).json', dest: '~/.config/fman/Plugins/User/Settings/Key Bindings (Linux).json' }
-
     - { src: 'mpv/input.conf', dest: '~/.config/mpv/input.conf' }
 
 - name: Copy default config if needed
