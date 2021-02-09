@@ -1,0 +1,7 @@
+---
+dependencies:
+  - role: c
+  - role: go
+  - role: node
+  - role: php
+  - role: python
