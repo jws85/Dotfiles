@@ -1,0 +1,40 @@
+---
+- name: Add repository keys by URL
+  apt_key: state=present url='{{ item }}'
+  become: yes
+  with_items:
+    # ppa:aslatter/ppa
+    - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3A160895CC2CE253085D08A552B24DF7D43B5377'
+
+- name: Add repositories
+  apt_repository: repo='{{ item }}' mode=0644
+  register: ppa
+  become: yes
+  with_items:
+    # ppa:aslatter/ppa -- alacritty
+    - 'ppa:aslatter/ppa'
+
+- name: Update package cache
+  apt: update_cache=yes
+  become: yes
+  when: ppa.changed
+
+- name: Install GUI applications via apt
+  become: yes
+  apt:
+    name:
+      - alacritty
+
+- name: Ensure directories exist
+  file: path={{ item }} state=directory mode=0755
+  with_items:
+    - ~/.config/alacritty
+
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'alacritty.yml', dest: '~/.config/alacritty/alacritty.yml' }
+    - { src: 'dracula.yml', dest: '~/.config/alacritty/dracula.yml' }
