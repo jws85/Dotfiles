@@ -1,0 +1,44 @@
+---
+- name: Install
+  become: yes
+  apt:
+    name:
+      - cowsay
+      - figlet
+      - fish
+      - lolcat
+
+- name: Ensure directories exist
+  file: path={{ item }} state=directory mode=0755
+  with_items:
+    - ~/.local/bin
+    - ~/.local/include
+    - ~/.local/lib/pkgconfig
+    - ~/.local/share/man
+    - ~/.local/source
+
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'config.fish', dest: '~/.config/fish/config.fish' }
+    - { src: 'fish_plugins', dest: '~/.config/fish/fish_plugins' }
+    - { src: 'functions/copy.fish', dest: '~/.config/fish/functions/copy.fish' }
+    - { src: 'functions/sshterminstall.fish', dest: '~/.config/fish/functions/sshterminstall.fish' }
+
+- name: Download, install, and update fisher
+  shell: fish -c "curl -L git.io/fisher | source && fisher install" < ~/.config/fish/fish_plugins
+  args:
+    creates: ~/.config/fish/completions/fisher.fish
+
+- name: Install Starship prompt
+  shell: curl -fsSL https://starship.rs/install.sh | bash -s -- -b $HOME/.local/bin -y
+  args:
+    creates: ~/.local/bin/starship
+    warn: false
+
+- name: Change shell to fish
+  become: yes
+  user: name={{ ansible_user_id }} shell=/usr/bin/fish groups=dialout,disk append=yes
