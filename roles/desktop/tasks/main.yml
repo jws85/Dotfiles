@@ -1,22 +1,4 @@
 ---
-- name: Add repository keys by URL
-  apt_key: state=present url='{{ item }}'
-  become: yes
-  with_items:
-    - https://syncthing.net/release-key.txt
-
-- name: Add repositories
-  apt_repository: repo='{{ item }}' mode=0644
-  register: ppa
-  become: yes
-  with_items:
-    - 'deb https://apt.syncthing.net/ syncthing stable'
-
-- name: Update package cache
-  apt: update_cache=yes
-  become: yes
-  when: ppa.changed
-
 - name: Install GUI applications via apt
   become: yes
   apt:
@@ -36,8 +18,6 @@
       - redshift
       - remmina
       - sox # to generate white noise!
-      - syncthing
-      - syncthing-gtk
       - vim-gtk3 # to enable +clipboard in vim for kitty scrollback
       - webp
       - wireshark

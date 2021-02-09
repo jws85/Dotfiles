@@ -3,3 +3,4 @@ dependencies:
   - role: alacritty
   - role: fman
   - role: qutebrowser
+  - role: syncthing
