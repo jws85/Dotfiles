@@ -22,6 +22,7 @@
       - webp
       - wireshark
       - xsel
+      - zathura
       - zeal
 
 - name: Ensure directories exist
