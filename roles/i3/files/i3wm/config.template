@@ -112,7 +112,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "pavol up"
 
 # i3/system menu
 # h/t https://thevaluable.dev/window-manager-mouseless-i3/
-set $mode_system "i3: [l]ock • [r]eload • [Pause] suspend • [BkSp] exit • [S-BkSp] pwroff • [C-BkSp] reboot"
+set $mode_system "i3: [l]ock • [r]eload • [S]uspend • [R]eboot • [P]wroff • [E]xit"
 mode $mode_system {
 	# Locks i3
 	bindsym l exec --no-startup-id $lock, mode "default"
@@ -120,14 +120,13 @@ mode $mode_system {
         bindsym r exec i3-reload, mode "default"
 
         # Puts system into suspend (assuming you're infected by systemd)
-	bindsym Pause exec --no-startup-id $lock && systemctl suspend, mode "default"
 	bindsym Shift+s exec --no-startup-id $lock && systemctl suspend, mode "default"
-        # Quits i3
-	bindsym BackSpace exec --no-startup-id i3-msg exit
-	# Powers the system off (assuming systemd)
-        bindsym Shift+BackSpace exec --no-startup-id systemctl poweroff -i
 	# Reboots the system (assuming systemd)
-        bindsym Ctrl+BackSpace exec --no-startup-id systemctl reboot -i
+        bindsym Shift+r exec --no-startup-id systemctl reboot -i
+	# Powers the system off (assuming systemd)
+        bindsym Shift+p exec --no-startup-id systemctl poweroff -i
+        # Quits i3
+	bindsym Shift+e exec --no-startup-id i3-msg exit
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
