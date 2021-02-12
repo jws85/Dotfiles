@@ -5,7 +5,7 @@
     dest: ~/.hushlogin
 
 - name: Install Apt prerequisites
-  become: yes
+  become: true
   apt:
     name:
       - apt-file
@@ -15,7 +15,7 @@
       - software-properties-common
 
 - name: Install packages
-  become: yes
+  become: true
   apt:
     name:
       - at
@@ -50,7 +50,7 @@
       - vim
 
 - name: Remove packages I don't want
-  become: yes
+  become: true
   apt:
     name:
       # Removing because it updates Firefox from under me, causing infuriating

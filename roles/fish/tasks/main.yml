@@ -1,6 +1,6 @@
 ---
 - name: Install
-  become: yes
+  become: true
   apt:
     name:
       - cowsay
@@ -41,5 +41,5 @@
     warn: false
 
 - name: Change shell to fish
-  become: yes
-  user: name={{ ansible_user_id }} shell=/usr/bin/fish groups=dialout,disk append=yes
+  become: true
+  user: name={{ ansible_user_id }} shell=/usr/bin/fish groups=dialout,disk append=true

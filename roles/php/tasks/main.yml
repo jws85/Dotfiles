@@ -1,6 +1,6 @@
 ---
 - name: Install PHP packages
-  become: yes
+  become: true
   apt:
     name:
       - php-cli
@@ -9,7 +9,7 @@
 # Hopefully there's never a problem with getcomposer.org :/
 - name: Install Composer
   shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-  become: yes
+  become: true
   args:
     creates: /usr/local/bin/composer
     warn: false

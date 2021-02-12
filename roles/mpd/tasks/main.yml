@@ -1,6 +1,6 @@
 ---
 - name: Install MPD applications
-  become: yes
+  become: true
   apt:
     name:
       - mpd
@@ -29,7 +29,7 @@
 
 # I prefer to run MPD against my music dir, as my user
 - name: Disable system MPD daemon
-  become: yes
+  become: true
   systemd:
     name: mpd
     state: stopped
@@ -39,5 +39,5 @@
   systemd:
     name: mpd
     state: started
-    enabled: yes
+    enabled: true
     scope: user

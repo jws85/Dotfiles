@@ -1,30 +1,30 @@
 ---
 - name: Add Docker repository key
   apt_key: url=https://download.docker.com/linux/ubuntu/gpg
-  become: yes
+  become: true
 
 - name: Add repositories
   apt_repository: repo='{{ item }}'
   register: ppa
-  become: yes
+  become: true
   with_items:
     - 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable'
 
 - name: Update package cache
-  apt: update_cache=yes
-  become: yes
+  apt: update_cache=true
+  become: true
   when: ppa.changed
 
 - name: Install Docker packages
-  become: yes
+  become: true
   apt:
     name:
       - docker-ce # Enabled by the Docker repository above
       - docker-compose
 
 - name: Add jws user to docker group
-  become: yes
+  become: true
   user:
     name: jws
     groups: docker
-    append: yes
+    append: true

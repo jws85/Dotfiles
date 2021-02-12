@@ -1,6 +1,6 @@
 ---
 - name: Install i3 via apt
-  become: yes
+  become: true
   apt:
     name:
       - autorandr

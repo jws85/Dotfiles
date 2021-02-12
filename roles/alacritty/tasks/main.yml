@@ -1,7 +1,7 @@
 ---
 - name: Add repository keys by URL
   apt_key: state=present url='{{ item }}'
-  become: yes
+  become: true
   with_items:
     # ppa:aslatter/ppa
     - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3A160895CC2CE253085D08A552B24DF7D43B5377'
@@ -9,18 +9,18 @@
 - name: Add repositories
   apt_repository: repo='{{ item }}' mode=0644
   register: ppa
-  become: yes
+  become: true
   with_items:
     # ppa:aslatter/ppa -- alacritty
     - 'ppa:aslatter/ppa'
 
 - name: Update package cache
-  apt: update_cache=yes
-  become: yes
+  apt: update_cache=true
+  become: true
   when: ppa.changed
 
 - name: Install GUI applications via apt
-  become: yes
+  become: true
   apt:
     name:
       - alacritty

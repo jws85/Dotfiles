@@ -1,6 +1,6 @@
 ---
 - name: Install GUI applications via apt
-  become: yes
+  become: true
   apt:
     name:
       - qutebrowser

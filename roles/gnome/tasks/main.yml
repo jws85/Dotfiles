@@ -6,7 +6,7 @@
 #  3) see what got changed
 ---
 - name: Install GNOME packages
-  become: yes
+  become: true
   apt:
     name:
       - gnome-tweak-tool

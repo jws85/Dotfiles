@@ -1,6 +1,6 @@
 ---
 - name: Install C packages
-  become: yes
+  become: true
   apt:
     name:
       - build-essential

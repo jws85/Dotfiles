@@ -1,6 +1,6 @@
 ---
 - name: Install KVM packages
-  become: yes
+  become: true
   apt:
     name:
       - bridge-utils

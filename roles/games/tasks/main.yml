@@ -3,22 +3,22 @@
   apt_key:
     keyserver: keyserver.ubuntu.com
     id: 3B2BA0B6750986899B189AFF18DAAE7FECA3745F
-  become: yes
+  become: true
 
 - name: Add repositories
   apt_repository: repo='{{ item }}'
   register: ppa
-  become: yes
+  become: true
   with_items:
     - 'ppa:libretro/stable'
 
 - name: Update package cache
-  apt: update_cache=yes
-  become: yes
+  apt: update_cache=true
+  become: true
   when: ppa.changed
 
 - name: Install games via apt
-  become: yes
+  become: true
   apt:
     name:
       - libretro-bsnes-mercury-performance

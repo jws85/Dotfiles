@@ -1,24 +1,24 @@
 ---
 - name: Add repository keys by ID
   apt_key: keyserver=keyserver.ubuntu.com id='{{ item }}'
-  become: yes
+  become: true
   with_items:
     - 9CFAF7EB # fman
 
 - name: Add repositories
   apt_repository: repo='{{ item }}' mode=0644
   register: ppa
-  become: yes
+  become: true
   with_items:
     - 'deb [arch=amd64] https://fman.io/updates/ubuntu/ stable main'
 
 - name: Update package cache
-  apt: update_cache=yes
-  become: yes
+  apt: update_cache=true
+  become: true
   when: ppa.changed
 
 - name: Install
-  become: yes
+  become: true
   apt:
     name:
       - fman
