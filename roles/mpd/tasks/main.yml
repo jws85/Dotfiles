@@ -33,7 +33,7 @@
   systemd:
     name: mpd
     state: stopped
-    enabled: no
+    enabled: false
 
 - name: Enable user MPD daemon
   systemd:

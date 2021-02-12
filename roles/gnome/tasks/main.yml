@@ -13,16 +13,16 @@
       - gnome-shell-pomodoro
 
 - name: Set fman as default file manager
-  become: no
+  become: false
   shell: xdg-mime default fman.desktop inode/directory application/x-gnome-saved-search
   args:
-    warn: no
+    warn: false
 
 - name: Update desktop database
-  become: no
+  become: false
   shell: update-desktop-database ~/.local/share/applications/
   args:
-    warn: no
+    warn: false
 
 - name: Keyboard customization
   dconf: key='/org/gnome/desktop/input-sources/xkb-options' value="['ctrl:swapcaps', 'compose:ralt']"

@@ -30,7 +30,7 @@
   copy:
     src: "{{ role_path}}/files/{{ item.src }}"
     dest: "{{ item.dest }}"
-    force: no
+    force: false
   loop:
     - { src: 'gtkrc-2.0', dest: '~/.gtkrc-2.0' }
     - { src: 'gtk3.ini', dest: '~/.config/gtk-3.0/settings.ini' }

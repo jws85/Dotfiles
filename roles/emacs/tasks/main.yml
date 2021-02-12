@@ -35,7 +35,7 @@
   git:
     repo: https://github.com/jws85/.emacs.d.git
     dest: ~/.emacs.d/
-    update: no
+    update: false
 
 - name: Ensure directories exist
   file: path={{ item }} state=directory

@@ -26,7 +26,7 @@
   shell: npm install -g pyright
   args:
     creates: ~/.npm-packages/bin/pyright
-    warn: no
+    warn: false
 
 - name: Ensure directories exist
   file: path={{ item }} state=directory

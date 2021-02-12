@@ -43,6 +43,6 @@
   copy:
     src: "{{ role_path}}/files/{{ item.src }}"
     dest: "{{ item.dest }}"
-    force: no
+    force: false
   loop:
     - { src: 'fontconfig/fonts.conf', dest: '~/.config/fontconfig/fonts.conf' }

@@ -12,14 +12,14 @@
   become: yes
   args:
     creates: /usr/local/bin/composer
-    warn: no
+    warn: false
 
 # Requires NodeJS
 - name: Install Intelephense
   shell: npm install -g intelephense
   args:
     creates: ~/.npm-packages/bin/intelephense
-    warn: no
+    warn: false
 
 - name: Ensure directories exist
   file: path={{ item }} state=directory mode=0755

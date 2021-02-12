@@ -73,7 +73,7 @@
   copy:
     src: "{{ role_path}}/files/{{ item.src }}"
     dest: "{{ item.dest }}"
-    force: no
+    force: false
   loop:
     - { src: 'defaultwall.jpg', dest: '~/.wallpaper' }
     - { src: 'i3wm/config.json', dest: '~/.config/i3/config.json' }
@@ -87,7 +87,7 @@
   git:
     repo: https://github.com/jws85/scripts
     dest: ~/.local/source/scripts
-    update: no
+    update: false
 
 - name: Install helper scripts
   make:
