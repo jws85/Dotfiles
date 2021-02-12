@@ -1,9 +1,9 @@
 ---
 - name: Install golang
-  become: yes
-  warn: no
-  shell: curl -L https://golang.org/dl/go1.15.8.linux-amd64.tar.gz | tar -C /usr/local -xzf -
+  become: true
+  shell: "curl -L https://golang.org/dl/go1.15.8.linux-amd64.tar.gz | tar -C /usr/local -xzf -"
   args:
+    warn: false
     creates: /usr/local/go/bin/go
 
 - name: Symlink dotfiles
