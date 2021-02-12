@@ -1,0 +1,15 @@
+#!/bin/sh
+# Simply reads todo.txt and gets the topmost line
+# To 'finish' a task, delete the line and save the file!
+
+# How long to clip before displaying
+CLIPLENGTH=40
+TODO=$( awk 'NF' $HOME/todo.txt | head -n1 | cut -c 1-$CLIPLENGTH )
+
+if [ -z "$TODO" ]; then
+    exit 0
+fi
+
+printf " %s\n" "$TODO"
+printf " %s\n" "$TODO"
+exit 0

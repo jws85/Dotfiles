@@ -67,6 +67,7 @@
     - { src: 'scripts/i3blocks-cpu', dest: '~/.local/bin/i3blocks-cpu' }
     - { src: 'scripts/i3blocks-mpd', dest: '~/.local/bin/i3blocks-mpd' }
     - { src: 'scripts/i3blocks-pulseaudio', dest: '~/.local/bin/i3blocks-pulseaudio' }
+    - { src: 'scripts/i3blocks-todo', dest: '~/.local/bin/i3blocks-todo' }
     - { src: 'scripts/pavol', dest: '~/.local/bin/pavol' }
 
 - name: Copy default config if needed
