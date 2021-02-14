@@ -3,6 +3,7 @@ c = c  # noqa: F821 pylint: disable=E0602,C0103
 config = config  # noqa: F821 pylint: disable=E0602,C0103
 
 import dracula.draw
+import os.path
 
 dracula.draw.blood(c, {
     'spacing': {
@@ -61,3 +62,7 @@ c.downloads.position = 'bottom'
 c.fonts.default_size = '11pt'
 c.url.default_page = 'about:config'
 c.url.start_pages = ['about:config']
+
+# site-specific configuration
+if os.path.exists(os.path.expanduser('~/.config/qutebrowser/site.py')):
+    config.source('site.py')
