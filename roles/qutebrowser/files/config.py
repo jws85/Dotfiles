@@ -35,7 +35,7 @@ c.aliases.update({
     'dark-mode': "open javascript:document.querySelectorAll('*').forEach(e=>e.setAttribute('style','background-color:#222;background-image:none;color:#'+(/^A|BU/.test(e.tagName)?'36c;text-decoration:underline;':'eee;')+e.getAttribute('style')))",
 
     # Talk to KeepassXC via its browser interface
-    'keepassxc': "spawn --userscript qute-keepassxc -k 'jwsmith2spam@gmail.com' -s /run/user/1000/kpxc_server",
+    'keepassxc': "spawn --userscript qute-keepassxc -k 'jwsmith2spam@gmail.com'",
 
     # I don't like bookmarks; I find they get holed up in a walled garden that nothing
     # can leave.  I use quickmarks, but other than that, I like to make org-roam captures

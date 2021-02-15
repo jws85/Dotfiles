@@ -2,5 +2,6 @@
 dependencies:
   - role: alacritty
   - role: fman
+  - role: keepassxc
   - role: qutebrowser
   - role: syncthing
