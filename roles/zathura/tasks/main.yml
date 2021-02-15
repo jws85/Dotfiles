@@ -1,0 +1,19 @@
+---
+- name: Install
+  become: true
+  apt:
+    name:
+      - zathura
+
+- name: Ensure directories exist
+  file: path={{ item }} state=directory mode=0755
+  with_items:
+    - ~/.config/zathura
+
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'zathurarc', dest: '~/.config/zathura/zathurarc' }

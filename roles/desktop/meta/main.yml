@@ -5,3 +5,4 @@ dependencies:
   - role: keepassxc
   - role: qutebrowser
   - role: syncthing
+  - role: zathura
