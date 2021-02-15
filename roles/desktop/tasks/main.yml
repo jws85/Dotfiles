@@ -18,6 +18,7 @@
       - redshift
       - remmina
       - sox # to generate white noise!
+      - sxiv
       - vim-gtk3 # to enable +clipboard in vim for kitty scrollback
       - webp
       - wireshark
@@ -38,6 +39,13 @@
     state: link
   loop:
     - { src: 'mpv/input.conf', dest: '~/.config/mpv/input.conf' }
+    - { src: 'Xresources', dest: '~/.Xresources' }
+
+- name: Merge .Xresources
+  become: false
+  shell: xrdb -merge ~/.Xresources
+  args:
+    warn: false
 
 - name: Copy default config if needed
   copy:

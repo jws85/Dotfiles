@@ -1,0 +1,5 @@
+! Sxiv image viewer
+Sxiv.font: monospace:size=11
+Sxiv.background: #282a36
+!Sxiv.foreground: #f8f8f2
+Sxiv.foreground: #caa9fa
