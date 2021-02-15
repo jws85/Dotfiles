@@ -69,6 +69,7 @@
     - { src: 'scripts/i3blocks-pulseaudio', dest: '~/.local/bin/i3blocks-pulseaudio' }
     - { src: 'scripts/i3blocks-todo', dest: '~/.local/bin/i3blocks-todo' }
     - { src: 'scripts/pavol', dest: '~/.local/bin/pavol' }
+    - { src: 'scripts/setwall', dest: '~/.local/bin/setwall' }
 
 - name: Copy default config if needed
   copy:
