@@ -12,6 +12,14 @@
       - gnome-tweak-tool
       - gnome-shell-pomodoro
 
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'scripts/setwall', dest: '~/.local/bin/setwall' }
+
 - name: Set fman as default file manager
   become: false
   shell: xdg-mime default fman.desktop inode/directory application/x-gnome-saved-search

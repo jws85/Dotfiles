@@ -102,5 +102,4 @@
     - { src: 'scripts/pdf2images', dest: '~/.local/bin/pdf2images' }
     - { src: 'scripts/permfix', dest: '~/.local/bin/permfix' }
     - { src: 'scripts/rocketpost', dest: '~/.local/bin/rocketpost' }
-    - { src: 'scripts/setwall', dest: '~/.local/bin/setwall' }
     - { src: 'scripts/thanos', dest: '~/.local/bin/thanos' }
