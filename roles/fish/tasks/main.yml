@@ -28,6 +28,7 @@
     - { src: 'functions/copy.fish', dest: '~/.config/fish/functions/copy.fish' }
     - { src: 'functions/detach.fish', dest: '~/.config/fish/functions/detach.fish' }
     - { src: 'functions/sshterminstall.fish', dest: '~/.config/fish/functions/sshterminstall.fish' }
+    - { src: 'functions/wttr.fish', dest: '~/.config/fish/functions/wttr.fish' }
 
 - name: Download, install, and update fisher
   shell: fish -c "curl -L git.io/fisher | source && fisher install" < ~/.config/fish/fish_plugins
