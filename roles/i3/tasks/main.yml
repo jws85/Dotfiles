@@ -54,7 +54,6 @@
     - { src: 'xdefaults', dest: '~/.Xdefaults' }
     - { src: 'xinitrc', dest: '~/.xinitrc' }
     - { src: 'xinitrc', dest: '~/.xsession' }
-    - { src: 'xscreensaver', dest: '~/.xscreensaver' }
     - { src: 'dunst/dunstrc', dest: '~/.config/dunst/dunstrc' }
     - { src: 'i3wm/config.template', dest: '~/.config/i3/config.template' }
     - { src: 'i3blocks/config', dest: '~/.config/i3blocks/config' }
@@ -77,6 +76,7 @@
     dest: "{{ item.dest }}"
     force: false
   loop:
+    - { src: 'xscreensaver', dest: '~/.xscreensaver' }
     - { src: 'defaultwall.jpg', dest: '~/.wallpaper' }
     - { src: 'i3wm/config.json', dest: '~/.config/i3/config.json' }
 
