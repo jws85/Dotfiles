@@ -3,7 +3,9 @@
   become: true
   apt:
     name:
+      - bear
       - build-essential
+      - clang-format
       - clangd
       - gdb
       - gnupg
