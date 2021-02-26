@@ -26,6 +26,7 @@
     - { src: 'config.fish', dest: '~/.config/fish/config.fish' }
     - { src: 'fish_plugins', dest: '~/.config/fish/fish_plugins' }
     - { src: 'functions/copy.fish', dest: '~/.config/fish/functions/copy.fish' }
+    - { src: 'functions/CAPSLOCK.fish', dest: '~/.config/fish/functions/CAPSLOCK.fish' }
     - { src: 'functions/detach.fish', dest: '~/.config/fish/functions/detach.fish' }
     - { src: 'functions/sshterminstall.fish', dest: '~/.config/fish/functions/sshterminstall.fish' }
     - { src: 'functions/wttr.fish', dest: '~/.config/fish/functions/wttr.fish' }
