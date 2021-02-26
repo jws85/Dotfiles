@@ -38,6 +38,7 @@
       - iptraf
       - irssi
       - locate
+      - makepasswd
       - minicom
       - mosh
       - nmap
