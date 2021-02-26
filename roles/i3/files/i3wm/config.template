@@ -59,8 +59,8 @@ bindsym $mod+f floating toggle
 bindsym $mod+o focus mode_toggle
 
 # focus the parent container
-bindsym $mod+Shift+comma focus parent
-bindsym $mod+Shift+period focus child
+bindsym $mod+a focus parent
+bindsym $mod+q focus child
 
 # switch to workspace
 {% for workspace in workspaces: %}
