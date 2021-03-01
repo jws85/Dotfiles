@@ -1,0 +1,39 @@
+#!/bin/bash
+# rofi-roam-bookmarks: Open org-roam bookmarks in web browser
+#
+# If you run this from inside qutebrowser as a userscript, it'll use its
+# fifo.
+#
+# Otherwise, it'll run it with a given web browser.  You may specify the
+# command for one as the first argument (e.g.
+# "rofi-roam-bookmarks chromium-browser").  If the first argument is omitted,
+# sensible-browser will be used.
+
+# Read bookmark data out of Emacs (look at my .emacs.d/config.org for more info)
+# The (jws/org-roam-bookmarks-rofi) generates a temp file; this was the ONLY
+# way I could get this to work............
+TMPFILE=$( emacsclient --eval '(jws/org-roam-bookmarks-rofi)' | sed 's/"//g' )
+
+# Number the file, show rofi, get the file number in question
+URL=$( rofi -dmenu -i -p 'Bookmarks' <$TMPFILE | awk -F' -- ' '{print $NF}' )
+
+# If we cancelled rofi, there should be no number.
+# Stop the whole process if that's so (or else sed picks up the first line)
+if [ -z "$URL" ]; then
+    exit 1
+fi
+
+# Delete the tempfile
+rm -f $TMPFILE
+
+PROTO="https:"
+
+if [ -n "$QUTE_FIFO" ] ; then
+    echo "open -t $PROTO$URL" >> $QUTE_FIFO
+else
+    if [ -n "$1" ]; then
+        exec $1 "$PROTO$URL"
+    else
+        sensible-browser "$PROTO$URL"
+    fi
+fi

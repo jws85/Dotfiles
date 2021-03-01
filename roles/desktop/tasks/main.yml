@@ -37,6 +37,7 @@
     state: link
   loop:
     - { src: 'mpv/input.conf', dest: '~/.config/mpv/input.conf' }
+    - { src: 'scripts/rofi-roam-bookmarks', dest: '~/.local/bin/rofi-roam-bookmarks' }
     - { src: 'Xresources', dest: '~/.Xresources' }
 
 - name: Merge .Xresources

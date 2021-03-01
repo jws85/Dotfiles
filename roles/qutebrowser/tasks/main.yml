@@ -23,4 +23,3 @@
     - { src: 'dracula/__init__.py', dest: '~/.config/qutebrowser/dracula/__init__.py' }
     - { src: 'dracula/readme.md', dest: '~/.config/qutebrowser/dracula/readme.md' }
     - { src: 'qute-keepassxc', dest: '~/.local/share/qutebrowser/userscripts/qute-keepassxc' }
-    - { src: 'qute-org-roam', dest: '~/.local/share/qutebrowser/userscripts/qute-org-roam' }

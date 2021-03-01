@@ -42,7 +42,7 @@ c.aliases.update({
     # of a page I'm interested in coming back to, which the below does.  The :roam command
     # is defined in the aliases.
     'roam-save': "open javascript:location.href='org-protocol://roam-ref?template=r&ref='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)",
-    'roam-load': "spawn --userscript qute-org-roam",
+    'roam-load': "spawn --userscript ~/.local/bin/rofi-roam-bookmarks",
 
     # Load current URL in the Wayback Machine
     'wayback-load': "open javascript:location.href='https://web.archive.org/web/*/'+location.href.replace(/\\/$/,'')",
