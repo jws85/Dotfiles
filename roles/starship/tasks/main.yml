@@ -1,0 +1,20 @@
+---
+- name: Ensure directories exist
+  file: path={{ item }} state=directory mode=0755
+  with_items:
+    - ~/.local/bin
+
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'starship.toml', dest: '~/.config/starship.toml' }
+    - { src: 'scripts/starship-svncheck', dest: '~/.local/bin/starship-svncheck' }
+
+- name: Install Starship prompt
+  shell: curl -fsSL https://starship.rs/install.sh | bash -s -- -b $HOME/.local/bin -y
+  args:
+    creates: ~/.local/bin/starship
+    warn: false

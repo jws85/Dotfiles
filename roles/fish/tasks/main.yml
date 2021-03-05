@@ -36,12 +36,6 @@
   args:
     creates: ~/.config/fish/completions/fisher.fish
 
-- name: Install Starship prompt
-  shell: curl -fsSL https://starship.rs/install.sh | bash -s -- -b $HOME/.local/bin -y
-  args:
-    creates: ~/.local/bin/starship
-    warn: false
-
 - name: Change shell to fish
   become: true
   user: name={{ ansible_user_id }} shell=/usr/bin/fish groups=dialout,disk append=true

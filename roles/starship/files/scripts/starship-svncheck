@@ -1,0 +1,15 @@
+#!/bin/bash
+# This checks upwards for a .svn directory; if it is found, return a # 0
+# exit code; otherwise return a 1 exit code
+#
+# Believe it or not, this is faster to determine whether a directory is a
+# Subversion working copy or not, than 'svn info' or 'svn status'.
+#
+# Used in my Starship prompt, to decide whether to run svnversion or not.
+
+d=$(pwd)
+while [ "$d" != "/" ]; do
+	[ -d "$d/.svn" ] && exit 0
+	d=$(dirname $d)
+done
+exit 1
