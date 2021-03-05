@@ -6,6 +6,18 @@
     warn: false
     creates: /usr/local/go/bin/go
 
+- name: Install gopls
+  shell: "GO111MODULE=on go get golang.org/x/tools/gopls@latest"
+  args:
+    warn: false
+    creates: ~/.config/go/bin/gopls
+
+- name: Install guru
+  shell: "go get golang.org/x/tools/cmd/guru"
+  args:
+    warn: false
+    creates: ~/.config/go/bin/guru
+
 - name: Symlink dotfiles
   file:
     src: "{{ role_path}}/files/{{ item.src }}"
