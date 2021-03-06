@@ -28,6 +28,10 @@ rm -f $TMPFILE
 
 PROTO="https:"
 
+if ! wget -q --method=HEAD "$PROTO$URL" ; then
+    PROTO="http:"
+fi
+
 if [ -n "$QUTE_FIFO" ] ; then
     echo "open -t $PROTO$URL" >> $QUTE_FIFO
 else
