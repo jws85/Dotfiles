@@ -95,7 +95,7 @@ bindsym $mod+space exec "rofi -show run"
 bindsym $mod+slash exec "rofi -show window"
 # printscreen
 bindsym $mod+Print exec "scrot 'shot.%Y%m%d.%H%M%S.png' -e 'mv $f ~/Pictures'"
-bindsym Print exec "flameshot gui"
+bindsym Print exec "scrot 'shot.%Y%m%d.%H%M%S.png' -sf -l style=dash,width=2 -e 'mv $f ~/Pictures'"
 
 # change sound/media settings
 bindsym XF86AudioPlay exec --no-startup-id "mpc toggle"

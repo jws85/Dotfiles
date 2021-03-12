@@ -6,7 +6,6 @@
       - autorandr
       - dunst
       - feh # wallpaper
-      - flameshot
       - i3
       - i3blocks
       - jq  # helper scripts
