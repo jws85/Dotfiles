@@ -94,8 +94,8 @@ bindsym $mod+Shift+e exec --no-startup-id i3-empty move
 bindsym $mod+space exec "rofi -show run"
 bindsym $mod+slash exec "rofi -show window"
 # printscreen
-bindsym $mod+Print exec "scrot 'shot.%Y%m%d.%H%M%S.png' -e 'mv $f ~/Pictures'"
-bindsym Print exec "scrot 'shot.%Y%m%d.%H%M%S.png' -sf -l style=dash,width=2 -e 'mv $f ~/Pictures'"
+bindsym $mod+Print exec "scrot 'shot.%Y%m%d.%H%M%S.png' -e 'mv $f ~/Pictures; notify-send Screenshot $n'"
+bindsym --release Print exec "scrot 'shot.%Y%m%d.%H%M%S.png' -e 'mv $f ~/Pictures; notify-send Screenshot $n' -sf -l 'style=dash,width=2'"
 
 # change sound/media settings
 bindsym XF86AudioPlay exec --no-startup-id "mpc toggle"
