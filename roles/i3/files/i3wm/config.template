@@ -160,7 +160,7 @@ mode $mode_sound {
 bindsym $mod+z mode $mode_sound
 
 # a "launcher" mode to kick off commonly used utilities
-set $mode_launcher "LAUNCH: lx[a]pp [b]kmks [e]m [f]fox [g]fx [k]bd [n]eko [p]ass [q]ute [r]arch [w]all [z]eal"
+set $mode_launcher "LAUNCH: lx[a]pp [b]kmks [e]m [f]fox [g]fx [k]bd [n]eko [p]ass [q]ute [r]arch [s]earch [w]all [z]eal"
 mode $mode_launcher {
 	bindsym a exec "lxappearance", mode "default"
 	bindsym b exec "rofi-roam-bookmarks", mode "default"
@@ -172,6 +172,7 @@ mode $mode_launcher {
 	bindsym p exec "keepassxc", mode "default"
 	bindsym r exec "retroarch", mode "default"
 	bindsym q exec "qutebrowser", mode "default"
+	bindsym s exec "zzzfoo -o mimeopen", mode "default"
 	bindsym w exec --no-startup-id $fehbg, mode "default"
 	bindsym z exec "zeal", mode "default"
 

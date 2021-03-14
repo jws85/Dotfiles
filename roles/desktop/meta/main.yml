@@ -4,6 +4,7 @@ dependencies:
   - role: fman
   - role: keepassxc
   - role: qutebrowser
+  - role: recoll
   - role: rofi
   - role: syncthing
   - role: zathura
