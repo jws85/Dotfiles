@@ -34,7 +34,6 @@
 - name: Ensure directories exist
   file: path={{ item }} state=directory
   with_items:
-    - ~/.emacs.d/
     - ~/.local/share/applications
 
 - name: Symlink dotfiles
@@ -43,9 +42,7 @@
     dest: "{{ item.dest }}"
     state: link
   loop:
-    - { src: 'emacs.d/config.org', dest: '~/.emacs.d/config.org' }
-    - { src: 'emacs.d/Makefile', dest: '~/.emacs.d/Makefile' }
-    - { src: 'emacs.d/snippets', dest: '~/.emacs.d/snippets' }
+    - { src: 'emacs.d', dest: '~/.emacs.d' }
     - { src: 'desktop/org-protocol.desktop', dest: '~/.local/share/applications/org-protocol.desktop' }
 
 - name: Update file associations
