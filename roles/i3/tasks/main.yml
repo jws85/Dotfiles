@@ -10,7 +10,6 @@
       - i3blocks
       - jq  # helper scripts
       - lxappearance  # easy way to set GTK theme
-      - rofi
       - scrot
       - udiskie
       - unclutter
@@ -25,11 +24,6 @@
     regexp: '^export\s+QT_STYLE_OVERRIDE='
     line: 'export QT_STYLE_OVERRIDE=gtk2'
 
-- name: Install rofimoji
-  shell: pipx install git+https://github.com/fdw/rofimoji
-  args:
-    creates: ~/.local/bin/rofimoji
-
 - name: Install torii
   shell: pipx install git+https://github.com/jws85/torii.git
   args:
@@ -41,7 +35,6 @@
     - ~/.config/dunst
     - ~/.config/i3
     - ~/.config/i3blocks
-    - ~/.config/rofi
 
 - name: Symlink i3 dotfiles
   file:
@@ -56,7 +49,6 @@
     - { src: 'dunst/dunstrc', dest: '~/.config/dunst/dunstrc' }
     - { src: 'i3wm/config.template', dest: '~/.config/i3/config.template' }
     - { src: 'i3blocks/config', dest: '~/.config/i3blocks/config' }
-    - { src: 'rofi/config.rasi', dest: '~/.config/rofi/config.rasi' }
 
     - { src: 'scripts/i3-empty', dest: '~/.local/bin/i3-empty' }
     - { src: 'scripts/i3-goto-mark', dest: '~/.local/bin/i3-goto-mark' }
