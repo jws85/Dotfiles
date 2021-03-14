@@ -40,12 +40,6 @@
     - { src: 'scripts/rofi-roam-bookmarks', dest: '~/.local/bin/rofi-roam-bookmarks' }
     - { src: 'Xresources', dest: '~/.Xresources' }
 
-- name: Merge .Xresources
-  become: false
-  shell: xrdb -merge ~/.Xresources
-  args:
-    warn: false
-
 - name: Copy default config if needed
   copy:
     src: "{{ role_path}}/files/{{ item.src }}"
