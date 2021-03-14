@@ -1,0 +1,26 @@
+---
+- name: Install recoll
+  become: true
+  apt:
+    name:
+      - antiword
+      - recoll
+      - python3-recoll
+
+- name: Ensure directories exist
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/.recoll
+
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'recoll.conf', dest: '~/.recoll/recoll.conf' }
+
+- name: Install zzzfoo
+  get_url:
+    url: https://raw.githubusercontent.com/andersju/zzzfoo/master/zzzfoo
+    dest: ~/.local/bin/zzzfoo

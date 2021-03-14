@@ -9,6 +9,7 @@
     - desktop
     - mpd
     - emacs
+    - recoll
     - gtk-flat
     - i3
   pre_tasks:
