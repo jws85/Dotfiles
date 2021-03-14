@@ -1,0 +1,33 @@
+---
+# If I was working by myself, I'd throw this out and just use git.
+# Alas.
+- name: Install via apt
+  become: true
+  apt:
+    name:
+      - subversion
+
+# I cannot delete .subversion/config for some crazy reason (to replace
+# with symlink like I do with most files here); something keeps
+# replacing it behind the scenes!!!! what is the friggin deal?  This
+# is like what malware would do!
+- name: Ensure REAL diff is used as the diff program
+  lineinfile:
+    path: ~/.subversion/config
+    regexp: '^# diff-cmd = diff_program'
+    line: 'diff-cmd = diff'
+- name: Ensure diffs are in color
+  lineinfile:
+    path: ~/.subversion/config
+    regexp: '^# diff-extensions = -u -p'
+    line: 'diff-extensions = --color -u -p'
+
+# That still doesn't fix the issue of it not paging the output to
+# diff... so make a command to do that for us
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'fish/svndiff.fish', dest: '~/.config/fish/functions/svndiff.fish' }
