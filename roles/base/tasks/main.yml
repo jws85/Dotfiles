@@ -45,6 +45,7 @@
       - nmap
       - openssh-server
       - renameutils
+      - reptyr
       - ripgrep
       - speedtest-cli
       - sshfs
