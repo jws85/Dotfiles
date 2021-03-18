@@ -271,6 +271,9 @@ bar {
         strip_workspace_numbers yes
         separator_symbol " • "
         font pango:$font,FontAwesome $fontSize
+
+        # right-click to open new empty desktop
+        bindsym button3 exec i3-empty
 }
 
 # future window border settings; not compatible with i3 on Ubuntu 18.04
