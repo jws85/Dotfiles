@@ -1,0 +1,25 @@
+---
+- name: Install packages
+  become: true
+  apt:
+    name:
+      - sbcl
+
+- name: Ensure directories exist
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/.quicklisp
+
+- name: Download Quicklisp install script
+  get_url:
+    url: https://beta.quicklisp.org/quicklisp.lisp
+    dest: /tmp/quick.lisp
+
+- name: Install Quicklisp
+  shell: wget -O /tmp/quick.lisp https://beta.quicklisp.org/quicklisp.lisp ; sbcl --load '/tmp/quick.lisp' --eval '(quicklisp-quickstart:install :path "~/.quicklisp")'
+
+- name: Install SBCL init file
+  file:
+    src: "{{ role_path }}/files/sbclrc"
+    dest: "~/.sbclrc"
+    state: link
