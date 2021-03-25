@@ -99,6 +99,7 @@
     - { src: 'gitconfig', dest: '~/.gitconfig' }
     - { src: 'vimrc', dest: '~/.vimrc' }
 
+    - { src: 'scripts/ansi2html', dest: '~/.local/bin/ansi2html' }
     - { src: 'scripts/bin2music', dest: '~/.local/bin/bin2music' }
     - { src: 'scripts/bowdler', dest: '~/.local/bin/bowdler' }
     - { src: 'scripts/noise', dest: '~/.local/bin/noise' }
