@@ -28,7 +28,6 @@
       - fping
       - fzf
       - f3
-      - git
       - graphviz
       - htop
       - httpie
@@ -113,7 +112,6 @@
     state: link
   loop:
     - { src: 'digrc', dest: '~/.digrc' }
-    - { src: 'gitconfig', dest: '~/.gitconfig' }
     - { src: 'vimrc', dest: '~/.vimrc' }
 
     - { src: 'scripts/ansi2html', dest: '~/.local/bin/ansi2html' }
