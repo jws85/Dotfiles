@@ -1,4 +1,6 @@
 #!/bin/bash
 
 ( cd $HOME/.config/i3 ; torii config.template config.json >| config )
-i3-msg -q reload
+
+# If i3 is running, reload it
+[ -f /tmp/i3-ipc.sock ] && i3-msg -q reload
