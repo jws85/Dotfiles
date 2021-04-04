@@ -7,6 +7,11 @@
     name:
       - subversion
 
+- name: Ensure directories exist
+  file: path={{ item }} state=directory mode=0755
+  with_items:
+    - ~/.subversion
+
 # I cannot delete .subversion/config for some crazy reason (to replace
 # with symlink like I do with most files here); something keeps
 # replacing it behind the scenes!!!! what is the friggin deal?  This
