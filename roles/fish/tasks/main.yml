@@ -11,6 +11,8 @@
 - name: Ensure directories exist
   file: path={{ item }} state=directory mode=0755
   with_items:
+    - ~/.config/fish/functions
+    - ~/.config/fish/local
     - ~/.local/bin
     - ~/.local/include
     - ~/.local/lib/pkgconfig
