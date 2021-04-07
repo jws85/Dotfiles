@@ -19,7 +19,7 @@
     dest: "{{ item.dest }}"
     state: link
   loop:
-    - { src: 'zshrc', dest: '~/.zshrc' }
+    - { src: 'rc.zsh', dest: '~/.zshrc' }
     - { src: 'zsh-history-substring-search', dest: '~/.zsh/zsh-history-substring-search' }
     - { src: 'zsh-manydots-magic', dest: '~/.zsh/zsh-manydots-magic' }
     - { src: 'zsh-syntax-highlighting', dest: '~/.zsh/zsh-syntax-highlighting' }
