@@ -877,6 +877,7 @@ leave partial input.
             "<tab>" 'icomplete-force-complete
             "<down>" 'icomplete-forward-completions
             "<up>" 'icomplete-backward-completions
+            "C-c" 'exit-minibuffer
             "C-j" 'icomplete-forward-completions
             "C-k" 'icomplete-backward-completions)
   :custom
