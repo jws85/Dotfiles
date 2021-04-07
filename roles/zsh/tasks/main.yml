@@ -20,6 +20,7 @@
     state: link
   loop:
     - { src: 'rc.zsh', dest: '~/.zshrc' }
+    - { src: 'env.zsh', dest: '~/.zshenv' }
     - { src: 'zsh-history-substring-search', dest: '~/.zsh/zsh-history-substring-search' }
     - { src: 'zsh-manydots-magic', dest: '~/.zsh/zsh-manydots-magic' }
     - { src: 'zsh-syntax-highlighting', dest: '~/.zsh/zsh-syntax-highlighting' }
