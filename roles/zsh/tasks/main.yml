@@ -1,0 +1,29 @@
+---
+- name: Install
+  become: true
+  apt:
+    name:
+      - cowsay
+      - figlet
+      - lolcat
+      - zsh
+
+- name: Ensure directories exist
+  file: path={{ item }} state=directory mode=0755
+  with_items:
+    - ~/.zsh
+
+- name: Symlink dotfiles
+  file:
+    src: "{{ role_path}}/files/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - { src: 'zshrc', dest: '~/.zshrc' }
+    - { src: 'zsh-history-substring-search', dest: '~/.zsh/zsh-history-substring-search' }
+    - { src: 'zsh-manydots-magic', dest: '~/.zsh/zsh-manydots-magic' }
+    - { src: 'zsh-syntax-highlighting', dest: '~/.zsh/zsh-syntax-highlighting' }
+
+- name: Change shell to zsh
+  become: true
+  user: name={{ ansible_user_id }} shell=/usr/bin/zsh groups=dialout,disk append=true
