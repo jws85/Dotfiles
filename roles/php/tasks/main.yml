@@ -4,6 +4,8 @@
   apt:
     name:
       - php-cli
+      - php-curl
+      - php-mbstring
       - php-xml
 
 # Hopefully there's never a problem with getcomposer.org :/
