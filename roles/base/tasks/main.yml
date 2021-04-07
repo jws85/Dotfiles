@@ -63,8 +63,13 @@
       # Removing because:
       #  - it clutters up df output
       #  - you can't change ~/snap to ~/Snap
-      #  - flatpak is more open
       - snapd
+      # telemetry
+      - apport
+      - apport-symptoms
+      - popularity-contest
+      - ubuntu-report
+      - whoopsie
     state: absent
 
 - name: Ensure directories exist
