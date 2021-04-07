@@ -35,7 +35,12 @@
     state: link
   loop:
     - { src: 'npmrc', dest: '~/.npmrc' }
-    - { src: 'node.fish', dest: '~/.config/fish/local/node.fish' }
+
+- name: Load custom configuration in zsh
+  lineinfile:
+    path: ~/.zshenv.local
+    line: 'source $HOME/Dotfiles/roles/node/files/node.zsh'
+    create: yes
 
 - name: Install typescript-language-server
   shell: npm install -g typescript-language-server

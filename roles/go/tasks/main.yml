@@ -6,13 +6,11 @@
     warn: false
     creates: /usr/local/go/bin/go
 
-- name: Symlink dotfiles
-  file:
-    src: "{{ role_path}}/files/{{ item.src }}"
-    dest: "{{ item.dest }}"
-    state: link
-  loop:
-    - { src: 'go.fish', dest: '~/.config/fish/local/go.fish' }
+- name: Load custom configuration in zsh
+  lineinfile:
+    path: ~/.zshenv.local
+    line: 'source $HOME/Dotfiles/roles/go/files/go.zsh'
+    create: yes
 
 - name: Install gopls
   shell: "GO111MODULE=on go get golang.org/x/tools/gopls@latest"

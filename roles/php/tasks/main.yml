@@ -34,7 +34,12 @@
   loop:
     - { src: 'composer.json', dest: '~/.config/composer/composer.json' }
     - { src: 'composer.lock', dest: '~/.config/composer/composer.lock' }
-    - { src: 'php.fish', dest: '~/.config/fish/local/php.fish' }
+
+- name: Load custom configuration in zsh
+  lineinfile:
+    path: ~/.zshenv.local
+    line: 'source $HOME/Dotfiles/roles/php/files/php.zsh'
+    create: yes
 
 - name: Install PHP utilities via composer
   shell: composer global install
