@@ -2030,7 +2030,6 @@ a heckuva lot easier to read.
 (use-package calfw)
 
 (use-package calfw-org
-  :after org-agenda calfw
   :general
   (jws/primary-leader
     "C" '(cfw:open-org-calendar :wk "Calendar")))
