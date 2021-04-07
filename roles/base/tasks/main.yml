@@ -72,6 +72,18 @@
       - whoopsie
     state: absent
 
+- name: Keep unwanted packages removed
+  become: true
+  dpkg_selections: name={{ item }} selection=hold
+  with_items:
+    - unattended-upgrades
+    - snapd
+    - apport
+    - apport-symptoms
+    - popularity-contest
+    - ubuntu-report
+    - whoopsie
+
 - name: Ensure directories exist
   file: path={{ item }} state=directory mode=0755
   with_items:
