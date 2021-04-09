@@ -10,6 +10,7 @@
       - gimp
       - git-gui
       - gitg
+      - mate-polkit-bin
       - mpv
       - oneko
       - peek
