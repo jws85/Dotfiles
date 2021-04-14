@@ -1893,6 +1893,7 @@ great explanation and 'quantum285' for asking the question in the first place."
   (org-agenda-span 'day)
   (org-agenda-default-appointment-duration 60)
   (org-agenda-files (list jws/org-todo-file jws/org-reminder-file))
+  (org-agenda-entry-text-maxlines 15)   ; I'm really wordy
   (org-use-fast-todo-selection t)
   (org-log-into-drawer t)
   (org-archive-location "finished.org::datetree/*")
