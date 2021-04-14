@@ -1629,6 +1629,9 @@ First, let's define some paths into my =org-mode= files.
 (defvar jws/org-reminder-file (expand-file-name "reminders.org" jws/org-agenda-dir)
   "File containing routine reminders")
 
+(defvar jws/org-habits-file (expand-file-name "habits.org" jws/org-agenda-dir)
+  "File containing things to do routinely.")
+
 (defvar jws/org-journal-dir (expand-file-name "~/Journal/")
   "The directory where `org-mode' journal files live.")
 
@@ -1915,7 +1918,10 @@ great explanation and 'quantum285' for asking the question in the first place."
   (org-agenda-custom-commands
    `(("c" "Complete view"
       ((agenda "" ((org-agenda-overriding-header "Scheduled\n")))
-       (todo "" ((org-agenda-overriding-header "\nUnscheduled") ,jws/skip-todo))))))
+       (todo "" ((org-agenda-overriding-header "\nUnscheduled") ,jws/skip-todo))))
+     ("h" "Today's habits" agenda "" ((org-agenda-files '(,jws/org-habits-file))))
+     ("H" "This week's habits" agenda "" ((org-agenda-files '(,jws/org-habits-file))
+                                          (org-agenda-span 'week)))))
   :config
   ;; Agenda vim key bindings
   (evil-add-hjkl-bindings org-agenda-mode-map 'emacs
