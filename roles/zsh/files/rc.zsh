@@ -35,6 +35,13 @@ zstyle ':completion:::::' completer _expand _complete _ignored _approximate # en
 # Use ls-colors for path completions
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
+# Aliases
+if type exa > /dev/null; then
+  alias ll='exa -l --git'
+else
+  alias ll='ls -hal'
+fi
+
 # Prompt: https://starship.rs
 eval "$(starship init zsh)"
 
