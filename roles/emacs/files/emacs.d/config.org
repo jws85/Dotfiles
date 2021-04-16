@@ -1919,9 +1919,10 @@ great explanation and 'quantum285' for asking the question in the first place."
   (org-agenda-custom-commands
    `(("c" "Complete view"
       ((agenda "" ((org-agenda-overriding-header "Scheduled\n")))
+       (agenda "" ((org-agenda-overriding-header "\nDaily habits\n")
+                   (org-agenda-files '(,jws/org-habits-file))))
        (todo "" ((org-agenda-overriding-header "\nUnscheduled") ,jws/skip-todo))))
-     ("h" "Today's habits" agenda "" ((org-agenda-files '(,jws/org-habits-file))))
-     ("H" "This week's habits" agenda "" ((org-agenda-files '(,jws/org-habits-file))
+     ("h" "This week's habits" agenda "" ((org-agenda-files '(,jws/org-habits-file))
                                           (org-agenda-span 'week)))))
   :config
   ;; Agenda vim key bindings
