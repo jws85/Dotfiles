@@ -36,6 +36,7 @@ zstyle ':completion:::::' completer _expand _complete _ignored _approximate # en
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 # Aliases
+alias open=mimeopen
 if type exa > /dev/null; then
   alias ll='exa -l --git'
 else
