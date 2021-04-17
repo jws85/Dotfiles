@@ -7,8 +7,16 @@ SAVEHIST=$HISTSIZE
 setopt autocd extendedglob
 unsetopt beep nomatch notify
 
-# Emacs keybindings
-bindkey -e
+# Integrate vi bindings with some emacs flavor control keys.
+bindkey -v
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^K" kill-line
+bindkey "^L" clear-screen
+bindkey "^R" history-incremental-search-backward
+bindkey "^U" kill-whole-line
+bindkey "^W" backward-kill-word
+bindkey "^Y" yank
 
 # Autocompletion
 zstyle :compinstall filename '/home/jws/.zshrc'
@@ -57,9 +65,11 @@ source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey -M emacs '^P' history-substring-search-up
+bindkey -M viins '^P' history-substring-search-up
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey -M emacs '^N' history-substring-search-down
+bindkey -M viins '^N' history-substring-search-down
 bindkey -M vicmd 'j' history-substring-search-down
 
 # https://github.com/knu/zsh-manydots-magic
