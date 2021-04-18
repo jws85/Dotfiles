@@ -7,10 +7,13 @@ SAVEHIST=$HISTSIZE
 setopt autocd extendedglob
 unsetopt beep nomatch notify
 
-# Integrate vi bindings with some emacs flavor control keys.
+# Integrate vi bindings with emacs control keys
 bindkey -v
 bindkey "^A" beginning-of-line
+bindkey "^B" backward-char
 bindkey "^E" end-of-line
+bindkey "^F" forward-char
+bindkey "^D" delete-char
 bindkey "^K" kill-line
 bindkey "^L" clear-screen
 bindkey "^R" history-incremental-search-backward
