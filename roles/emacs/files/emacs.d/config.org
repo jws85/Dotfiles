@@ -402,14 +402,18 @@ Installing the following theme packs:
 
 ** Modeline
 
+I've tried [[https://github.com/seagle0128/doom-modeline][doom-modeline]] and [[https://github.com/tarsius/moody/][moody]] and decided that I liked
+=doom-modeline= best:
+
+ - Icons are a little nicer
+ - Easier to see =evil= mode
+ - Feels like more themes support =doom-modeline=, especially
+   with the complimentary =doom-themes=
+
 #+begin_src emacs-lisp
-(use-package moody
-  :custom
-  (x-underline-at-descent-line t)
-  (moody-mode-line-height 22)
-  :config
-  (moody-replace-mode-line-buffer-identification)
-  (moody-replace-vc-mode))
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
 #+end_src
 
 [[https://github.com/tarsius/minions][minions]] hides all those pesky minor-modes behind a clickable menu.
