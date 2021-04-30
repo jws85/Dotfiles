@@ -37,4 +37,10 @@ bindkey -M vicmd 'j' history-substring-search-down
 source $HOME/.zsh/zsh-manydots-magic/manydots-magic
 manydots-magic
 
+# Welcome message
 source $HOME/.zsh/jws/welcome.zsh
+
+# Local configuration
+if [ -e $HOME/.zshrc.local ]; then
+    source $HOME/.zshrc.local
+fi
