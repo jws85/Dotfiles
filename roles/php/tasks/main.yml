@@ -37,9 +37,15 @@
     - { src: 'composer.json', dest: '~/.config/composer/composer.json' }
     - { src: 'composer.lock', dest: '~/.config/composer/composer.lock' }
 
-- name: Load custom configuration in zsh
+- name: Load custom configuration in zshenv
   lineinfile:
     path: ~/.zshenv.local
+    line: 'source $HOME/Dotfiles/roles/php/files/phpenv.zsh'
+    create: yes
+
+- name: Load custom configuration in zshrc
+  lineinfile:
+    path: ~/.zshrc.local
     line: 'source $HOME/Dotfiles/roles/php/files/php.zsh'
     create: yes
 
