@@ -2366,23 +2366,7 @@ To get Emacs to speak LSP, install [[https://github.com/emacs-lsp/lsp-mode][lsp-
   :general
   (jws/secondary-leader
     :keymaps 'prog-mode-map
-    "l" '(:ignore t :wk "LSP")
-    "l h" '(lsp-describe-thing-at-point :wk "Help")
-    "l d" '(lsp-find-definition :wk "Definitions")
-    "l r" '(lsp-find-references :wk "References")
-    "l p" '(xref-pop-marker-stack :wk "PopStack")
-    "l l" '(lsp-find-declaration :wk "Declaration")
-    "l f" '(lsp-format-buffer :wk "FormatBuf")
-    "l n" '(lsp-rename :wk "Rename")
-    "l x" '(lsp-execute-code-action :wk "Action")
-
-    "l R" '(lsp-restart-server :wk "RestartServer")
-    "l S" '(lsp-describe-session :wk "DescSession")
-    "l w" '(:ignore t :wk "Workspace")
-    "l w r" '(lsp-workspace-restart :wk "Restart")
-    "l w x" '(lsp-workspace-folders-remove :wk "RemoveFolder")
-    "l w a" '(lsp-workspace-folders-add :wk "AddFolder")
-    "l w s" '(lsp-workspace-shutdown :wk "Shutdown"))
+    "l" '(:keymap lsp-command-map :package lsp-mode :wk "LSP"))
   :commands (lsp lsp-deferred)
   :custom
   (lsp-file-watch-threshold 5000 "Set file watch threshold higher")
