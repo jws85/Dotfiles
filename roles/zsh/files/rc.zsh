@@ -12,8 +12,10 @@ source $HOME/.zsh/jws/lscolors.zsh
 source $HOME/.zsh/jws/autocomp.zsh
 source $HOME/.zsh/jws/aliases.zsh
 
-# Prompt: https://starship.rs
-eval "$(starship init zsh)"
+# Prompt: https://github.com/sindresorhus/pure
+fpath+=$HOME/.zsh/pure
+autoload -U promptinit; promptinit
+prompt pure
 
 # Completion: fzf (via Ubuntu package)
 source /usr/share/doc/fzf/examples/key-bindings.zsh
