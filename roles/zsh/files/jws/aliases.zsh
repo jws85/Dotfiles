@@ -1,8 +1,7 @@
-# Open files with 'open'
 alias open=mimeopen
-
-# Sudo with $
+alias o=mimeopen
 alias \$=sudo
+alias g=git
 
 # If exa (https://the.exa.website) is set up, use that for ll
 # Otherwise just use plain ol' ls
