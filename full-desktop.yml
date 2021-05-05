@@ -7,6 +7,7 @@
     - build
     - docker
     - desktop
+    - kvm
     - mpd
     - emacs
     - games
