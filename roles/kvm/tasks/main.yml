@@ -5,6 +5,7 @@
     name:
       - bridge-utils
       - cpu-checker
+      - libvirt-clients
       - libvirt-daemon
       - qemu-kvm
       - virtinst
