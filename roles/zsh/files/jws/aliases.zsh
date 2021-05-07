@@ -1,6 +1,7 @@
 alias open=mimeopen
 alias o=mimeopen
 alias \$=sudo
+alias \?=man
 alias g=git
 
 # If exa (https://the.exa.website) is set up, use that for ll
