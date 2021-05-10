@@ -14,3 +14,10 @@
     state: link
   loop:
     - { src: 'gitconfig', dest: '~/.gitconfig' }
+
+# From https://github.com/dracula/gitk (MIT licensed)
+- name: Copy gitk dracula theme
+  copy:
+    src: "{{ role_path}}/files/gitk"
+    dest: "~/.config/git/gitk"
+    force: false
