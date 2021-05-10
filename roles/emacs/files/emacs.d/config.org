@@ -415,7 +415,7 @@ I've tried [[https://github.com/seagle0128/doom-modeline][doom-modeline]] and [[
 #+begin_src emacs-lisp
 (use-package doom-modeline
   :ensure t
-  :hook (after-init . doom-modeline-mode))
+  :hook (after-init-hook . doom-modeline-mode))
 #+end_src
 
 [[https://github.com/tarsius/minions][minions]] hides all those pesky minor-modes behind a clickable menu.
