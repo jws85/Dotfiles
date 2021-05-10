@@ -698,7 +698,9 @@ autoloaded via =use-package=.
   "" nil
 
   "<delete>" '(delete-frame :wk "KillFrame")
+  "<deletechar>" '(delete-frame :wk "KillFrame")
   "<tab>" '(jws/switch-to-previous-buffer :wk "PrevBuf")
+  "TAB" '(jws/switch-to-previous-buffer :wk "PrevBuf")
 
   "b" '(:ignore t :wk "Buffers")
   "b SPC" '(jws/scratch-switch :wk "Switch to scratch")
@@ -881,6 +883,7 @@ leave partial input.
             "SPC" 'self-insert-command
             "RET" 'icomplete-force-complete-and-exit
             "<tab>" 'icomplete-force-complete
+            "TAB" 'icomplete-force-complete
             "<down>" 'icomplete-forward-completions
             "<up>" 'icomplete-backward-completions
             "C-c" 'exit-minibuffer
@@ -2517,6 +2520,7 @@ of these ersatz Lisp modes with their slurping and barfing and all.
   (interactive)
   (general-define-key :states 'insert :keymaps 'override
                       "<delete>" 'lispy-delete-backward
+                      "<deletechar>" 'lispy-delete-backward
                       "C-d" 'lispy-delete))
 
 (use-package lispy
