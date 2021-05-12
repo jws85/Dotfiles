@@ -22,6 +22,7 @@
     - { src: 'rc.zsh', dest: '~/.zshrc' }
     - { src: 'env.zsh', dest: '~/.zshenv' }
     - { src: 'jws', dest: '~/.zsh/jws' }
+    - { src: 'pure', dest: '~/.zsh/pure' }
     - { src: 'zsh-history-substring-search', dest: '~/.zsh/zsh-history-substring-search' }
     - { src: 'zsh-manydots-magic', dest: '~/.zsh/zsh-manydots-magic' }
     - { src: 'zsh-syntax-highlighting', dest: '~/.zsh/zsh-syntax-highlighting' }
