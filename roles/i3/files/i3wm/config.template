@@ -74,7 +74,7 @@ bindsym $mod+n workspace next_on_output
 bindsym $mod+e exec --no-startup-id i3-empty
 
 # read 1 character and mark the current window with this character
-bindsym $mod+period exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -l 1 -P 'Mark: '
+bindsym $mod+period exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -P 'Mark: '
 
 # read 1 character and go to the window with the character
 bindsym $mod+comma exec i3-goto-mark
