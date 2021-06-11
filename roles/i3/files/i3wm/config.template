@@ -24,23 +24,21 @@ bindsym $mod+x kill
 # requires rofi, xdotool
 bindsym $mod+u exec rofimoji
 
-# change focus
+# change window focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym $mod+Ctrl+h focus output left
+bindsym $mod+Ctrl+j focus output down
+bindsym $mod+Ctrl+k focus output up
+bindsym $mod+Ctrl+l focus output right
 
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# resize focused window
-bindsym $mod+Ctrl+h resize shrink width 10px or 5ppt
-bindsym $mod+Ctrl+j resize grow height 10px or 5ppt
-bindsym $mod+Ctrl+k resize shrink height 10px or 5ppt
-bindsym $mod+Ctrl+l resize grow width 10px or 5ppt
 
 ## enter fullscreen mode for the focused container
 bindsym $mod+m fullscreen toggle
