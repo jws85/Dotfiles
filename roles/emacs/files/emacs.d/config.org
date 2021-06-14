@@ -387,6 +387,8 @@ Installing the following theme packs:
 
 #+begin_src emacs-lisp
 (use-package doom-themes
+  :custom
+  (doom-modeline-icon t)
   :init
   (doom-themes-org-config))
 #+end_src
@@ -2499,7 +2501,6 @@ Let's start by turning on [[*Flymake][flymake]].
 (dolist (hook jws/lisp-mode-hooks)
   (add-hook hook #'flymake-mode))
 #+end_src
-
 
 [[*Basic editing tools][Leverage our existing show-paren-mode config]] to better highlight Lisp
 s-expressions.  This turns =show-paren-mode= from just indicating the
