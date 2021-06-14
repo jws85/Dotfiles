@@ -2511,39 +2511,28 @@ matching paren, to actually highlighting the whole affected region.
   (add-hook hook #'jws/set-paren-style-to-expresion))
 #+end_src
 
-I had been using [[https://github.com/DogLooksGood/parinfer-mode][the Emacs implementation]] of [[http://shaunlebron.github.io/parinfer/index.html][Parinfer]] quite happily,
-but I've noticed some bugginess with it.  So I might as well learn one
-of these ersatz Lisp modes with their slurping and barfing and all.
+With Lisps, it helps to have a mode to balance parens and perform
+structural editing on s-expressions.  These modes are always a pain to
+deal with.  I've gone from
+
+ - [[http://shaunlebron.github.io/parinfer/index.html][Parinfer]]: super easy, but sorta buggy
+ - [[https://github.com/abo-abo/lispy][Lispy]]: works, but IMO bloated (requires all of counsel/ivy/swiper)
+   and the documentation is inscrutable to me
+ - [[https://github.com/Andre0991/vilpy][Vilpy]]: a very recent, early-development attempt to extract the basic
+   movement/transformation parts of lispy; all it requires is avy,
+   which I think is reasonable
 
 #+begin_src emacs-lisp
-(defun jws/lispy-fix-delete ()
-  "For whatever reason delete doesn't work with lispy and evil, let's fix that."
-  (interactive)
-  (general-define-key :states 'insert :keymaps 'override
-                      "<delete>" 'lispy-delete-backward
-                      "<deletechar>" 'lispy-delete-backward
-                      "C-d" 'lispy-delete))
+(use-package vilpy
+  :straight (vilpy :host github :repo "Andre0991/vilpy")
+  :commands vilpy-mode
+  :general
+  (:keymaps 'vilpy-mode-map :states '(insert)
+            "C-k" 'vilpy-kill
+            "C-d" 'vilpy-delete))
 
-(use-package lispy
-  :init
-  (dolist (hook jws/lisp-mode-hooks)
-    (add-hook hook #'lispy-mode))
-  :config
-  (setq lispy-visit-method 'projectile
-        lispy-close-quotes-at-end-p t)
-  (lispy-set-key-theme '(lispy special c-digits evilcp))
-  (add-hook 'lispy-mode-hook 'jws/lispy-fix-delete))
-
-(use-package lispyville
-  :init
-  (dolist (hook jws/lisp-mode-hooks)
-    (add-hook hook #'lispyville-mode))
-  :config
-  (lispyville-set-key-theme '(operators
-                              c-w
-                              (escape insert)
-                              (additional-movement normal visual motion)))
-  (setq lispyville-motions-put-into-special t))
+(dolist (hook jws/lisp-mode-hooks)
+  (add-hook hook #'vilpy-mode))
 #+end_src
 
 [[https://github.com/nonsequitur/idle-highlight-mode/blob/master/idle-highlight-mode.el][idle-highlight-mode]] highlights everywhere a token is used.  Enabled for
@@ -2555,7 +2544,6 @@ Lisps only because =lsp-mode= includes this functionality.
   (dolist (hook jws/lisp-mode-hooks)
     (add-hook hook #'idle-highlight-mode)))
 #+end_src
-
 
 *** Emacs Lisp
 
