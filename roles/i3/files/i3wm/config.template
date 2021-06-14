@@ -24,23 +24,21 @@ bindsym $mod+x kill
 # requires rofi, xdotool
 bindsym $mod+u exec rofimoji
 
-# change focus
+# change window focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym $mod+Ctrl+h focus output left
+bindsym $mod+Ctrl+j focus output down
+bindsym $mod+Ctrl+k focus output up
+bindsym $mod+Ctrl+l focus output right
 
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# resize focused window
-bindsym $mod+Ctrl+h resize shrink width 10px or 5ppt
-bindsym $mod+Ctrl+j resize grow height 10px or 5ppt
-bindsym $mod+Ctrl+k resize shrink height 10px or 5ppt
-bindsym $mod+Ctrl+l resize grow width 10px or 5ppt
 
 ## enter fullscreen mode for the focused container
 bindsym $mod+m fullscreen toggle
@@ -230,22 +228,32 @@ mode $mode_movement {
 	bindsym 0 move position 0 0
 	bindsym c move position center
 
-        bindsym Ctrl+h resize shrink width 50 px or 10 ppt
-        bindsym Ctrl+j resize grow height 50 px or 10 ppt
-        bindsym Ctrl+k resize shrink height 50 px or 10 ppt
-        bindsym Ctrl+l resize grow width 50 px or 10 ppt
-
-        bindsym Ctrl+Left resize shrink width 50 px or 10 ppt
-        bindsym Ctrl+Down resize grow height 50 px or 10 ppt
-        bindsym Ctrl+Up resize shrink height 50 px or 10 ppt
-        bindsym Ctrl+Right resize grow width 50 px or 10 ppt
-
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym Ctrl+g mode "default"
         bindsym $mod+y mode "default"
 }
 bindsym $mod+y mode $mode_movement
+
+# resize window
+set $mode_resize "RESIZE: h/ shrink horiz • j/ grow vert • k/ shrink vert • l/ grow horiz"
+mode $mode_resize {
+        bindsym h resize shrink width 50 px or 10 ppt
+        bindsym j resize grow height 50 px or 10 ppt
+        bindsym k resize shrink height 50 px or 10 ppt
+        bindsym l resize grow width 50 px or 10 ppt
+
+        bindsym Left resize shrink width 50 px or 10 ppt
+        bindsym Down resize grow height 50 px or 10 ppt
+        bindsym Up resize shrink height 50 px or 10 ppt
+        bindsym Right resize grow width 50 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Ctrl+g mode "default"
+        bindsym $mod+y mode "default"
+}
+bindsym $mod+r mode $mode_resize
 
 client.focused {{ colors.focus }} {{ colors.focus }} {{ colors.background }} {{ colors.focus }} {{ colors.focus }}
 client.focused_inactive {{ colors.active }} {{ colors.active }} {{ colors.background }} {{ colors.active }} {{ colors.active }}
