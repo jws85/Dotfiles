@@ -5,6 +5,7 @@ SAVEHIST=$HISTSIZE
 
 # Settings
 setopt autocd extendedglob
+setopt HIST_IGNORE_SPACE
 unsetopt beep nomatch notify
 
 source $HOME/.zsh/jws/keys.zsh
