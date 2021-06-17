@@ -2,10 +2,6 @@
 command=wx minimal
 interval=60
 
-[todo]
-command=i3blocks-todo
-interval=5
-
 [mpd]
 command=i3blocks-mpd
 interval=1
