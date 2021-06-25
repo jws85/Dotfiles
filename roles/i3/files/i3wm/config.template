@@ -79,13 +79,13 @@ bindsym $mod+comma exec i3-goto-mark
 
 # move focused container to workspace
 {% for workspace in workspaces: %}
-bindsym $mod+Shift+{{ loop.index % 10 }} move container to workspace "{{ workspace }}"
+bindsym $mod+Shift+{{ loop.index % 10 }} move container to workspace "{{ workspace }}"; workspace "{{ workspace }}"
 {% endfor %}
-bindsym $mod+Shift+Tab move container to workspace back_and_forth
-bindsym $mod+Shift+bracketleft move container to workspace prev
-bindsym $mod+Shift+bracketright move container to workspace next
-bindsym $mod+Shift+p move container to workspace prev_on_output
-bindsym $mod+Shift+n move container to workspace next_on_output
+bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Shift+bracketleft move container to workspace prev; workspace prev
+bindsym $mod+Shift+bracketright move container to workspace next; workspace next
+bindsym $mod+Shift+p move container to workspace prev_on_output; workspace prev_on_output
+bindsym $mod+Shift+n move container to workspace next_on_output; workspace next_on_output
 bindsym $mod+Shift+e exec --no-startup-id i3-empty move
 
 # launch rofi
