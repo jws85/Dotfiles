@@ -71,6 +71,9 @@ bindsym $mod+p workspace prev_on_output
 bindsym $mod+n workspace next_on_output
 bindsym $mod+e exec --no-startup-id i3-empty
 
+# rename current workspace
+bindsym $mod+Shift+r exec i3-input -f "pango:$font $fontSize" -F 'rename workspace to %s' -P 'Rename workspace to: '
+
 # read 1 character and mark the current window with this character
 bindsym $mod+period exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -P 'Mark: '
 
