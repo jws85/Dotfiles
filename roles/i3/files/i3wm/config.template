@@ -29,19 +29,23 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+Ctrl+h focus output left
-bindsym $mod+Ctrl+j focus output down
-bindsym $mod+Ctrl+k focus output up
-bindsym $mod+Ctrl+l focus output right
+bindsym $mod+n focus output left
+bindsym $mod+m focus output down
+bindsym $mod+comma focus output up
+bindsym $mod+period focus output right
 
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+bindsym $mod+Shift+n move container to output left
+bindsym $mod+Shift+m move container to output down
+bindsym $mod+Shift+comma move container to output up
+bindsym $mod+Shift+period move container to output right
 
 ## enter fullscreen mode for the focused container
-bindsym $mod+m fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, split)
 bindsym $mod+s layout stacking
@@ -51,7 +55,7 @@ bindsym $mod+bar split h
 bindsym $mod+backslash split h
 
 # toggle tiling / floating
-bindsym $mod+f floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+o focus mode_toggle
@@ -65,30 +69,26 @@ bindsym $mod+q focus child
 bindsym $mod+{{ loop.index % 10 }} workspace "{{ workspace }}"
 {% endfor %}
 bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+bracketleft workspace prev
-bindsym $mod+bracketright workspace next
-bindsym $mod+p workspace prev_on_output
-bindsym $mod+n workspace next_on_output
+bindsym $mod+bracketleft workspace prev_on_output
+bindsym $mod+bracketright workspace next_on_output
 bindsym $mod+e exec --no-startup-id i3-empty
 
 # rename current workspace
 bindsym $mod+Shift+r exec i3-input -f "pango:$font $fontSize" -F 'rename workspace to %s' -P 'Rename workspace to: '
 
 # read 1 character and mark the current window with this character
-bindsym $mod+period exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -P 'Mark: '
+#bindsym $mod+period exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -P 'Mark: '
 
 # read 1 character and go to the window with the character
-bindsym $mod+comma exec i3-goto-mark
+#bindsym $mod+comma exec i3-goto-mark
 
 # move focused container to workspace
 {% for workspace in workspaces: %}
 bindsym $mod+Shift+{{ loop.index % 10 }} move container to workspace "{{ workspace }}"; workspace "{{ workspace }}"
 {% endfor %}
 bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
-bindsym $mod+Shift+bracketleft move container to workspace prev; workspace prev
-bindsym $mod+Shift+bracketright move container to workspace next; workspace next
-bindsym $mod+Shift+p move container to workspace prev_on_output; workspace prev_on_output
-bindsym $mod+Shift+n move container to workspace next_on_output; workspace next_on_output
+bindsym $mod+Shift+bracketleft move container to workspace prev_on_output; workspace prev_on_output
+bindsym $mod+Shift+bracketright move container to workspace next;_on_output workspace next_on_output
 bindsym $mod+Shift+e exec --no-startup-id i3-empty move
 
 # launch rofi
