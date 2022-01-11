@@ -24,6 +24,8 @@ bindsym $mod+x kill
 # requires rofi, xdotool
 bindsym $mod+u exec rofimoji
 
+bindsym $mod+v exec zvim
+
 # change window focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
