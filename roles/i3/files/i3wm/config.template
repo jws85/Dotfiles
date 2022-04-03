@@ -68,7 +68,7 @@ bindsym $mod+q focus child
 
 # switch to workspace
 {% for workspace in workspaces: %}
-bindsym $mod+{{ loop.index % 10 }} workspace "{{ workspace }}"
+bindsym $mod+{{ loop.index % 10 }} workspace number "{{ workspace }}"
 {% endfor %}
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+bracketleft workspace prev_on_output
@@ -86,7 +86,7 @@ bindsym $mod+Shift+r exec i3-input -f "pango:$font $fontSize" -F 'rename workspa
 
 # move focused container to workspace
 {% for workspace in workspaces: %}
-bindsym $mod+Shift+{{ loop.index % 10 }} move container to workspace "{{ workspace }}"; workspace "{{ workspace }}"
+bindsym $mod+Shift+{{ loop.index % 10 }} move container to workspace number "{{ workspace }}"; workspace number "{{ workspace }}"
 {% endfor %}
 bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod+Shift+bracketleft move container to workspace prev_on_output; workspace prev_on_output
