@@ -10,7 +10,7 @@ env:
   WINIT_X11_SCALE_FACTOR: '1.0'
 
 import:
-  - /home/jws/.config/alacritty/dracula.yml
+  - /home/jws/.config/alacritty/catppuchin.yml
 
 window:
   dynamic_title: true

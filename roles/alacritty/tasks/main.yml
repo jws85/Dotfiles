@@ -37,4 +37,5 @@
     state: link
   loop:
     - { src: 'alacritty.yml', dest: '~/.config/alacritty/alacritty.yml' }
+    - { src: 'catppuchin.yml', dest: '~/.config/alacritty/catppuchin.yml' }
     - { src: 'dracula.yml', dest: '~/.config/alacritty/dracula.yml' }
