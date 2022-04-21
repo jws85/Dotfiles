@@ -1,6 +1,10 @@
 # https://raw.githubusercontent.com/alacritty/alacritty/master/alacritty.yml
 
 env:
+  # Truecolor support with tmux
+  # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
+  TERM: 'xterm-256color'
+
   # Disable attempts to rescale font based on DPI
   # q.v. https://github.com/alacritty/alacritty/issues/1501
   WINIT_X11_SCALE_FACTOR: '1.0'
