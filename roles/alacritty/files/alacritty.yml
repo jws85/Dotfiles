@@ -1,8 +1,8 @@
 # https://raw.githubusercontent.com/alacritty/alacritty/master/alacritty.yml
 
-# Disable attempts to rescale font based on DPI
-# q.v. https://github.com/alacritty/alacritty/issues/1501
 env:
+  # Disable attempts to rescale font based on DPI
+  # q.v. https://github.com/alacritty/alacritty/issues/1501
   WINIT_X11_SCALE_FACTOR: '1.0'
 
 import:
@@ -10,6 +10,7 @@ import:
 
 window:
   gtk_theme_variant: dark
+  opacity: 0.95
 
 scrolling:
   history: 10000
@@ -19,8 +20,6 @@ font:
   size: 11.0
   normal:
     family: monospace
-
-background_opacity: 0.95
 
 selection:
   save_to_clipboard: true
