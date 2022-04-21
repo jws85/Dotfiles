@@ -24,7 +24,7 @@ bindsym $mod+x kill
 # requires rofi, xdotool
 bindsym $mod+u exec rofimoji
 
-bindsym $mod+v exec zvim
+bindsym $mod+z exec zvim
 
 # change window focus
 bindsym $mod+h focus left
@@ -50,11 +50,10 @@ bindsym $mod+Shift+period move container to output right
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, split)
-bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+minus split v
-bindsym $mod+bar split h
-bindsym $mod+backslash split h
+bindsym $mod+Shift+t layout stacking
+bindsym $mod+s split v
+bindsym $mod+v split h
 
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
@@ -62,9 +61,9 @@ bindsym $mod+Shift+f floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+o focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
-bindsym $mod+q focus child
+# focus the parent/child container
+bindsym $mod+equal focus parent
+bindsym $mod+minus focus child
 
 # switch to workspace
 {% for workspace in workspaces: %}
@@ -115,12 +114,16 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "pavol up"
 
 # i3/system menu
 # h/t https://thevaluable.dev/window-manager-mouseless-i3/
-set $mode_system "i3: [l]ock • [r]eload • [S]uspend • [R]eboot • [P]wroff • [E]xit"
+set $mode_system "i3: [k]bd • [l]ock • [r]eload • [w]all • [S]uspend • [R]eboot • [P]wroff • [E]xit"
 mode $mode_system {
+	# Changes keyboard settings
+	bindsym k mode $mode_keyboard
 	# Locks i3
 	bindsym l exec --no-startup-id $lock, mode "default"
 	# Reloads i3 config
         bindsym r exec i3-reload, mode "default"
+	# Set wallpaper
+	bindsym w exec --no-startup-id $fehbg, mode "default"
 
         # Puts system into suspend (assuming you're infected by systemd)
 	bindsym Shift+s exec --no-startup-id $lock && systemctl suspend, mode "default"
@@ -136,6 +139,25 @@ mode $mode_system {
         bindsym Ctrl+g mode "default"
 }
 bindsym $mod+Escape mode $mode_system
+
+# a "launcher" mode to kick off commonly used utilities
+set $mode_launcher "LAUNCH: [f]fox [g]fx [k]eepass [n]eko [s]earch [v]im [z]eal"
+mode $mode_launcher {
+	bindsym Return exec $terminal, mode "default"
+	bindsym semicolon exec "rofi -show run", mode "default"
+	bindsym f exec firefox, mode "default"
+	bindsym g exec gimp, mode "default"
+	bindsym k exec keepassxc, mode "default"
+	bindsym n mode $mode_neko
+	bindsym s exec "zzzfoo -o mimeopen", mode "default"
+	bindsym v exec zvim, mode "default"
+	bindsym z exec zeal, mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Ctrl+g mode "default"
+}
+bindsym $mod+semicolon mode $mode_launcher
 
 # change sound/media settings... for keyboards that don't have media keys
 # lookin' atcha, Thinkpad X260 >.<
@@ -160,30 +182,7 @@ mode $mode_sound {
         bindsym Escape mode "default"
         bindsym Ctrl+g mode "default"
 }
-bindsym $mod+z mode $mode_sound
-
-# a "launcher" mode to kick off commonly used utilities
-set $mode_launcher "LAUNCH: lx[a]pp [b]kmks [e]m [f]fox [g]fx [k]bd [n]eko [p]ass [q]ute [r]arch [s]earch [w]all [z]eal"
-mode $mode_launcher {
-	bindsym a exec "lxappearance", mode "default"
-	bindsym b exec "rofi-roam-bookmarks", mode "default"
-	bindsym e exec "em", mode "default"
-	bindsym f exec "firefox", mode "default"
-	bindsym g exec "gimp", mode "default"
-	bindsym k mode $mode_keyboard
-	bindsym n mode $mode_neko
-	bindsym p exec "keepassxc", mode "default"
-	bindsym r exec "retroarch", mode "default"
-	bindsym q exec "qutebrowser", mode "default"
-	bindsym s exec "zzzfoo -o mimeopen", mode "default"
-	bindsym w exec --no-startup-id $fehbg, mode "default"
-	bindsym z exec "zeal", mode "default"
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym Ctrl+g mode "default"
-}
-bindsym $mod+semicolon mode $mode_launcher
+bindsym $mod+a mode $mode_sound
 
 # change keyboard options; sometimes I'm on an Ergodox with Ctrl in the right place,
 # sometimes I'm on a laptop keyboard that has to be told to do the right thing
