@@ -41,3 +41,12 @@ hints:
 
 selection:
   save_to_clipboard: true
+
+key_bindings:
+  - { key: Space, mods: Alt, mode: ~Search, action: ToggleViMode }
+  - { key: V, mods: Alt, action: Paste }
+  - { key: J, mods: Alt, action: ScrollPageDown }
+  - { key: K, mods: Alt, action: ScrollPageUp }
+  - { key: Plus, mods: Alt, action: IncreaseFontSize }
+  - { key: Minus, mods: Alt, action: DecreaseFontSize }
+  - { key: Equals, mods: Alt, action: ResetFontSize }
