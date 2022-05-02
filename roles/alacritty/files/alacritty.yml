@@ -44,6 +44,7 @@ selection:
 
 key_bindings:
   - { key: Space, mods: Alt, mode: ~Search, action: ToggleViMode }
+  - { key: Escape, mode: Vi|~Search, action: ToggleViMode }
   - { key: V, mods: Alt, action: Paste }
   - { key: J, mods: Alt, action: ScrollPageDown }
   - { key: K, mods: Alt, action: ScrollPageUp }
