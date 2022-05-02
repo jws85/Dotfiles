@@ -77,11 +77,11 @@ bindsym $mod+e exec --no-startup-id i3-empty
 # rename current workspace
 bindsym $mod+Shift+r exec i3-input -f "pango:$font $fontSize" -F 'rename workspace to %s' -P 'Rename workspace to: '
 
-# read 1 character and mark the current window with this character
-#bindsym $mod+period exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -P 'Mark: '
+# read text and mark the current window with it
+bindsym $mod+b exec i3-input -f "pango:$font $fontSize" -F 'mark %s' -P 'Mark: '
 
-# read 1 character and go to the window with the character
-#bindsym $mod+comma exec i3-goto-mark
+# show rofi with current marked windows
+bindsym $mod+g exec i3-goto-mark
 
 # move focused container to workspace
 {% for workspace in workspaces: %}
