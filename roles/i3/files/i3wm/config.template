@@ -19,6 +19,7 @@ bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+x kill
+bindsym --release button2 kill
 
 # character picker using rofi: https://github.com/fdw/rofimoji
 # requires rofi, xdotool
@@ -57,6 +58,7 @@ bindsym $mod+v split h
 
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
+bindsym button3 floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+o focus mode_toggle
