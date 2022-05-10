@@ -32,20 +32,20 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+n focus output left
-bindsym $mod+m focus output down
-bindsym $mod+comma focus output up
-bindsym $mod+period focus output right
+bindsym $mod+Ctrl+h focus output left
+bindsym $mod+Ctrl+j focus output down
+bindsym $mod+Ctrl+k focus output up
+bindsym $mod+Ctrl+l focus output right
 
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-bindsym $mod+Shift+n move container to output left
-bindsym $mod+Shift+m move container to output down
-bindsym $mod+Shift+comma move container to output up
-bindsym $mod+Shift+period move container to output right
+bindsym $mod+Ctrl+Shift+h move container to output left
+bindsym $mod+Ctrl+Shift+j move container to output down
+bindsym $mod+Ctrl+Shift+k move container to output up
+bindsym $mod+Ctrl+Shift+l move container to output right
 
 ## enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
